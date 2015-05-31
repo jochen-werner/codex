@@ -6,6 +6,8 @@ Codex
 
 **Still an early WIP.**
 
+Codex aims to be a simple package to render Markdown documents for the purposes of hosting (beautiful) documentation with little hassle.
+
 The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high level of interoperability between shared PHP code. At the moment the package is not unit tested, but is planned to be covered later down the road.
 
 Quick Installation
