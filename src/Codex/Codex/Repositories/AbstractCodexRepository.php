@@ -1,7 +1,7 @@
 <?php
 namespace Codex\Codex\Repositories;
 
-use Parsedown;
+use ParsedownExtra;
 use Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem as Files;
@@ -35,7 +35,7 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	 * @param  Illuminate\Filesystem\Filesystem       $files
 	 * @param  League\CommonMark\CommonMarkConverter  $commonmark
 	 */
-	public function __construct(Config $config, Files $files, Parsedown $parsedown)
+	public function __construct(Config $config, Files $files, ParsedownExtra $parsedown)
 	{
 		$this->config      = $config;
 		$this->files       = $files;
