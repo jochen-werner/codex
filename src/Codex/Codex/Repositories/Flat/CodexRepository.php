@@ -17,7 +17,7 @@ class CodexRepository extends AbstractCodexRepository
 		$tocFile = $this->storagePath."/{$manual}/{$version}/toc.md";
 
 		if ($this->files->exists($tocFile)) {
-			return $this->parsedown->text($this->files->get($tocFile));
+			return $this->parseMarkdown($this->files->get($tocFile));
 		}
 
 		return null;
@@ -36,7 +36,7 @@ class CodexRepository extends AbstractCodexRepository
 		$pageFile = $this->storagePath."/{$manual}/{$version}/{$page}.md";
 
 		if ($this->files->exists($pageFile)) {
-			return $this->parsedown->text($this->files->get($pageFile));
+			return $this->parseMarkdown($this->files->get($pageFile));
 		}
 
 		abort(404);

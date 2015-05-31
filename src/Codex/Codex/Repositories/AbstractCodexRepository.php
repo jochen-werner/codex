@@ -5,6 +5,7 @@ use ParsedownExtra;
 use Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem as Files;
+use Symfony\Component\Yaml\Yaml;
 
 abstract class AbstractCodexRepository implements CodexRepositoryInterface
 {
@@ -29,18 +30,25 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	protected $storagePath;
 
 	/**
+	 * @var Symfony\Component\Yaml\Yaml
+	 */
+	protected $yaml;
+
+	/**
 	 * Create a new AbstractCodexRepository instance.
 	 *
 	 * @param  Illuminate\Config\Repository           $config
 	 * @param  Illuminate\Filesystem\Filesystem       $files
 	 * @param  League\CommonMark\CommonMarkConverter  $commonmark
+	 * @param  Symfony\Component\Yaml\Yaml            $yaml
 	 */
-	public function __construct(Config $config, Files $files, ParsedownExtra $parsedown)
+	public function __construct(Config $config, Files $files, ParsedownExtra $parsedown, Yaml $yaml)
 	{
 		$this->config      = $config;
 		$this->files       = $files;
 		$this->parsedown   = $parsedown;
 		$this->storagePath = $this->config->get('codex.storage_path');
+		$this->yaml        = $yaml;
 	}
 
 	/**
@@ -123,7 +131,7 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	 * @param  string  $path
 	 * @return array
 	 */
-	public function getDirectories($path)
+	protected function getDirectories($path)
 	{
 		if ($this->files->exists($path) === false) {
 			abort(404);
@@ -141,5 +149,38 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 		}
 
 		return $folders;
+	}
+
+	/**
+	 * Parse Markdown to HTML.
+	 *
+	 * @param  string  $content
+	 * @return string
+	 */
+	protected function parseMarkdown($content)
+	{
+		$metadata = $this->parseMetadata($content);
+
+		return $this->parsedown->text($content);
+	}
+
+	/**
+	 * Parse YAML metadata at the top of files.
+	 *
+	 * @return text
+	 */
+	protected function parseMetadata($content)
+	{
+		$pattern = '/<!---\n([\w\W]*?)\n-->/';
+
+		preg_match($pattern, $content, $matches);
+
+		if (count($matches) > 1) {
+			$content = preg_replace($pattern, '', $content);
+
+			return $this->yaml->parse($matches[1]);
+		}
+
+		return null;
 	}
 }
