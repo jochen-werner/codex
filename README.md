@@ -12,10 +12,10 @@ The package follows the FIG standards PSR-1, PSR-2, and PSR-4 to ensure a high l
 
 Quick Installation
 ------------------
-Begin by installing the package through Composer. Add `codexproject/codex` to your composer.json file:
+Begin by installing the package through Composer. Add `codex/codex` to your composer.json file:
 
 ```
-"codexproject/codex": "~1.0@dev"
+"codex/codex": "~1.0@dev"
 ```
 
 Then run `composer update` to pull the package in.
@@ -25,5 +25,5 @@ Once this operation is complete, simply add the service provider class and facad
 #### Service Provider
 
 ```php
-'Codexproject\Codex\CodexServiceProvider',
+'Codex\Codex\CodexServiceProvider',
 ```
