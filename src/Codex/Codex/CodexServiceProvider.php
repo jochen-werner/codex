@@ -56,9 +56,11 @@ class CodexServiceProvider extends ServiceProvider
 	 */
 	protected function bindInterfaces()
 	{
+		$driver = ucfirst($this->app['config']->get('codex.driver'));
+
 		$this->app->bind(
 			'Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface',
-			'Codex\Codex\Repositories\Flat\CodexRepository'
+			"Codex\Codex\Repositories\{$driver}\CodexRepository"
 		);
 	}
 }
