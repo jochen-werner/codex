@@ -20,8 +20,12 @@ class CodexServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
+		$this->loadViewsFrom(__DIR__.'/../../resources/views', 'codex');
+
 		$this->publishes([
-			__DIR__.'/../../config/codex.php' => config_path('codex.php')
+			__DIR__.'/../../config/codex.php' => config_path('codex.php'),
+			__DIR__.'/../../resources/views'  => base_path('resources/views/vendor/codex'),
+			__DIR__.'/../../resources/assets' => public_path('vendor/codex'),
 		]);
 	}
 
@@ -60,7 +64,7 @@ class CodexServiceProvider extends ServiceProvider
 
 		$this->app->bind(
 			'Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface',
-			"Codex\Codex\Repositories\{$driver}\CodexRepository"
+			"Codex\Codex\Repositories\\$driver\CodexRepository"
 		);
 	}
 }

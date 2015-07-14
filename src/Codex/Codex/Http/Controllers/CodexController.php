@@ -62,6 +62,6 @@ class CodexController extends Controller
 		$toc     = $this->codex->getToc($manual, $version);
 		$content = $this->codex->get($manual, $version, $page ?: 'introduction');
 
-		echo $content;
+		return view('codex::show', compact('content'));
 	}
 }
