@@ -66,7 +66,5 @@ class CodexServiceProvider extends ServiceProvider
 			'Codex\Codex\Repositories\RepositoryInterface',
 			'Codex\Codex\Repositories\\'.$driver.'Repository'
 		);
-
-		$this->app->instance('codex', 'Codex\Codex\Codex');
 	}
 }
