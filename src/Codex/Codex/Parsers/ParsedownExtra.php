@@ -5,84 +5,86 @@ use ParsedownExtra as BaseParsedownExtra;
 
 class ParsedownExtra extends BaseParsedownExtra
 {
-	protected function blockFencedCode($Line)
+    /**
+     * Parse fenced code blocks.
+     *
+     * @param  array  $line
+     * @return array
+     */
+	protected function blockFencedCode($line)
     {
-        if (preg_match('/^(['.$Line['text'][0].']{3,})[ ]*([\w-]+)?[ ]*$/', $Line['text'], $matches))
-        {
-            $Element = array(
+        $regex = '/^(['.$line['text'][0].']{3,})[ ]*([\w-]+)?[ ]*$/';
+
+        if (preg_match($regex, $line['text'], $matches)) {
+            $element = [
                 'name' => 'code',
                 'text' => '',
-            );
+            ];
 
-            if (isset($matches[2]))
-            {
+            if (isset($matches[2])) {
                 $class = 'prettyprint lang-'.$matches[2];
 
-                $Element['attributes'] = array(
-                    'class' => $class,
-                );
+                $element['attributes'] = ['class' => $class];
             }
 
-            $Block = array(
-                'char' => $Line['text'][0],
-                'element' => array(
-                    'name' => 'pre',
+            $block = [
+                'char'    => $line['text'][0],
+                'element' => [
+                    'name'    => 'pre',
                     'handler' => 'element',
-                    'text' => $Element,
-                ),
-            );
+                    'text'    => $element,
+                ],
+            ];
 
-            return $Block;
+            return $block;
         }
     }
 
-    protected function blockTable($Line, array $Block = null)
+    /**
+     * Parse tables.
+     *
+     * @param  array  $line
+     * @param  array  $block
+     * @return array
+     */
+    protected function blockTable($line, array $block = null)
     {
-        if ( ! isset($Block) or isset($Block['type']) or isset($Block['interrupted']))
-        {
+        if ( ! isset($block) or isset($block['type']) or isset($block['interrupted'])) {
             return;
         }
 
-        if (strpos($Block['element']['text'], '|') !== false and chop($Line['text'], ' -:|') === '')
-        {
+        if (strpos($block['element']['text'], '|') !== false and chop($line['text'], ' -:|') === '') {
             $alignments = array();
 
-            $divider = $Line['text'];
-
+            $divider = $line['text'];
             $divider = trim($divider);
             $divider = trim($divider, '|');
 
             $dividerCells = explode('|', $divider);
 
-            foreach ($dividerCells as $dividerCell)
-            {
+            foreach ($dividerCells as $dividerCell) {
                 $dividerCell = trim($dividerCell);
 
-                if ($dividerCell === '')
-                {
+                if ($dividerCell === '') {
                     continue;
                 }
 
                 $alignment = null;
 
-                if ($dividerCell[0] === ':')
-                {
+                if ($dividerCell[0] === ':') {
                     $alignment = 'left';
                 }
 
-                if (substr($dividerCell, - 1) === ':')
-                {
+                if (substr($dividerCell, - 1) === ':') {
                     $alignment = $alignment === 'left' ? 'center' : 'right';
                 }
 
-                $alignments []= $alignment;
+                $alignments[] = $alignment;
             }
 
-            # ~
+            $headerElements = array();
 
-            $HeaderElements = array();
-
-            $header = $Block['element']['text'];
+            $header = $block['element']['text'];
 
             $header = trim($header);
             $header = trim($header, '|');
@@ -93,56 +95,53 @@ class ParsedownExtra extends BaseParsedownExtra
             {
                 $headerCell = trim($headerCell);
 
-                $HeaderElement = array(
-                    'name' => 'th',
-                    'text' => $headerCell,
+                $headerElement = [
+                    'name'    => 'th',
+                    'text'    => $headerCell,
                     'handler' => 'line',
-                );
+                ];
 
-                if (isset($alignments[$index]))
-                {
+                if (isset($alignments[$index])) {
                     $alignment = $alignments[$index];
 
-                    $HeaderElement['attributes'] = array(
+                    $headerElement['attributes'] = [
                         'style' => 'text-align: '.$alignment.';',
-                    );
+                    ];
                 }
 
-                $HeaderElements []= $HeaderElement;
+                $headerElements[] = $headerElement;
             }
 
-            # ~
+            $block = [
+                'alignments'     => $alignments,
+                'identified'     => true,
+                'element'        => [
+                    'name'       => 'table',
+                    'handler'    => 'elements',
+                    'attributes' => [
+                        'class'  => 'table table-striped table-bordered table-hover'
+                    ],
+                ],
+            ];
 
-            $Block = array(
-                'alignments' => $alignments,
-                'identified' => true,
-                'element' => array(
-                    'name' => 'table',
-                    'handler' => 'elements',
-                    'attributes' => array(
-                        'class' => 'table table-striped table-bordered table-hover'
-                    ),
-                ),
-            );
-
-            $Block['element']['text'] []= array(
-                'name' => 'thead',
+            $block['element']['text'][] = [
+                'name'    => 'thead',
                 'handler' => 'elements',
-            );
+            ];
 
-            $Block['element']['text'] []= array(
-                'name' => 'tbody',
+            $block['element']['text'][] = [
+                'name'    => 'tbody',
                 'handler' => 'elements',
-                'text' => array(),
-            );
+                'text'    => array(),
+            ];
 
-            $Block['element']['text'][0]['text'] []= array(
-                'name' => 'tr',
+            $block['element']['text'][0]['text'][] = [
+                'name'    => 'tr',
                 'handler' => 'elements',
-                'text' => $HeaderElements,
-            );
+                'text'    => $headerElements,
+            ];
 
-            return $Block;
+            return $block;
         }
     }
 }
