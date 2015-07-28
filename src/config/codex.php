@@ -25,7 +25,7 @@ return array(
     |
     */
 
-    'storage_path' => public_path().'/docs',
+    'storage_path' => public_path('docs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,39 +38,12 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Default Manual
+    | Default Project
     |--------------------------------------------------------------------------
     |
     */
 
-    'default_manual' => '',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Version Ordering
-    |--------------------------------------------------------------------------
-    |
-    | Allows you to define if you wish the versions be ordered by numerics
-    | first (2.0, 1.0, master), or alphabetically (master, 2.0, 1.0).
-    |
-    | Supported: "numeric-first", "alpha-first"
-    |
-    */
-
-    'version_ordering' => 'alpha-first',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Google Analytics Tracking Code
-    |--------------------------------------------------------------------------
-    |
-    | If you'd like to track analytical data on your visitors, add your
-    | Universal Analytics tracking code below. Otherwise, leave this as
-    | null.
-    |
-    */
-
-    'tracking_code' => getenv('tracking_code'),
+    'default_project' => '',
 
     /*
     |--------------------------------------------------------------------------

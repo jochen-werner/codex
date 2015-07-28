@@ -16,7 +16,7 @@ class CodexController extends Controller
 	/**
 	 * @var string
 	 */
-	protected $defaultManual;
+	protected $defaultProject;
 
 	/**
 	 * @var string
@@ -36,9 +36,9 @@ class CodexController extends Controller
 	public function __construct(CodexRepositoryInterface $codex)
 	{
 		$this->codex          = $codex;
-		$this->defaultManual  = $this->codex->getDefaultManual();
-		$this->defaultVersion = $this->codex->getDefaultVersion($this->defaultManual);
-		$this->rootUrl        = url(Config::get('codex.route_base')."/{$this->defaultManual}/{$this->defaultVersion}");
+		$this->defaultProject = $this->codex->getDefaultProject();
+		$this->defaultVersion = $this->codex->getDefaultVersion($this->defaultProject);
+		$this->rootUrl        = url(Config::get('codex.route_base')."/{$this->defaultProject}/{$this->defaultVersion}");
 	}
 
 	public function index()
@@ -49,18 +49,18 @@ class CodexController extends Controller
 	/**
 	 * Render the documentation page.
 	 *
-	 * @param  string  $manual
+	 * @param  string  $project
 	 * @param  string  $version
 	 * @param  string  $page
 	 */
-	public function show($manual, $version = null, $page = null)
+	public function show($project, $version = null, $page = null)
 	{
 		if (is_null($version)) {
-			return Redirect::to(url("{$manual}/".$this->codex->getDefaultVersion($manual)));
+			return Redirect::to(url("{$project}/".$this->codex->getDefaultVersion($project)));
 		}
 
-		$toc     = $this->codex->getToc($manual, $version);
-		$content = $this->codex->get($manual, $version, $page ?: 'introduction');
+		$toc     = $this->codex->getToc($project, $version);
+		$content = $this->codex->get($project, $version, $page ?: 'introduction');
 
 		return view('codex::show', compact('content'));
 	}

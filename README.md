@@ -25,5 +25,5 @@ Once this operation is complete, simply add the service provider class and facad
 #### Service Provider
 
 ```php
-'Codex\Codex\CodexServiceProvider',
+Codex\Codex\CodexServiceProvider::class,
 ```

@@ -52,60 +52,60 @@ abstract class AbstractCodexRepository implements CodexRepositoryInterface
 	}
 
 	/**
-	 * Get the default manual.
+	 * Get the default project.
 	 *
 	 * @return mixed
 	 */
-	public function getDefaultManual()
+	public function getDefaultProject()
 	{
-		$manuals = $this->getManuals();
+		$projects = $this->getProjects();
 
-		if (! empty($this->config->get('codex.default_manual'))) {
-			return $this->config->get('codex.default_manual');
-		} elseif (count($manuals) > 0) {
-			return strval($manuals[0]);
+		if (! empty($this->config->get('codex.default_project'))) {
+			return $this->config->get('codex.default_project');
+		} elseif (count($projects) > 0) {
+			return strval($projects[0]);
 		}
 
 		return null;
 	}
 
 	/**
-	 * Get the default version for the given manual.
+	 * Get the default version for the given project.
 	 *
-	 * @param  string  $manual
+	 * @param  string  $project
 	 * @return string
 	 */
-	public function getDefaultVersion($manual)
+	public function getDefaultVersion($project)
 	{
-		$versions = $this->getVersions($manual);
+		$versions = $this->getVersions($project);
 
 		return $versions[0];
 	}
 
 	/**
-	 * Get all manuals from documentation directory.
+	 * Get all projects from documentation directory.
 	 *
 	 * @return array
 	 */
-	public function getManuals()
+	public function getProjects()
 	{
-		$manuals = $this->getDirectories($this->storagePath);
+		$projects = $this->getDirectories($this->storagePath);
 
-		return $manuals;
+		return $projects;
 	}
 
 	/**
-	 * Get all versions fro the given manual.
+	 * Get all versions fro the given project.
 	 *
-	 * @param  string  $manual
+	 * @param  string  $project
 	 * @return array
 	 */
-	public function getVersions($manual)
+	public function getVersions($project)
 	{
 		$alpha     = array();
 		$numeric   = array();
-		$manualDir = "{$this->storagePath}/{$manual}";
-		$versions  = $this->getDirectories($manualDir);
+		$projectDir = "{$this->storagePath}/{$project}";
+		$versions  = $this->getDirectories($projectDir);
 
 		foreach ($versions as $version) {
 			if (ctype_alpha(substr($version, 0, 2))) {

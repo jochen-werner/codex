@@ -6,15 +6,15 @@ use Codex\Codex\Repositories\AbstractCodexRepository;
 class CodexRepository extends AbstractCodexRepository
 {
 	/**
-	 * Get manuals table of contents file, if it exists.
+	 * Get projects table of contents file, if it exists.
 	 *
-	 * @param  string  $manual
+	 * @param  string  $project
 	 * @param  string  $version
 	 * @return string|null
 	 */
-	public function getToc($manual, $version)
+	public function getToc($project, $version)
 	{
-		$tocFile = $this->storagePath."/{$manual}/{$version}/toc.md";
+		$tocFile = $this->storagePath."/{$project}/{$version}/toc.md";
 
 		if ($this->files->exists($tocFile)) {
 			return $this->parseMarkdown($this->files->get($tocFile));
@@ -26,14 +26,14 @@ class CodexRepository extends AbstractCodexRepository
 	/**
 	 * Get the given documentation page.
 	 *
-	 * @param  string  $manual
+	 * @param  string  $project
 	 * @param  string  $version
 	 * @param  string  $page
 	 * @return string|Exception
 	 */
-	public function get($manual, $version, $page)
+	public function get($project, $version, $page)
 	{
-		$pageFile = $this->storagePath."/{$manual}/{$version}/{$page}.md";
+		$pageFile = $this->storagePath."/{$project}/{$version}/{$page}.md";
 
 		if ($this->files->exists($pageFile)) {
 			return $this->parseMarkdown($this->files->get($pageFile));
