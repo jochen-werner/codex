@@ -63,8 +63,8 @@ class CodexServiceProvider extends ServiceProvider
 		$driver = ucfirst($this->app['config']->get('codex.driver'));
 
 		$this->app->bind(
-			'Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface',
-			"Codex\Codex\Repositories\\$driver\CodexRepository"
+			'Codex\Codex\Repositories\RepositoryInterface',
+			'Codex\Codex\Repositories\\'.$driver.'Repository'
 		);
 	}
 }

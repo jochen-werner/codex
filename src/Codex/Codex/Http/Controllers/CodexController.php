@@ -4,12 +4,12 @@ namespace Codex\Codex\Http\Controllers;
 use Config;
 use Redirect;
 use App\Http\Controllers\Controller;
-use Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface;
+use Codex\Codex\Codex;
 
 class CodexController extends Controller
 {
 	/**
-	 * @var Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface
+	 * @var Codex\Codex\Codex
 	 */
 	protected $codex;
 
@@ -31,9 +31,9 @@ class CodexController extends Controller
 	/**
 	 * Create a new controller instance.
 	 *
-	 * @param  Codex\Codex\Repositories\Interfaces\CodexRepositoryInterface  $codex
+	 * @param  Codex\Codex\Codex  $codex
 	 */
-	public function __construct(CodexRepositoryInterface $codex)
+	public function __construct(Codex $codex)
 	{
 		$this->codex          = $codex;
 		$this->defaultProject = $this->codex->getDefaultProject();
@@ -59,7 +59,6 @@ class CodexController extends Controller
 			return Redirect::to(url("{$project}/".$this->codex->getDefaultVersion($project)));
 		}
 
-		$toc     = $this->codex->getToc($project, $version);
 		$content = $this->codex->get($project, $version, $page ?: 'introduction');
 
 		return view('codex::show', compact('content'));

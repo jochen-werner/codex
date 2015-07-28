@@ -1,5 +1,5 @@
 @extends('codex::layouts.codex')
 
 @section('content')
-	{!! $content !!}
+	{!! $content['body'] !!}
 @endsection

@@ -64,8 +64,25 @@ return array(
     | You may define a base route for your Codex documentation here. By default
     | it is set to "codex", but you may leave this empty if you wish to use
     | Codex as a stand alone application.
+    |
     */
 
-    'route_base' => 'codex'
+    'route_base' => 'codex',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Filters
+    |--------------------------------------------------------------------------
+    |
+    | You may define a list of filters to be ran over your content before it's
+    | rendered on screen. Feel free to add or remove filters based on your
+    | needs. Keep in mind that loading order does matter here as well.
+    |
+    */
+
+    'filters' => [
+        'Codex\Codex\Filters\FrontMatterFilter',
+        'Codex\Codex\Filters\ParsedownFilter'
+    ]
 
 );
