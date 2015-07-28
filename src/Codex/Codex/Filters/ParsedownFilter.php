@@ -1,7 +1,7 @@
 <?php
 namespace Codex\Codex\Filters;
 
-use ParsedownExtra;
+use Codex\Codex\Parsers\ParsedownExtra;
 
 class ParsedownFilter extends Filter
 {

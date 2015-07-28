@@ -103,6 +103,24 @@ class Codex
 	}
 
 	/**
+	 * Get the given documentation page.
+	 *
+	 * @param  string  $project
+	 * @param  string  $version
+	 * @return array|null
+	 */
+	public function getToc($project, $version)
+	{
+		$rawContent = $this->repository->get($project, $version, 'toc');
+
+		if (! is_null($rawContent)) {
+			return $this->parse($rawContent);
+		}
+
+		return null;
+	}
+
+	/**
 	 * Parse the supplied raw content and return it.
 	 *
 	 * @param  string  $rawContent

@@ -1,3 +1,73 @@
 body {
-  padding-top: 70px;
+  padding-top: 75px;
+  background: #fafafa;
+}
+
+.navbar-inverse {
+	background-color: #263238;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #f2f2f2;
+}
+
+pre {
+  background-color: #263238;
+  padding: 2em;
+  color: #e3e2e0;
+}
+
+pre code {
+  font-family: 'Source Code Pro', Monaco, Consolas, "Lucida Console", monospace;
+}
+
+pre .pln {
+  color: #e3e2e0;
+}
+
+pre .str {
+  color: #3bc7b8;
+}
+
+pre .kwd {
+  color: #FF4E50;
+}
+
+pre .com {
+  color: #777777;
+}
+
+pre .typ {
+  color: #3bc7b8;
+}
+
+pre .lit {
+  color: #c3cb4c;
+}
+
+pre .pun,
+pre .opn,
+pre .clo {
+  color: #e3e2e0;
+}
+
+pre .tag {
+  color: #FF4E50;
+}
+
+pre .atn {
+  color: #3bc7b8;
+}
+
+pre .atv {
+  color: #c3cb4c;
+}
+
+pre .dec,
+pre .var {
+  color: #3bc7b8;
+}
+
+pre .fun {
+  color: #FF4E50;
 }

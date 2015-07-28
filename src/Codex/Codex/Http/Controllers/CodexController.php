@@ -60,7 +60,8 @@ class CodexController extends Controller
 		}
 
 		$content = $this->codex->get($project, $version, $page ?: 'introduction');
+		$toc     = $this->codex->getToc($project, $version);
 
-		return view('codex::show', compact('content'));
+		return view('codex::show', compact('content', 'toc'));
 	}
 }

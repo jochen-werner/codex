@@ -29,10 +29,19 @@
 	</nav>
 
 	<div class="container">
-		@yield('content')
+		<div class="row">
+			<div class="col-md-3" id="sidebar">
+				@yield('sidebar')
+			</div>
+
+			<div class="col-md-9" id="content">
+				@yield('content')
+			</div>
+		</div>		
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="/vendor/codex/js/bootstrap.min.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 </html>
