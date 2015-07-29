@@ -1,7 +1,7 @@
 Codex
 =====
 [![Laravel](https://img.shields.io/badge/Laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
-[![Source](http://img.shields.io/badge/source-codex-project/codex-blue.svg?style=flat-square)](https://github.com/codex-project/codex)
+[![Source](http://img.shields.io/badge/source-codex--project/codex-blue.svg?style=flat-square)](https://github.com/codex-project/codex)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 **Still an early WIP.**
