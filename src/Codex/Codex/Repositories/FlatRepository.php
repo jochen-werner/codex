@@ -77,6 +77,44 @@ class FlatRepository implements RepositoryInterface
 	}
 
 	/**
+	 * Search project for given string.
+	 *
+	 * @param  string  $project
+	 * @param  string  $version
+	 * @param  string  $needle
+	 * @return array
+	 */
+	public function search($project, $version, $needle = '')
+	{
+		$results   = [];
+		$directory = $this->storagePath.'/'.$project.'/'.$version;
+		$files     = preg_grep('/toc\.md$/', $this->files->allFiles($directory),
+		 	PREG_GREP_INVERT);
+		
+		if ( ! empty($needle)) {
+			foreach ($files as $file) {
+				$haystack = file_get_contents($file);
+		
+				if ($this->config->get('codex.route_base') !== '') {
+					$fileUrl  = '/'.$this->config->get('codex.route_base');
+					$fileUrl .= str_replace([$this->storagePath, '.md'], '', (string)$file);
+				} else {
+					$fileUrl = str_replace([$this->storagePath, '.md'], '', (string)$file);
+				}
+		
+				if (strpos(strtolower($haystack), strtolower($needle)) !== false) {
+					$results[] = [
+						'title' => $file,
+						'url'   => $fileUrl,
+					];
+				}
+			}
+		}
+		
+		return $results;
+	}
+
+	/**
 	 * Return an array of folders within the supplied path.
 	 *
 	 * @param  string  $path

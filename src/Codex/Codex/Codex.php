@@ -5,7 +5,7 @@ use Codex\Codex\Repositories\RepositoryInterface;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Config\Repository as Config;
 
-class Codex
+class Codex implements RepositoryInterface
 {
 	use DispatchesJobs;
 
@@ -118,6 +118,19 @@ class Codex
 		}
 
 		return null;
+	}
+
+	/**
+	 * Search project for given string.
+	 *
+	 * @param  string  $project
+	 * @param  string  $version
+	 * @param  string  $needle
+	 * @return array
+	 */
+	public function search($project, $version, $needle = '')
+	{
+		return $this->repository->search($project, $version, $needle);
 	}
 
 	/**

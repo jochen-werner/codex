@@ -30,9 +30,9 @@
 
 			<div class="collapse navbar-collapse">
 				<div class="pull-right">
-					<form class="navbar-form navbar-left" role="search">
+					<form role="search" action="/{{ Config::get('codex.route_base').'/search' }}" method="GET" class="navbar-form navbar-left">
 						<div class="input-group">
-							<input type="search" class="form-control" placeholder="I'm looking for...">
+							<input type="search" name="q" class="form-control" placeholder="I'm looking for...">
 						</div>
 
 						<button class="btn btn-default" type="button">Search</button>

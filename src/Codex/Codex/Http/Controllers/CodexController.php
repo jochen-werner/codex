@@ -3,6 +3,7 @@ namespace Codex\Codex\Http\Controllers;
 
 use Config;
 use Redirect;
+use Request;
 use App\Http\Controllers\Controller;
 use Codex\Codex\Codex;
 
@@ -63,5 +64,28 @@ class CodexController extends Controller
 		$toc     = $this->codex->getToc($project, $version);
 
 		return view('codex::show', compact('content', 'toc'));
+	}
+
+	/**
+	 * Search through documentation.
+	 *
+	 * @param  string  $project
+	 * @param  string  $version
+	 */
+	public function search($project = null, $version = null)
+	{
+		if (is_null($project)) {
+			$project = $this->defaultProject;
+		}
+
+		if (is_null($version)) {
+			$version = $this->defaultVersion;
+		}
+
+		$toc     = $this->codex->getToc($project, $version);
+		$search  = Request::get('q');
+		$results = $this->codex->search($project, $version, $search);
+
+		return view('codex::search', compact('toc', 'search', 'results'));
 	}
 }
