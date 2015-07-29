@@ -20,10 +20,28 @@ Begin by installing the package through Composer. Add `codex/codex` to your comp
 
 Then run `composer update` to pull the package in.
 
-Once this operation is complete, simply add the service provider class and facade alias to your project's `config/app.php` file:
-
 #### Service Provider
+Add the Codex service provider class to your project's `config/app.php` file.
 
 ```php
 Codex\Codex\CodexServiceProvider::class,
 ```
+
+#### Publish Assets
+If you plan on using the supplied default view files and route, you'll need to publish the package's assets to your project.
+
+```
+php artisan vendor:publish
+```
+
+Features
+--------
+- Built for Laravel 5.1
+- GitHub-flavored Markdown
+- Host documentation for all your **projects** in one location
+- Host documentation for each **version** of your projects in one location.
+- Easy TOC / navigation system
+- SEO freindly URLs
+- Supplied theme built on Bootstrap, inspired by Google's Material Design
+- Supports multiple storage methods
+- Open API so you may integrate Codex natively within your app
