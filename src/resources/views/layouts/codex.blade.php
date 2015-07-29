@@ -8,6 +8,8 @@
 	<title>Codex</title>
 
 	<!-- Bootstrap -->
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/paper.min.css">
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/codex.css">
@@ -24,6 +26,18 @@
 				</button>
 
 				<a class="navbar-brand" href="/codex">Codex</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<div class="pull-right">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="input-group">
+							<input type="search" class="form-control" placeholder="I'm looking for...">
+						</div>
+
+						<button class="btn btn-default" type="button">Search</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>

@@ -1,14 +1,89 @@
 body {
   padding-top: 75px;
   background: #fafafa;
+  font-family: "Lato", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h6 {
+  font-size: 1em;
 }
 
 .navbar-inverse {
-	background-color: #263238;
+  background-color: #263238;
 }
 
 .navbar-inverse .navbar-brand {
-	color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #f2f2f2;
+}
+
+.navbar-inverse .form-control::-moz-placeholder {
+  color: #f2f2f2;
+  opacity: 1;
+}
+.navbar-inverse .form-control:-ms-input-placeholder {
+  color: #f2f2f2;
+}
+.navbar-inverse .form-control::-webkit-input-placeholder {
+  color: #f2f2f2;
+}
+.navbar-inverse .form-control[type=text],
+.navbar-inverse .form-control[type=password] {
+  -webkit-box-shadow: inset 0 -1px 0 #f2f2f2;
+  box-shadow: inset 0 -1px 0 #f2f2f2;
+}
+.navbar-inverse .form-control[type=text]:focus,
+.navbar-inverse .form-control[type=password]:focus {
+  -webkit-box-shadow: inset 0 -2px 0 #ffffff;
+  box-shadow: inset 0 -2px 0 #ffffff;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  -webkit-box-shadow: inset 0 -2px 0 #00BCD4;
+  box-shadow: inset 0 -2px 0 #00BCD4;
 }
 
 pre {
