@@ -18,6 +18,8 @@ h1 {
 }
 
 h2 {
+  border-top: 1px solid #37474F;
+  padding-top: 0.75em;
   font-size: 1.8em;
 }
 
