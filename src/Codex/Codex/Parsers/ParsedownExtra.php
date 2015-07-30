@@ -119,7 +119,7 @@ class ParsedownExtra extends BaseParsedownExtra
 					'name'       => 'table',
 					'handler'    => 'elements',
 					'attributes' => [
-						'class'  => 'table table-striped table-bordered table-hover'
+						'class'  => 'table table-striped table-bordered'
 					],
 				],
 			];

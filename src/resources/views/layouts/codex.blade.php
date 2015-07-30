@@ -8,54 +8,45 @@
 	<title>Codex</title>
 
 	<!-- Bootstrap -->
-	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href="//fonts.googleapis.com/css?family=RobotoDraft" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css">
+
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/paper.min.css">
 	<link rel="stylesheet" type="text/css" href="/vendor/codex/css/codex.css">
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+	<div id="wrapper">
+		<div id="sidebar-wrapper">
+			<h3 class="sidebar-brand">Codex</h3>
 
-				<a class="navbar-brand" href="/codex">Codex</a>
-			</div>
+			@yield('sidebar')
+		</div>
 
-			<div class="collapse navbar-collapse">
-				<div class="pull-right">
-					<form role="search" action="/{{ Config::get('codex.route_base').'/search' }}" method="GET" class="navbar-form navbar-left">
-						<div class="input-group">
-							<input type="search" name="q" class="form-control" placeholder="I'm looking for...">
-						</div>
+		<div id="page-wrapper">
+			<div class="container-fluid">
 
-						<button class="btn btn-default" type="button">Search</button>
-					</form>
+				@yield('before_content')
+
+				<div class="row">
+					<div class="col-lg-12 page-content">
+						@yield('content')
+					</div>
 				</div>
 			</div>
 		</div>
-	</nav>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3" id="sidebar">
-				@yield('sidebar')
-			</div>
-
-			<div class="col-md-9" id="content">
-				@yield('content')
-			</div>
-		</div>		
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="/vendor/codex/js/bootstrap.min.js"></script>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+	<script>
+	    $("#menu-toggle").click(function(e) {
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("toggled");
+	    });
+    </script>
 </body>
 </html>
