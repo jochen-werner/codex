@@ -57,7 +57,7 @@ class ParsedownExtra extends BaseParsedownExtra
      */
     protected function blockTable($line, array $block = null)
     {
-        if ( ! isset($block) or isset($block['type']) or isset($block['interrupted'])) {
+        if (!isset($block) or isset($block['type']) or isset($block['interrupted'])) {
             return;
         }
 
