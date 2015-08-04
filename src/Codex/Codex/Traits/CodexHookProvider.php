@@ -33,7 +33,8 @@ trait CodexHookProvider
      * @param  \Closure|\Codex\Codex\Contracts\Filter  $handler
      * @return void
      */
-    protected function addCodexFilter($name, $handler) {
+    protected function addCodexFilter($name, $handler)
+    {
         Document::filter($name, $handler);
     }
 }

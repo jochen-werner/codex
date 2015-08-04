@@ -53,7 +53,7 @@ class Menu implements Jsonable, Arrayable
 
     /**
      * @param  \Codex\Codex\Project                    $project
-     * @param  Filesystem       $files
+     * @param  Filesystem                              $files
      * @param  \Illuminate\Contracts\Cache\Repository  $cache
      * @param  string                                  $path
      * @return void

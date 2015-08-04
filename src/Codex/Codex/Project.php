@@ -77,10 +77,10 @@ class Project
     /**
      * Create a new Project instance.
      *
-     * @param  \Codex\Codex\Factory               $factory
-     * @param  Filesystem  $files
-     * @param  string                             $name
-     * @param  Project                              $config
+     * @param  \Codex\Codex\Factory  $factory
+     * @param  Filesystem            $files
+     * @param  string                $name
+     * @param  Project               $config
      * @return void
      */
     public function __construct(Factory $factory, Filesystem $files, $name, $config)

@@ -20,7 +20,7 @@ class ParsedownFilter implements Filter
     /**
      * Create a new ParsedownFilter instance.
      *
-     * @param ParsedownExtra $parsedown
+     * @param  ParsedownExtra  $parsedown
      * @return void
      */
     public function __construct(ParsedownExtra $parsedown)
@@ -31,8 +31,8 @@ class ParsedownFilter implements Filter
     /**
      * Handle the filter.
      *
-     * @param \Codex\Codex\Document $document
-     * @param array $config
+     * @param  \Codex\Codex\Document  $document
+     * @param  array                  $config
      * @return void
      */
     public function handle(Document $document, array $config)

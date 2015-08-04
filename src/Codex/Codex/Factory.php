@@ -71,7 +71,7 @@ class Factory
             $this->findAll();
         }
 
-            // 'factory:done' called after all factory operations have completed.
+        // 'factory:done' called after all factory operations have completed.
         static::run('factory:done', [$this]);
     }
 
@@ -126,9 +126,9 @@ class Factory
     /**
      * Generate a URL to a project's default page and version.
      *
-     * @param  Project  $project
-     * @param  null|string                       $ref
-     * @param  null|string                       $doc
+     * @param  Project      $project
+     * @param  null|string  $ref
+     * @param  null|string  $doc
      * @return string
      */
     public function url($project = null, $ref = null, $doc = null)
