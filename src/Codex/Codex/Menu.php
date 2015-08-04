@@ -53,7 +53,7 @@ class Menu implements Jsonable, Arrayable
 
     /**
      * @param  \Codex\Codex\Project                    $project
-     * @param  \Illuminate\Filesystem\Filesystem       $files
+     * @param  Filesystem       $files
      * @param  \Illuminate\Contracts\Cache\Repository  $cache
      * @param  string                                  $path
      * @return void
@@ -77,7 +77,7 @@ class Menu implements Jsonable, Arrayable
      * Parse the menu config.
      *
      * @param  string  $string
-     * @return mixed
+     * @return string
      */
     protected function parseConfig($string)
     {
@@ -154,7 +154,7 @@ class Menu implements Jsonable, Arrayable
      * Resolve the given link.
      *
      * @param  string  $link
-     * @return mixed
+     * @return string
      */
     protected function resolveLink($link)
     {

@@ -78,9 +78,9 @@ class Project
      * Create a new Project instance.
      *
      * @param  \Codex\Codex\Factory               $factory
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  Filesystem  $files
      * @param  string                             $name
-     * @param  array                              $config
+     * @param  Project                              $config
      * @return void
      */
     public function __construct(Factory $factory, Filesystem $files, $name, $config)
@@ -97,7 +97,7 @@ class Project
         $branches    = [];
         $this->refs  = [];
         
-        $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches) {
+        $this->versions = array_filter(array_map(function($dirPath) use ($path, $name, &$branches) {
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
             $version      = (string)$version->removeLeft($name.'/');
             $this->refs[] = $version;
@@ -147,7 +147,7 @@ class Project
      *
      * @param  null|string  $key
      * @param  null|mixed   $default
-     * @return array|mixed
+     * @return callable
      */
     public function config($key = null, $default = null)
     {

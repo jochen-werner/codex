@@ -74,6 +74,6 @@ class CodexServiceProvider extends ServiceProvider
      */
     protected function registerRoute()
     {
-    	$this->app->register('Codex\Codex\Providers\RouteServiceProvider');
+        $this->app->register('Codex\Codex\Providers\RouteServiceProvider');
     }
 }
