@@ -67,11 +67,11 @@ class Factory
         // 'factory:ready' is called after parameters have been set as class properties.
         static::run('factory:ready', [$this]);
 
-        if (! isset($this->projects)) {
+        if (!isset($this->projects)) {
             $this->findAll();
         }
 
-         // 'factory:done' called after all factory operations have completed.
+            // 'factory:done' called after all factory operations have completed.
         static::run('factory:done', [$this]);
     }
 
@@ -101,7 +101,7 @@ class Factory
      */
     public function make($name)
     {
-        if (! $this->has($name)) {
+        if (!$this->has($name)) {
             throw new \InvalidArgumentException("Project [$name] could not be found in [{$this->rootDir}]");
         }
 
@@ -126,7 +126,7 @@ class Factory
     /**
      * Generate a URL to a project's default page and version.
      *
-     * @param  null|string|\Codex\Codex\Project  $project
+     * @param  Project  $project
      * @param  null|string                       $ref
      * @param  null|string                       $doc
      * @return string
@@ -135,17 +135,17 @@ class Factory
     {
         $uri = $this->config('base_route');
 
-        if (! is_null($project)) {
+        if (!is_null($project)) {
             if ($project instanceof Project) {
                 $uri .= '/'.$project->getName();
             } else {
                 $uri .= '/'.$project;
             }
 
-            if (! is_null($ref)) {
+            if (!is_null($ref)) {
                 $uri .= '/'.$ref;
                 
-                if (! is_null($doc)) {
+                if (!is_null($doc)) {
                     $uri .= '/'.$doc;
                 }
             }
@@ -157,7 +157,7 @@ class Factory
     /**
      * Return all found projects.
      *
-     * @return array
+     * @return Project[]
      */
     public function all()
     {
@@ -237,7 +237,7 @@ class Factory
     /**
      * Get cache.
      *
-     * @return \Illuminate\Cache\CacheManager
+     * @return Cache
      */
     public function getCache()
     {
@@ -265,7 +265,7 @@ class Factory
      */
     protected static function ensurePoint($name)
     {
-        if (! isset(static::$hooks[$name])) {
+        if (!isset(static::$hooks[$name])) {
             static::$hooks[$name] = [];
         }
     }
@@ -279,7 +279,7 @@ class Factory
      */
     public static function hook($point, $handler)
     {
-        if (! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false)) {
+        if (!$handler instanceof \Closure and !in_array(Hook::class, class_implements($handler), false)) {
             throw new \InvalidArgumentException("Failed adding hook. Provided handler for [{$point}] is not valid. Either provider a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Hook");
         }
 

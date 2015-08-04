@@ -56,7 +56,7 @@ class Document
      *
      * @param  \Codex\Codex\Factory               $factory
      * @param  \Codex\Codex\Project               $project
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  Filesystem  $files
      * @param  string                             $path
      */
     public function __construct(Factory $factory, Project $project, Filesystem $files, $path)
@@ -83,7 +83,7 @@ class Document
      */
     public function render()
     {
-        Factory::run('document:render', [ $this ]);
+        Factory::run('document:render', [$this]);
 
         $fsettings = $this->getProject()->config('filters_settings');
         $filters   = array_only(static::$filters, $this->getProject()->config('filters'));
@@ -94,7 +94,7 @@ class Document
                     call_user_func_array($filter, [$this, isset($fsettings[$name]) ? $fsettings[$name] : []]);
                 } else {
                     $instance = app()->make($filter);
-                    call_user_func_array([$instance, 'handle' ], [$this, isset($fsettings[ $name ]) ? $fsettings[$name] : []]);
+                    call_user_func_array([$instance, 'handle'], [$this, isset($fsettings[$name]) ? $fsettings[$name] : []]);
                 }
             }
         }
@@ -111,7 +111,7 @@ class Document
      */
     public static function filter($name, $handler)
     {
-        if (! $handler instanceof \Closure and ! in_array(Filter::class, class_implements($handler), false)) {
+        if (!$handler instanceof \Closure and !in_array(Filter::class, class_implements($handler), false)) {
             throw new \InvalidArgumentException("Failed adding Filter. Provided handler for [{$name}] is not valid. Must either provide a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Filter");
         }
 

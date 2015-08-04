@@ -8,35 +8,35 @@ use App\Http\Controllers\Controller;
 
 class CodexController extends Controller
 {
-	/**
-	 * Create a new controller instance.
-	 *
-	 */
-	public function __construct()
-	{
-		// 
-	}
+    /**
+     * Create a new controller instance.
+     *
+     */
+    public function __construct()
+    {
+        // 
+    }
 
-	public function index()
-	{
-		// 
-	}
+    public function index()
+    {
+        // 
+    }
 
-	/**
-	 * Render the documentation page.
-	 *
-	 */
-	public function show()
-	{
-		// 
-	}
+    /**
+     * Render the documentation page.
+     *
+     */
+    public function show()
+    {
+        // 
+    }
 
-	/**
-	 * Search through documentation.
-	 *
-	 */
-	public function search()
-	{
-		// 
-	}
+    /**
+     * Search through documentation.
+     *
+     */
+    public function search()
+    {
+        // 
+    }
 }
