@@ -21,7 +21,7 @@ You could either pass a `\Closure` as `$handler` parameter, or the FQN of a `Hoo
 namespace Codex\Codex\Filters;
 
 use Codex\Codex\Document;
-use Codex\Codex\Hook;
+use Codex\Codex\Contracts\Hook;
 use Parsedown;
 
 class ParsedownFilter implements Hook
