@@ -5,6 +5,14 @@ use Codex\Codex\Document;
 use Codex\Codex\Contracts\Filter;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * Frontmatter filter
+ *
+ * @package   Codex\Codex
+ * @author    Codex Project Dev Team
+ * @copyright Copyright (c) 2015, Codex Project
+ * @license   https://tldrlegal.com/license/mit-license MIT License
+ */
 class FrontMatterFilter implements Filter
 {
     /**

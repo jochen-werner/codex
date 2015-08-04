@@ -2,12 +2,12 @@
 namespace Codex\Codex\Contracts;
 
 /**
- * This is the Filter.
+ * Filter contract
  *
- * @package        Codex\Codex
- * @author         Caffeinated Dev Team
- * @copyright      Copyright (c) 2015, Caffeinated
- * @license        https://tldrlegal.com/license/mit-license MIT License
+ * @package   Codex\Codex
+ * @author    Codex Project Dev Team
+ * @copyright Copyright (c) 2015, Codex Project
+ * @license   https://tldrlegal.com/license/mit-license MIT License
  */
 interface Filter
 {

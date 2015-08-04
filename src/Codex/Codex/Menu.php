@@ -22,9 +22,9 @@ class Menu implements Jsonable, Arrayable
     use Macroable;
 
     /**
-     * @var \Codex\Codex\Project
+     * @var \Illuminate\Contracts\Cache\Repository
      */
-    protected $project;
+    protected $cache;
 
     /**
      * @var \Illuminate\Filesystem\Filesystem
@@ -32,128 +32,117 @@ class Menu implements Jsonable, Arrayable
     protected $files;
 
     /**
-     * @var \Illuminate\Contracts\Cache\Repository
-     */
-    protected $cache;
-
-    /**
-     * path to meny.yml
-     *
-     * @var string
-     */
-    protected $path;
-
-    /**
-     * the raw menu.yml content
-     *
-     * @var string
-     */
-    protected $raw;
-
-    /**
-     * the parsed menu.yml as php array
-     *
      * @var array
      */
     protected $menu;
 
     /**
-     * @param \Codex\Codex\Project                   $project
-     * @param \Illuminate\Filesystem\Filesystem      $files
-     * @param \Illuminate\Contracts\Cache\Repository $cache
-     * @param                                        $path
+     * @var string
+     */
+    protected $path;
+
+    /**
+     * @var \Codex\Codex\Project
+     */
+    protected $project;
+
+    /**
+     * @var string
+     */
+    protected $raw;
+
+    /**
+     * @param  \Codex\Codex\Project                    $project
+     * @param  \Illuminate\Filesystem\Filesystem       $files
+     * @param  \Illuminate\Contracts\Cache\Repository  $cache
+     * @param  string                                  $path
+     * @return void
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function __construct(Project $project, Filesystem $files, Cache $cache, $path)
     {
-        $this->project = $project;
-        $this->files   = $files;
         $this->cache   = $cache;
+        $this->files   = $files;
         $this->path    = $path;
-        Factory::run('menu:ready', [ $this ]);
+        $this->project = $project;
+        Factory::run('menu:ready', [$this]);
 
         $this->raw  = $files->get($path);
         $this->menu = $this->parse($this->raw);
 
-
-        Factory::run('menu:done', [ $this ]);
+        Factory::run('menu:done', [$this]);
     }
 
     /**
-     * parseConfig
+     * Parse the menu config.
      *
-     * @param $str
+     * @param  string  $string
      * @return mixed
      */
-    protected function parseConfig($str)
+    protected function parseConfig($string)
     {
-        foreach ( array_dot($this->project->getConfig()) as $key => $value )
-        {
-            $str = str_replace('${project.' . $key . '}', $value, $str);
+        foreach (array_dot($this->project->getConfig()) as $key => $value) {
+            $string = str_replace('${project.'.$key.'}', $value, $string);
         }
 
-        return $str;
+        return $string;
     }
 
     /**
-     * parse
+     * Parse the YAML markup.
      *
-     * @param $yaml
+     * @param  string  $yaml
      * @return array
      */
     protected function parse($yaml)
     {
         $array = Yaml::parse($yaml);
 
-        return $this->resolveMenu($array[ 'menu' ]);
+        return $this->resolveMenu($array['menu']);
     }
 
     /**
-     * resolveMenu
+     * Resolve the menu and return the items.
      *
-     * @param $items
+     * @param  array  $items
      * @return array
      */
     protected function resolveMenu($items)
     {
-        $menu = [ ];
-        foreach ( $items as $key => $val )
-        {
-            $key = $this->parseConfig($key);
-            $val = $this->parseConfig($val);
-            # Key = title, val = relative page path
-            if ( is_string($key) && is_string($val) )
-            {
+        $menu = [];
+
+        foreach ($items as $key => $value) {
+            $key   = $this->parseConfig($key);
+            $value = $this->parseConfig($value);
+            
+            // key   = title
+            // value = relative page path
+            if (is_string($key) and is_string($value)) {
                 $menu[] = [
                     'name' => $key,
-                    'href' => $this->resolveLink($val)
+                    'href' => $this->resolveLink($value)
                 ];
-            }
-            elseif ( is_string($key) && $key === 'children' && is_array($val) )
-            {
-                $menu[] = $this->resolveMenu($val);
-            }
-            elseif ( isset($val[ 'name' ]) )
-            {
+            } elseif (is_string($key) and $key === 'children' and is_array($value)) {
+                $menu[] = $this->resolveMenu($value);
+            } elseif (isset($value['name'])) {
                 $item = [
-                    'name' => $val[ 'name' ]
+                    'name' => $value['name']
                 ];
-                if ( isset($val[ 'href' ]) )
-                {
-                    $item[ 'href' ] = $this->resolveLink($val[ 'href' ]);
+
+                if (isset($value['href'])) {
+                    $item['href'] = $this->resolveLink($value['href']);
+                } elseif (isset($value['page'])) {
+                    $item['href'] = $this->resolveLink($value['page']);
                 }
-                elseif ( isset($val[ 'page' ]) )
-                {
-                    $item[ 'href' ] = $this->resolveLink($val[ 'page' ]);
+
+                if (isset($value['icon'])) {
+                    $item['icon'] = $value['icon'];
                 }
-                if ( isset($val[ 'icon' ]) )
-                {
-                    $item[ 'icon' ] = $val[ 'icon' ];
+
+                if (isset($value['children']) and is_array($value['children'])) {
+                    $item['children'] = $this->resolveMenu($value['children']);
                 }
-                if ( isset($val[ 'children' ]) && is_array($val[ 'children' ]) )
-                {
-                    $item[ 'children' ] = $this->resolveMenu($val[ 'children' ]);
-                }
+
                 $menu[] = $item;
             }
         }
@@ -162,27 +151,24 @@ class Menu implements Jsonable, Arrayable
     }
 
     /**
-     * resolveLink
+     * Resolve the given link.
      *
-     * @param $val
+     * @param  string  $link
      * @return mixed
      */
-    protected function resolveLink($val)
+    protected function resolveLink($link)
     {
-        if ( Str::startsWith('http', $val, false) )
-        {
-            return $val;
-        }
-        else
-        {
-            $path = Str::endsWith($val, '.md', false) ? Str::remove($val, '.md') : $val;
+        if (Str::startsWith('http', $link, false)) {
+            return $link;
+        } else {
+            $path = Str::endsWith($link, '.md', false) ? Str::remove($link, '.md') : $link;
 
             return $this->project->getFactory()->url($this->project, $this->project->getRef(), $path);
         }
     }
 
     /**
-     * Get the instance as an array.
+     * Return the menu instance as an array.
      *
      * @return array
      */
@@ -192,9 +178,9 @@ class Menu implements Jsonable, Arrayable
     }
 
     /**
-     * Convert the object to its JSON representation.
+     * Return the menu instance as JSON.
      *
-     * @param  int $options
+     * @param  int  $options
      * @return string
      */
     public function toJson($options = 0)

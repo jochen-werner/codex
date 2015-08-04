@@ -4,6 +4,14 @@ namespace Codex\Codex\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
+/**
+ * Codex route service provider
+ *
+ * @package   Codex\Codex
+ * @author    Codex Project Dev Team
+ * @copyright Copyright (c) 2015, Codex Project
+ * @license   https://tldrlegal.com/license/mit-license MIT License
+ */
 class RouteServiceProvider extends ServiceProvider
 {
 	/**
