@@ -1,27 +1,33 @@
 <?php
 namespace Codex\Codex\Filters;
 
+use Codex\Codex\Document;
+use Codex\Codex\Contracts\Filter;
 use Symfony\Component\Yaml\Yaml;
 
-class FrontMatterFilter extends Filter
+class FrontMatterFilter implements Filter
 {
-	/**
-	 * Handle the filter.
-	 *
-	 * @return array
-	 */
-	public function handle()
-	{
-		$regex = '~^('.implode('|', array_map('preg_quote', ['---']))
-			."){1}[\r\n|\n]*(.*?)[\r\n|\n]+("
-			.implode('|', array_map('preg_quote', ['---']))
-			."){1}[\r\n|\n]*(.*)$~s";
+    /**
+     * Handle the filter.
+     *
+     * @param \Codex\Codex\Document $document
+     * @param array $config
+     * @return void
+     */
+    public function handle(Document $document, array $config)
+    {
+        $content = $document->getContent();
 
-		if (preg_match($regex, $this->content['body'], $matches) === 1) {
-			$this->content['frontmatter'] = Yaml::parse($matches[2]);
-			$this->content['body']        = $matches[4];
-		}
+        $pattern = '/<!---([\w\W]*?)-->/';
+        if (preg_match($pattern, $content, $matches) === 1)
+        {
+            // not really required when using html doc tags. But in case it's frontmatter, it should be removed
+            $content    = preg_replace($pattern, '', $content);
+            $attributes = array_merge_recursive($document->getAttributes(), Yaml::parse($matches[1]));
 
-		return $this->content;
-	}
+            $document->setAttributes($attributes);
+        }
+
+        $document->setContent($content);
+    }
 }

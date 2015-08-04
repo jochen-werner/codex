@@ -1,70 +1,79 @@
 <?php
 namespace Codex\Codex;
 
-use App;
-use Illuminate\Support\ServiceProvider;
+use Caffeinated\Beverage\ServiceProvider;
+use Codex\Codex\Filters\FrontMatterFilter;
+use Codex\Codex\Filters\ParsedownFilter;
+use Codex\Codex\Traits\CodexHookProvider;
 
+/**
+ * Codex service provider.
+ *
+ * @package   Codex\Codex
+ * @author    Codex Project Dev Team
+ * @copyright Copyright (c) 2015, Codex Project
+ * @license   https://tldrlegal.com/license/mit-license MIT License
+ */
 class CodexServiceProvider extends ServiceProvider
 {
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    use CodexHookProvider;
 
-	/**
-	 * Perform post-registration booting of services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->loadViewsFrom(__DIR__.'/../../resources/views', 'codex');
+    /**
+     * @var string
+     */
+    protected $dir = __DIR__;
 
-		$this->publishes([
-			__DIR__.'/../../config/codex.php' => config_path('codex.php'),
-			__DIR__.'/../../resources/views'  => base_path('resources/views/vendor/codex'),
-			__DIR__.'/../../resources/assets' => public_path('vendor/codex'),
-		]);
-	}
+    /**
+     * @var array
+     */
+    protected $configFiles = ['codex'];
 
-	/**
-	 * Register bindings in the container.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		$this->mergeConfigFrom(__DIR__.'/../../config/codex.php', 'codex');
+    /**
+     * Perform the post-registration booting of services.
+     *
+     * @return Application
+     */
+    public function boot()
+    {
+        $app = parent::boot();
+        
+        $factory = $this->app->make('codex');
+    }
 
-		$this->registerServices();
+    /**
+     * Register bindings in the container.
+     *
+     * @return Application
+     */
+    public function register()
+    {
+        $app = parent::register();
 
-		$this->bindInterfaces();
-	}
+        $this->app->singleton('codex', 'Codex\Codex\Factory');
 
-	/**
-	 * Register services.
-	 *
-	 * @return void
-	 */
-	protected function registerServices()
-	{
-		$this->app->register('Codex\Codex\Providers\RouteServiceProvider');
-	}
+        $this->registerRoute();
 
-	/**
-	 * Bind interfaces to their respective repositories.
-	 *
-	 * @return void
-	 */
-	protected function bindInterfaces()
-	{
-		$driver = ucfirst($this->app['config']->get('codex.driver'));
+        $this->registerFilters();
+    }
 
-		$this->app->bind(
-			'Codex\Codex\Repositories\RepositoryInterface',
-			'Codex\Codex\Repositories\\'.$driver.'Repository'
-		);
-	}
+    /**
+     * Register the core filters.
+     *
+     * @return void
+     */
+    protected function registerFilters()
+    {
+        $this->addCodexFilter('front_matter', FrontMatterFilter::class);
+        $this->addCodexFilter('parsedown', ParsedownFilter::class);
+    }
+
+    /**
+     * If enabled, register the provided HTTP routes.
+     *
+     * @return void
+     */
+    protected function registerRoute()
+    {
+    	$this->app->register('Codex\Codex\Providers\RouteServiceProvider');
+    }
 }

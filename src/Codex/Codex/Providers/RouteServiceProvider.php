@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
 	/**
 	 * Boot Codex's route service provider.
 	 *
-	 * @param  Illuminate\Routing\Router  $router
+	 * @param Illuminate\Routing\Router $router
 	 * @return void
 	 */
 	public function boot(Router $router)
@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 	/**
 	 * Define the routes for Codex.
 	 *
-	 * @param  Illuminate\Routing\Router  $router
+	 * @param Illuminate\Routing\Router $router
 	 * @return void
 	 */
 	public function map(Router $router)

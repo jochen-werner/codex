@@ -1,60 +1,22 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
-    | Storage Driver
+    | Display name
     |--------------------------------------------------------------------------
     |
-    | Codex can support a multitude of different storage methods to retrieve
-    | your documentation from. You may specify which one you're using
-    | throughout your Codex installation here. By default, Codex is set to
-    | use the "flat" driver method.
-    |
-    | Supported: "flat", "git"
-    |
     */
-
-    'driver' => 'flat',
+    'display_name' => 'Codex',
 
     /*
     |--------------------------------------------------------------------------
-    | Storage Path
+    | Root directory
     |--------------------------------------------------------------------------
     |
     */
-
-    'storage_path' => public_path('docs'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site name
-    |--------------------------------------------------------------------------
-    | Will be displayed in the header
-    */
-
-    'site_name' => 'Codex',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Project
-    |--------------------------------------------------------------------------
-    |
-    */
-
-    'default_project' => '',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Last Modified Timestamp Format
-    |--------------------------------------------------------------------------
-    |
-    | http://php.net/manual/en/function.date.php#refsect1-function.date-parameters
-    |
-    */
-
-    'modified_timestamp' => 'l, F d, Y',
+    'root_dir' => base_path('resources/docs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,23 +28,43 @@ return array(
     | Codex as a stand alone application.
     |
     */
-
-    'route_base' => 'codex',
+    'base_route' => 'codex',
 
     /*
     |--------------------------------------------------------------------------
-    | Filters
+    | Default Project
     |--------------------------------------------------------------------------
     |
-    | You may define a list of filters to be ran over your content before it's
-    | rendered on screen. Feel free to add or remove filters based on your
-    | needs. Keep in mind that loading order does matter here as well.
+    */
+    'default_project' => 'codex',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Project Attributes
+    |--------------------------------------------------------------------------
+    |
+    | These values will be merged with any frontmatter attributes your
+    | documentation pages may have. Feel free to add or remove any
+    | attributes as you see fit for your documentation needs.
     |
     */
+    'default_document_attributes' => [
+        'author' => 'John Doe',
+    ],
 
-    'filters' => [
-        'Codex\Codex\Filters\FrontMatterFilter',
-        'Codex\Codex\Filters\ParsedownFilter'
+    /*
+    |--------------------------------------------------------------------------
+    | Default Project Configuration
+    |--------------------------------------------------------------------------
+    |
+    | These are the default settings used to pre-populate all project
+    | configuration files.
+    |
+    */
+    'default_project_config' => [
+        'default'          => Codex\Codex\Project::SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH,
+        'custom'           => null,
+        'filters'          => ['front_matter', 'parsedown'],
+        'filters_settings' => ['front_matter' => [], 'parsedown' => []]
     ]
-
-);
+];

@@ -8,7 +8,7 @@ class ParsedownExtra extends BaseParsedownExtra
 	/**
 	 * Parse fenced code blocks.
 	 *
-	 * @param  array  $line
+	 * @param array $line
 	 * @return array
 	 */
 	protected function blockFencedCode($line)
@@ -43,8 +43,8 @@ class ParsedownExtra extends BaseParsedownExtra
 	/**
 	 * Parse tables.
 	 *
-	 * @param  array  $line
-	 * @param  array  $block
+	 * @param array $line
+	 * @param array $block
 	 * @return array
 	 */
 	protected function blockTable($line, array $block = null)
