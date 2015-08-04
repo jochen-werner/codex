@@ -1,6 +1,9 @@
 Codex
 =====
-[![Laravel](https://img.shields.io/badge/Laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
+[![Laravel 5.1](https://img.shields.io/badge/Laravel-5.1-orange.svg?style=flat-square)](http://laravel.com)
+[![Build Status](https://img.shields.io/travis/codex-project/codex.svg?&style=flat-square)](https://travis-ci.org/codex-project/codex)
+[![Scrutinizer coverage](https://img.shields.io/scrutinizer/coverage/g/codex-project/codex.svg?&style=flat-square)](https://scrutinizer-ci.com/g/codex-project/codex)
+[![Scrutinizer quality](https://img.shields.io/scrutinizer/g/codex-project/codex.svg?&style=flat-square)](https://scrutinizer-ci.com/g/codex-project/codex)
 [![Source](http://img.shields.io/badge/source-codex--project/codex-blue.svg?style=flat-square)](https://github.com/codex-project/codex)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 

@@ -35,9 +35,9 @@ class CodexServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $app = parent::boot();
+        parent::boot();
         
-        $factory = $this->app->make('codex');
+        $this->app->make('codex');
     }
 
     /**
@@ -47,7 +47,7 @@ class CodexServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $app = parent::register();
+        parent::register();
 
         $this->app->singleton('codex', 'Codex\Codex\Factory');
 

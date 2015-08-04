@@ -54,10 +54,10 @@ class Document
     /**
      * Create a new Document instance.
      *
-     * @param  \Codex\Codex\Factory                                                           $factory
-     * @param  \Codex\Codex\Project                                                           $project
-     * @param  \Illuminate\Contracts\Filesystem\Filesystem|\Illuminate\Filesystem\Filesystem  $files
-     * @param  string                                                                         $path
+     * @param  \Codex\Codex\Factory               $factory
+     * @param  \Codex\Codex\Project               $project
+     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  string                             $path
      */
     public function __construct(Factory $factory, Project $project, Filesystem $files, $path)
     {
