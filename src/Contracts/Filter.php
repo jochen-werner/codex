@@ -1,6 +1,8 @@
 <?php
 namespace Codex\Codex\Contracts;
 
+use Codex\Codex\Document;
+
 /**
  * Filter contract
  *

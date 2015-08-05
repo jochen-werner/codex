@@ -1,6 +1,7 @@
 <?php
 namespace Codex\Codex;
 
+use Codex\Codex\Contracts\Filter;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Traits\Macroable;
 

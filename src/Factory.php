@@ -1,6 +1,7 @@
 <?php
 namespace Codex\Codex;
 
+use Codex\Codex\Contracts\Hook;
 use Illuminate\Contracts\Cache\Repository as Cache;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Filesystem\Filesystem;
