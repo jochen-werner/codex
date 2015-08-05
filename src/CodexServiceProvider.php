@@ -24,21 +24,18 @@ class CodexServiceProvider extends ServiceProvider
     protected $dir = __DIR__;
 
     /**
+     * Collection of configuration files.
+     *
      * @var array
      */
     protected $configFiles = ['codex'];
 
     /**
-     * Perform the post-registration booting of services.
+     * Collection of bound instances.
      *
-     * @return Application
+     * @var array
      */
-    public function boot()
-    {
-        parent::boot();
-        
-        $this->app->make('codex');
-    }
+    protected $provides = ['codex'];
 
     /**
      * Register bindings in the container.

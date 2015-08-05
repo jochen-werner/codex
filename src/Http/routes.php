@@ -7,7 +7,6 @@
 |
 */
 
-Route::get(Config::get('codex.route_base').'/', 'CodexController@index');
-Route::get(Config::get('codex.route_base').'/search/{manual?}/{version?}', 'CodexController@search');
-Route::get(Config::get('codex.route_base').'/{manual}/{version?}/{page?}', 'CodexController@show')
+Route::get(Config::get('codex.base_route').'/', 'CodexController@index');
+Route::get(Config::get('codex.base_route').'/{project}/{version?}/{page?}', 'CodexController@show')
     ->where('page', '(.*)');
