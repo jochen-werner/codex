@@ -1,0 +1,33 @@
+{
+  "name": "codex",
+  "version": "1.0.0",
+  "description": "Codex",
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codex-project/codex.git"
+  },
+  "author": "Robin Radic & Shea Lewis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codex-project/codex/issues"
+  },
+  "homepage": "https://github.com/codex-project/codex#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "load-grunt-tasks": "^3.2.0",
+    "lodash": "^3.10.1",
+    "time-grunt": "^1.2.1"
+  },
+  "dependencies": {
+    "grunt-subgrunt": "^0.4.5"
+  }
+}
