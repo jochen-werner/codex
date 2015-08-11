@@ -1,9 +1,23 @@
 @extends('codex::layouts/default')
 
 @section('pageTitle', $document->attr('title'))
+@section('pageSubtitle', $document->attr('subtitle', null))
+@section('breadcrumb')
+    @parent
+    @if(isset($breadcrumb))
+        @foreach($breadcrumb as $item)
+            <li>
+                <a href="{{ isset($item['href']) ? $item['href'] : '' }}">{{ $item['name'] }}</a>
+                @if(! isset($item['last']) || $item['last'] === false)
+                    <i class="fa fa-arrow-right"></i>
+                @endif
+            </li>
+        @endforeach
+    @endif
+@stop
 
 @section('sidebar-menu')
-    @each('codex::partials/menu-item', $menu, 'item')
+    @each('codex::partials/menu-item', $menu->toArray(), 'item')
 @stop
 
 @section('header-actions')
@@ -37,5 +51,5 @@
 @stop
 
 @section('content')
-    hai
+    {!! $content !!}
 @stop

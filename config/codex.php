@@ -50,6 +50,9 @@ return [
     */
     'default_document_attributes' => [
         'author' => 'John Doe',
+        'title' => 'Documentation',
+        'subtitle' => '',
+        'view' => 'codex::document'
     ],
 
     /*

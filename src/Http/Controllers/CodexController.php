@@ -56,10 +56,11 @@ class CodexController extends Controller
 
         $project->setRef($ref);
         $document = $project->getDocument($path);
-        $menu = $project->getMenu()->toArray();
+        $content = $document->render();
+        $breadcrumb = $document->getBreadcrumb();
+        $menu = $project->getMenu();
 
-
-        return view('codex::document', compact('project', 'document', 'menu'))->with([
+        return view($document->attr('view'), compact('project', 'document', 'content', 'menu', 'breadcrumb'))->with([
             'projectName' => $project->getName(),
             'projectRef' => $ref
         ]);

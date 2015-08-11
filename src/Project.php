@@ -19,10 +19,10 @@ class Project
 {
     use Macroable;
 
-    const SHOW_MASTER_BRANCH                        = 0;
-    const SHOW_LAST_VERSION                         = 1;
+    const SHOW_MASTER_BRANCH = 0;
+    const SHOW_LAST_VERSION = 1;
     const SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH = 2;
-    const SHOW_CUSTOM                               = 3;
+    const SHOW_CUSTOM = 3;
 
     /**
      * @var array
@@ -75,13 +75,25 @@ class Project
     protected $versions;
 
     /**
-     * Create a new Project instance.
+     * A collection of documents that have already been instantiated. getDocument method will first check if the document is here.
      *
-     * @param  \Codex\Codex\Factory  $factory
-     * @param  Filesystem            $files
-     * @param  string                $name
-     * @param  Project               $config
-     * @return void
+     * @var Document[]
+     */
+    protected $documents = [ ];
+
+    /**
+     * The menu instance, getMenu will first check if this property is set and if so returns it.
+     * Otherwise it will instanciate a new Menu and set this property
+     *
+     * @var Menu
+     */
+    protected $menu;
+
+    /**
+     * @param \Codex\Codex\Factory                        $factory
+     * @param \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param                                             $name
+     * @param                                             $config
      */
     public function __construct(Factory $factory, Filesystem $files, $name, $config)
     {
@@ -91,20 +103,24 @@ class Project
         $this->config  = $config;
         $this->path    = $path = Path::join($factory->getRootDir(), $name);
 
-        Factory::run('project:ready', [$this]);
+        Factory::run('project:ready', [ $this ]);
 
         $directories = $this->files->directories($this->path);
-        $branches    = [];
-        $this->refs  = [];
+        $branches    = [ ];
+        $this->refs  = [ ];
 
-        $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches) {
+        $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches)
+        {
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
-            $version      = (string)$version->removeLeft($name.'/');
+            $version      = (string)$version->removeLeft($name . '/');
             $this->refs[] = $version;
 
-            try {
+            try
+            {
                 return new version($version);
-            } catch (\RuntimeException $e) {
+            }
+            catch (\RuntimeException $e)
+            {
                 $branches[] = $version;
             }
         }, $directories), 'is_object');
@@ -114,17 +130,21 @@ class Project
         // check which version/branch to show by default
         $defaultRef = count($this->versions) > 0 ? head($this->versions) : head($branches);
 
-        switch ($this->config['default']) {
+        switch ( $this->config[ 'default' ] )
+        {
             case Project::SHOW_LAST_VERSION:
-                usort($this->versions, function (version $v1, version $v2) {
+                usort($this->versions, function (version $v1, version $v2)
+                {
                     return version::gt($v1, $v2) ? -1 : 1;
                 });
 
                 $defaultRef = head($this->versions);
                 break;
             case Project::SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH:
-                if (count($this->versions) > 0) {
-                    usort($this->versions, function (version $v1, version $v2) {
+                if ( count($this->versions) > 0 )
+                {
+                    usort($this->versions, function (version $v1, version $v2)
+                    {
                         return version::gt($v1, $v2) ? -1 : 1;
                     });
                 }
@@ -135,13 +155,20 @@ class Project
                 $defaultRef = 'master';
                 break;
             case Project::SHOW_CUSTOM:
-                $defaultRef = $this->config['custom'];
+                $defaultRef = $this->config[ 'custom' ];
                 break;
         }
 
         $this->ref = $this->defaultRef = (string)$defaultRef;
     }
 
+    /**
+     * url
+     *
+     * @param string $doc
+     * @param null   $ref
+     * @return string
+     */
     public function url($doc = 'index', $ref = null)
     {
         return $this->factory->url($this, $ref, $doc);
@@ -150,13 +177,14 @@ class Project
     /**
      * Retreive this projects config using a dot notated key
      *
-     * @param  null|string  $key
-     * @param  null|mixed   $default
+     * @param  null|string $key
+     * @param  null|mixed  $default
      * @return callable
      */
     public function config($key = null, $default = null)
     {
-        if (is_null($key)) {
+        if ( is_null($key) )
+        {
             return $this->config;
         }
 
@@ -166,7 +194,7 @@ class Project
     /**
      * Set config.
      *
-     * @param  array  $config
+     * @param  array $config
      * @return void
      */
     public function setConfig(array $config)
@@ -177,7 +205,7 @@ class Project
     /**
      * Set the ref (version/branch) you want to use. getDocument will be getting stuff using the ref
      *
-     * @param  string  $name
+     * @param  string $name
      * @return \Codex\Codex\Project
      */
     public function setRef($name)
@@ -192,22 +220,26 @@ class Project
      *
      * It will retreive it from the current $ref or otherwise the $defaultRef folder
      *
-     * @param  string  $path
+     * @param  string $absolutePath
      * @return \Codex\Codex\Document
      */
-    public function getDocument($path = '')
+    public function getDocument($pathName = '')
     {
-        if (strlen($path) === 0) {
-            $path = 'index';
+        if ( $pathName === '' )
+        {
+            $pathName = 'index';
         }
 
-        $path = Path::join($this->path, $this->ref, $path.'.md');
+        if ( ! isset($this->documents[ $pathName ]) )
+        {
+            $path                         = Path::join($this->path, $this->ref, $pathName . '.md');
+            $this->documents[ $pathName ] = new Document($this->factory, $this, $this->files, $path, $pathName);
 
-        $document = new Document($this->factory, $this, $this->files, $path);
+            Factory::run('project:document', [ $this->documents[ $pathName ] ]);
+        }
 
-        Factory::run('project:document', [$document]);
 
-        return $document;
+        return $this->documents[ $pathName ];
     }
 
     /**
@@ -217,9 +249,14 @@ class Project
      */
     public function getMenu()
     {
-        $path = Path::join($this->getPath(), $this->ref, 'menu.yml');
+        if ( ! isset($this->menu) )
+        {
+            $path = Path::join($this->getPath(), $this->ref, 'menu.yml');
 
-        return new Menu($this, $this->files, $this->factory->getCache(), $path);
+            $this->menu = new Menu($this, $this->files, $this->factory->getCache(), $path);
+        }
+
+        return $this->menu;
     }
 
     /**
@@ -261,11 +298,13 @@ class Project
     {
         $versions = $this->versions;
 
-        usort($versions, function (version $v1, version $v2) {
+        usort($versions, function (version $v1, version $v2)
+        {
             return version::gt($v1, $v2) ? -1 : 1;
         });
 
-        $versions = array_map(function (version $v) {
+        $versions = array_map(function (version $v)
+        {
             return $v->getVersion();
         }, $versions);
 
@@ -285,7 +324,7 @@ class Project
     /**
      * Set project files.
      *
-     * @param  \Illuminate\Contracts\Filesystem\Filesystem  $files
+     * @param  \Illuminate\Contracts\Filesystem\Filesystem $files
      * @return \Codex\Codex\Project
      */
     public function setFiles($files)
@@ -348,7 +387,7 @@ class Project
     /**
      * Set path.
      *
-     * @param  string  $path
+     * @param  string $path
      * @return \Codex\Codex\Project
      */
     public function setPath($path)
@@ -371,7 +410,7 @@ class Project
     /**
      * Set factory.
      *
-     * @param  \Codex\Codex\Factory  $factory
+     * @param  \Codex\Codex\Factory $factory
      * @return \Codex\Codex\Project
      */
     public function setFactory($factory)

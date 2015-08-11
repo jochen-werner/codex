@@ -2,6 +2,3 @@
 	path = theme
 	url = https://github.com/codex-project/theme
 	branch = master
-[submodule "build/tools"]
-	path = build/tools
-	url = https://github.com/laradic/php-build-tools

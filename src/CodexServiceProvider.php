@@ -4,6 +4,8 @@ namespace Codex\Codex;
 use Caffeinated\Beverage\ServiceProvider;
 use Codex\Codex\Filters\FrontMatterFilter;
 use Codex\Codex\Filters\ParsedownFilter;
+use Codex\Codex\Http\ViewComposers\ProjectMenusComposer;
+use Codex\Codex\Providers\RouteServiceProvider;
 use Codex\Codex\Traits\CodexProviderTrait;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -29,24 +31,24 @@ class CodexServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $configFiles = ['codex'];
+    protected $configFiles = [ 'codex' ];
 
     /**
      * Collection of bound instances.
      *
      * @var array
      */
-    protected $provides = ['codex'];
+    protected $provides = [ 'codex' ];
 
     public function boot()
     {
         $app = parent::boot();
 
-        $this->loadViewsFrom(realpath(__DIR__.'/../resources/views'), 'codex');
+        $this->loadViewsFrom(realpath(__DIR__ . '/../resources/views'), 'codex');
 
-        $this->publishes([ realpath(__DIR__.'/../resources/assets') => public_path('vendor/codex')], 'public');
+        $this->publishes([ realpath(__DIR__ . '/../resources/assets') => public_path('vendor/codex') ], 'public');
 
-        $app->make('view')->composer(['codex::document'], 'Codex\\Codex\\Http\\ViewComposers\\ProjectMenusComposer');
+        $app->make('view')->composer([ 'codex::document' ], ProjectMenusComposer::class);
     }
 
 
@@ -59,7 +61,7 @@ class CodexServiceProvider extends ServiceProvider
     {
         $app = parent::register();
 
-        $this->app->singleton('codex', 'Codex\Codex\Factory');
+        $this->app->singleton('codex', Factory::class);
 
         $this->registerRoute();
 
@@ -84,6 +86,6 @@ class CodexServiceProvider extends ServiceProvider
      */
     protected function registerRoute()
     {
-        $this->app->register('Codex\Codex\Providers\RouteServiceProvider');
+        $this->app->register(RouteServiceProvider::class);
     }
 }

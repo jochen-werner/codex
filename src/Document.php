@@ -40,7 +40,7 @@ class Document
     /**
      * @var array
      */
-    protected static $filters = [];
+    protected static $filters = [ ];
 
     /**
      * @var string
@@ -53,25 +53,34 @@ class Document
     protected $project;
 
     /**
+     * The pathname is the path given to Project->getDocument. It's a relative path
+     *
+     * @var string
+     */
+    protected $pathName;
+
+    /**
      * Create a new Document instance.
      *
-     * @param  \Codex\Codex\Factory  $factory
-     * @param  \Codex\Codex\Project  $project
-     * @param  Filesystem            $files
-     * @param  string                $path
+     * @param  \Codex\Codex\Factory $factory
+     * @param  \Codex\Codex\Project $project
+     * @param  Filesystem           $files
+     * @param  string               $path
      */
-    public function __construct(Factory $factory, Project $project, Filesystem $files, $path)
+    public function __construct(Factory $factory, Project $project, Filesystem $files, $path, $pathName)
     {
-        $this->project = $project;
-        $this->files   = $files;
-        $this->path    = $path;
+        $this->factory = $factory;
+        $this->project  = $project;
+        $this->files    = $files;
+        $this->path     = $path;
+        $this->pathName = $pathName;
 
-        Factory::run('document:ready', [$this]);
+        Factory::run('document:ready', [ $this ]);
 
         $this->attributes = $factory->config('default_document_attributes');
         $this->content    = $this->files->get($this->path);
 
-        Factory::run('document:done', [$this]);
+        Factory::run('document:done', [ $this ]);
     }
 
     /**
@@ -84,18 +93,23 @@ class Document
      */
     public function render()
     {
-        Factory::run('document:render', [$this]);
+        Factory::run('document:render', [ $this ]);
 
         $fsettings = $this->getProject()->config('filters_settings');
         $filters   = array_only(static::$filters, $this->getProject()->config('filters'));
-        
-        if (count($filters) > 0) {
-            foreach ($filters as $name => $filter) {
-                if ($filter instanceof \Closure) {
-                    call_user_func_array($filter, [$this, isset($fsettings[$name]) ? $fsettings[$name] : []]);
-                } else {
+
+        if ( count($filters) > 0 )
+        {
+            foreach ( $filters as $name => $filter )
+            {
+                if ( $filter instanceof \Closure )
+                {
+                    call_user_func_array($filter, [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
+                }
+                else
+                {
                     $instance = app()->make($filter);
-                    call_user_func_array([$instance, 'handle'], [$this, isset($fsettings[$name]) ? $fsettings[$name] : []]);
+                    call_user_func_array([ $instance, 'handle' ], [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
                 }
             }
         }
@@ -106,28 +120,47 @@ class Document
     /**
      * Add a new filter to the registered filters list.
      *
-     * @param  string                                  $name
-     * @param  \Closure|\Codex\Codex\Contracts\Filter  $handler
+     * @param  string                                 $name
+     * @param  \Closure|\Codex\Codex\Contracts\Filter $handler
      * @return void
      */
     public static function filter($name, $handler)
     {
-        if (!$handler instanceof \Closure and !in_array(Filter::class, class_implements($handler), false)) {
+        if ( ! $handler instanceof \Closure and ! in_array(Filter::class, class_implements($handler), false) )
+        {
             throw new \InvalidArgumentException("Failed adding Filter. Provided handler for [{$name}] is not valid. Must either provide a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Filter");
         }
 
-        static::$filters[$name] = $handler;
+        static::$filters[ $name ] = $handler;
     }
 
     /**
      * Get the given attribute.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return array
      */
-    public function attr($key = null)
+    public function attr($key = null, $default = null)
     {
-        return is_null($key) ? $this->attributes : array_get($this->attributes, $key);
+        return is_null($key) ? $this->attributes : array_get($this->attributes, $key, $default);
+    }
+
+    /**
+     * Get the url to this document
+     *
+     * @return string
+     */
+    public function url()
+    {
+        return $this->factory->url($this->project, $this->project->getRef(), $this->pathName);
+    }
+
+    /**
+     * getBreadcrumb
+     */
+    public function getBreadcrumb()
+    {
+        return $this->project->getMenu()->getDocumentBreadcrumb($this);
     }
 
     /**
@@ -153,7 +186,7 @@ class Document
     /**
      * Set the content value of the document.
      *
-     * @param  string  $content
+     * @param  string $content
      * @return Document
      */
     public function setContent($content)
@@ -176,7 +209,7 @@ class Document
     /**
      * Set the document attributes.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return Document
      */
     public function setAttributes($attributes)
@@ -209,7 +242,7 @@ class Document
     /**
      * Set the project files value.
      *
-     * @param  Filesystem  $files
+     * @param  Filesystem $files
      * @return Document
      */
     public function setFiles($files)
@@ -222,7 +255,7 @@ class Document
     /**
      * Set the path value.
      *
-     * @param  string  $path
+     * @param  string $path
      * @return Document
      */
     public function setPath($path)
