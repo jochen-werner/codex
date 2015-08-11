@@ -38,7 +38,7 @@ class Factory
     /**
      * @var array
      */
-    protected static $hooks = [];
+    protected static $hooks = [ ];
 
     /**
      * @var Project[]
@@ -51,11 +51,11 @@ class Factory
      * @var string
      */
     protected $rootDir;
-    
+
     /**
-     * @param  \Illuminate\Contracts\Filesystem\Filesystem  $files
-     * @param  \Illuminate\Contracts\Config\Repository      $config
-     * @param  \Illuminate\Contracts\Cache\Repository       $cache
+     * @param  \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param  \Illuminate\Contracts\Config\Repository     $config
+     * @param  \Illuminate\Contracts\Cache\Repository      $cache
      * @return void
      */
     public function __construct(Filesystem $files, Repository $config, Cache $cache)
@@ -66,14 +66,15 @@ class Factory
         $this->rootDir = config('codex.root_dir');
 
         // 'factory:ready' is called after parameters have been set as class properties.
-        static::run('factory:ready', [$this]);
+        static::run('factory:ready', [ $this ]);
 
-        if (!isset($this->projects)) {
+        if ( ! isset($this->projects) )
+        {
             $this->findAll();
         }
 
         // 'factory:done' called after all factory operations have completed.
-        static::run('factory:done', [$this]);
+        static::run('factory:done', [ $this ]);
     }
 
     /**
@@ -85,30 +86,32 @@ class Factory
     {
         $finder         = new Finder();
         $projects       = $finder->in($this->rootDir)->files()->name('config.php')->depth('<= 1')->followLinks();
-        $this->projects = [];
-        
-        foreach ($projects as $project) {
-            $name                  = last(explode(DIRECTORY_SEPARATOR, $project->getPath()));
-            $config                = with(new \Illuminate\Filesystem\Filesystem)->getRequire($project->getRealPath());
-            $this->projects[$name] = array_replace_recursive($this->config('default_project_config'), $config);
+        $this->projects = [ ];
+
+        foreach ( $projects as $project )
+        {
+            $name                    = last(explode(DIRECTORY_SEPARATOR, $project->getPath()));
+            $config                  = with(new \Illuminate\Filesystem\Filesystem)->getRequire($project->getRealPath());
+            $this->projects[ $name ] = array_replace_recursive($this->config('default_project_config'), $config);
         }
     }
 
     /**
      * Make a new project object, will represent a project based on directory name.
      *
-     * @param  string  $name
+     * @param  string $name
      * @return \Codex\Codex\Project
      */
     public function make($name)
     {
-        if (!$this->has($name)) {
+        if ( ! $this->has($name) )
+        {
             throw new \InvalidArgumentException("Project [$name] could not be found in [{$this->rootDir}]");
         }
 
-        $project = new Project($this, $this->files, $name, $this->projects[$name]);
+        $project = new Project($this, $this->files, $name, $this->projects[ $name ]);
 
-        static::run('project:make', [$this, $project]);
+        static::run('project:make', [ $this, $project ]);
 
         return $project;
     }
@@ -116,7 +119,7 @@ class Factory
     /**
      * Check if the given project exists.
      *
-     * @param  string  $name
+     * @param  string $name
      * @return bool
      */
     public function has($name)
@@ -127,28 +130,37 @@ class Factory
     /**
      * Generate a URL to a project's default page and version.
      *
-     * @param  Project      $project
-     * @param  null|string  $ref
-     * @param  null|string  $doc
+     * @param  Project     $project
+     * @param  null|string $ref
+     * @param  null|string $doc
      * @return string
      */
     public function url($project = null, $ref = null, $doc = null)
     {
         $uri = $this->config('base_route');
 
-        if (!is_null($project)) {
-            if ($project instanceof Project) {
-                $uri .= '/'.$project->getName();
-            } else {
-                $uri .= '/'.$project;
+        if ( ! is_null($project) )
+        {
+            if ( ! $project instanceof Project )
+            {
+                $project = $this->make($project);
+            }
+            $uri .= '/' . $project->getName();
+
+
+            if ( ! is_null($ref) )
+            {
+                $uri .= '/' . $ref;
+            }
+            else
+            {
+                $uri .= '/' . $project->getDefaultRef();
             }
 
-            if (!is_null($ref)) {
-                $uri .= '/'.$ref;
-                
-                if (!is_null($doc)) {
-                    $uri .= '/'.$doc;
-                }
+
+            if ( ! is_null($doc) )
+            {
+                $uri .= '/' . $doc;
             }
         }
 
@@ -178,13 +190,14 @@ class Factory
     /**
      * Retreive codex config using a dot notated key.
      *
-     * @param  null|string  $key
-     * @param  null|string  $default
+     * @param  null|string $key
+     * @param  null|string $default
      * @return array|mixed
      */
     public function config($key = null, $default = null)
     {
-        if (is_null($key)) {
+        if ( is_null($key) )
+        {
             return $this->config;
         }
 
@@ -204,7 +217,7 @@ class Factory
     /**
      * Set the config.
      *
-     * @param  array  $config
+     * @param  array $config
      * @return void
      */
     public function setConfig(array $config)
@@ -225,7 +238,7 @@ class Factory
     /**
      * Set files.
      *
-     * @param  mixed  $files
+     * @param  mixed $files
      * @return Factory
      */
     public function setFiles($files)
@@ -248,7 +261,7 @@ class Factory
     /**
      * Set cache.
      *
-     * @param  \Illuminate\Cache\CacheManager  $cache
+     * @param  \Illuminate\Cache\CacheManager $cache
      * @return Factory
      */
     public function setCache($cache)
@@ -261,51 +274,57 @@ class Factory
     /**
      * Ensure point.
      *
-     * @param  string  $name
+     * @param  string $name
      * @return void
      */
     protected static function ensurePoint($name)
     {
-        if (!isset(static::$hooks[$name])) {
-            static::$hooks[$name] = [];
+        if ( ! isset(static::$hooks[ $name ]) )
+        {
+            static::$hooks[ $name ] = [ ];
         }
     }
 
     /**
      * Register a hook instance.
      *
-     * @param  string           $point
-     * @param  string|\Closure  $handler
+     * @param  string          $point
+     * @param  string|\Closure $handler
      * @return void
      */
     public static function hook($point, $handler)
     {
-        if (!$handler instanceof \Closure and !in_array(Hook::class, class_implements($handler), false)) {
+        if ( ! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false) )
+        {
             throw new \InvalidArgumentException("Failed adding hook. Provided handler for [{$point}] is not valid. Either provider a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Hook");
         }
 
         static::ensurePoint($point);
-        static::$hooks[$point][] = $handler;
+        static::$hooks[ $point ][] = $handler;
     }
 
     /**
      * Run the given hook.
      *
-     * @param  string  $name
-     * @param  array   $params
+     * @param  string $name
+     * @param  array  $params
      * @return void
      */
-    public static function run($name, array $params = [])
+    public static function run($name, array $params = [ ])
     {
         static::ensurePoint($name);
 
-        foreach (static::$hooks[$name] as $handler) {
-            if ($handler instanceof \Closure) {
+        foreach ( static::$hooks[ $name ] as $handler )
+        {
+            if ( $handler instanceof \Closure )
+            {
                 call_user_func_array($handler, $params);
-            } elseif (class_exists($handler)) {
+            }
+            elseif ( class_exists($handler) )
+            {
                 $instance = app()->make($handler);
 
-                call_user_func_array([$instance, 'handle'], $params);
+                call_user_func_array([ $instance, 'handle' ], $params);
             }
         }
     }

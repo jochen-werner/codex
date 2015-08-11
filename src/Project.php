@@ -96,12 +96,12 @@ class Project
         $directories = $this->files->directories($this->path);
         $branches    = [];
         $this->refs  = [];
-        
+
         $this->versions = array_filter(array_map(function($dirPath) use ($path, $name, &$branches) {
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
             $version      = (string)$version->removeLeft($name.'/');
             $this->refs[] = $version;
-            
+
             try {
                 return new version($version);
             } catch (\RuntimeException $e) {
@@ -140,6 +140,11 @@ class Project
         }
 
         $this->ref = $this->defaultRef = (string)$defaultRef;
+    }
+
+    public function url($doc = 'index', $ref = null)
+    {
+        return $this->factory->url($this, $ref, $doc);
     }
 
     /**
@@ -183,7 +188,7 @@ class Project
     }
 
     /**
-     * Get a document using the provided path. 
+     * Get a document using the provided path.
      *
      * It will retreive it from the current $ref or otherwise the $defaultRef folder
      *
@@ -201,7 +206,7 @@ class Project
         $document = new Document($this->factory, $this, $this->files, $path);
 
         Factory::run('project:document', [$document]);
-        
+
         return $document;
     }
 

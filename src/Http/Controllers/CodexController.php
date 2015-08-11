@@ -53,10 +53,8 @@ class CodexController extends Controller
 
 
         return view('codex::document', compact('project', 'document', 'menu'))->with([
-            'project-name' => $project->getName(),
-            'project-version' => $ref,
-            'versions' => $project->getVersions(),
-            'projects' => $this->factory->all()
+            'projectName' => $project->getName(),
+            'projectRef' => $ref
         ]);
 
     }

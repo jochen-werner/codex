@@ -45,6 +45,8 @@ class CodexServiceProvider extends ServiceProvider
         $this->loadViewsFrom(realpath(__DIR__.'/../resources/views'), 'codex');
 
         $this->publishes([ realpath(__DIR__.'/../resources/assets') => public_path('vendor/codex')], 'public');
+
+        $app->make('view')->composer(['codex::document'], 'Codex\\Codex\\Http\\ViewComposers\\ProjectMenusComposer');
     }
 
 

@@ -21,24 +21,8 @@
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
         <div class="page-actions">
-            <div class="btn-group">
-                <div class="btn-group">
-                    <a href="javscript:;" type="button" data-toggle="dropdown" aria-expanded="false" class="btn dropdown-toggle btn-primary btn-sm">
-                        @yield('project-name')
-                    </a>
-                    <ul class="dropdown-menu">
-                        @yield('projects')
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <a href="javscript:;" type="button" data-toggle="dropdown" aria-expanded="false" class="btn dropdown-toggle btn-primary btn-sm">
-                        @yield('project-version')
-                    </a>
-                    <ul class="dropdown-menu">
-                        @yield('project-versions')
-                    </ul>
-                </div>
-            </div>
+            @section('header-actions')
+            @show
         </div>
         <div class="page-top">
             @include('codex::partials/search-form')
@@ -59,8 +43,8 @@
         <div class="page-content">
             <div class="page-head">
                 <div class="page-title">
-                    <h1>@yield('page-title')
-                        <small> @yield('page-subtitle', '')</small>
+                    <h1>@yield('pageTitle')
+                        <small> @yield('pageSubtitle', '')</small>
                     </h1>
                 </div>
             </div>
@@ -84,7 +68,7 @@
 <script src="{{ asset('vendor/codex/scripts/config.js') }}"></script>
 <script>
     require.config({
-        baseUrl: '{!! url('vendor/codex') !!}}'
+        baseUrl: '{!! url('vendor/codex/scripts') !!}'
     })
 </script>
 <script src="{{ asset('vendor/codex/scripts/init.js') }}"></script>
