@@ -128,10 +128,10 @@ app.js
 /home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/eventemitter2/lib/eventemitter2.js
 util.js
 jquery-utils.js
+/home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/bootstrap-sass-official/assets/javascripts/bootstrap.min.js
+/home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/bootstrap-material-design/dist/js/material.min.js
 app.js
 /home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/highlightjs/highlight.pack.js
 /home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js
-/home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/bootstrap-sass-official/assets/javascripts/bootstrap.min.js
-/home/radic/workspace/workbench/codex/codex/theme/dist/assets/plugins/bootstrap-material-design/dist/js/material.min.js
 classes/Storage.js
 preferences.js
