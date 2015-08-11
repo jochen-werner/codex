@@ -1,21 +1,21 @@
 <?php
 namespace Codex\Codex\Http\Controllers;
 
-use Config;
-use Redirect;
-use Request;
 use App\Http\Controllers\Controller;
+use Codex\Codex\Factory;
 
 class CodexController extends Controller
 {
+    protected $factory;
+
     /**
      * Create a new CodexContrller instance.
      *
-     * @return void
+     * @param \Codex\Codex\Factory $factory
      */
-    public function __construct()
+    public function __construct(Factory $factory)
     {
-        // 
+        $this->factory = $factory;
     }
 
     /**
@@ -25,19 +25,39 @@ class CodexController extends Controller
      */
     public function index()
     {
-        // 
+        return redirect(route('codex.document', [
+            'projectSlug' => config('codex.default_project')
+        ]));
     }
 
     /**
      * Render the documentation page for the given project and version.
      *
-     * @param  string       $project
-     * @param  null|string  $version
-     * @param  null|string  $page
-     * @return Response
+     * @param string   $projectSlug
+     * @param string|null   $ref
+     * @param string $path
+     * @return $this
      */
-    public function show($project, $version = null, $page = null)
+    public function document($projectSlug, $ref = null, $path = '')
     {
-        // 
+        $project = $this->factory->make($projectSlug);
+
+        if ( is_null($ref) )
+        {
+            $ref = $project->getDefaultRef();
+        }
+
+        $project->setRef($ref);
+        $document = $project->getDocument($path);
+        $menu = $project->getMenu()->toArray();
+
+
+        return view('codex::document', compact('project', 'document', 'menu'))->with([
+            'project-name' => $project->getName(),
+            'project-version' => $ref,
+            'versions' => $project->getVersions(),
+            'projects' => $this->factory->all()
+        ]);
+
     }
 }

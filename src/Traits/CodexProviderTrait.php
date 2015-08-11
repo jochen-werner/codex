@@ -12,7 +12,7 @@ use Codex\Codex\Factory;
  * @copyright Copyright (c) 2015, Codex Project
  * @license   https://tldrlegal.com/license/mit-license MIT License
  */
-trait CodexHookProvider
+trait CodexProviderTrait
 {
     /**
      * Add a new factory hook.

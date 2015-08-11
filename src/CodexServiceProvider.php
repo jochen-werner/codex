@@ -4,7 +4,8 @@ namespace Codex\Codex;
 use Caffeinated\Beverage\ServiceProvider;
 use Codex\Codex\Filters\FrontMatterFilter;
 use Codex\Codex\Filters\ParsedownFilter;
-use Codex\Codex\Traits\CodexHookProvider;
+use Codex\Codex\Traits\CodexProviderTrait;
+use Illuminate\Contracts\Foundation\Application;
 
 /**
  * Codex service provider.
@@ -16,7 +17,7 @@ use Codex\Codex\Traits\CodexHookProvider;
  */
 class CodexServiceProvider extends ServiceProvider
 {
-    use CodexHookProvider;
+    use CodexProviderTrait;
 
     /**
      * @var string
@@ -37,6 +38,16 @@ class CodexServiceProvider extends ServiceProvider
      */
     protected $provides = ['codex'];
 
+    public function boot()
+    {
+        $app = parent::boot();
+
+        $this->loadViewsFrom(realpath(__DIR__.'/../resources/views'), 'codex');
+
+        $this->publishes([ realpath(__DIR__.'/../resources/assets') => public_path('vendor/codex')], 'public');
+    }
+
+
     /**
      * Register bindings in the container.
      *
@@ -44,7 +55,7 @@ class CodexServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        parent::register();
+        $app = parent::register();
 
         $this->app->singleton('codex', 'Codex\Codex\Factory');
 

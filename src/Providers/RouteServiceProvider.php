@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        $router->group(['namespace' => $this->namespace], function($router) {
+        $router->group(['prefix' => config('codex.base_route'), 'namespace' => $this->namespace], function($router) {
             require(realpath(__DIR__.'/../Http/routes.php'));
         });
     }
