@@ -1,9 +1,4 @@
 <?php
-/**
- * Part of the Caffeinated PHP packages.
- *
- * MIT License and copyright information bundled with this package in the LICENSE file
- */
 namespace Codex\Codex\Http\ViewComposers;
 
 use Codex\Codex\Factory;
@@ -22,7 +17,10 @@ class ProjectMenusComposer
 {
     protected $factory;
 
-    /** Instantiates the class */
+    /** Instantiates the class
+     *
+     * @param \Codex\Codex\Factory $factory
+     */
     public function __construct(Factory $factory)
     {
         $this->factory = $factory;
@@ -45,8 +43,7 @@ class ProjectMenusComposer
     protected function getRefList(Project $project)
     {
         $list = [ ];
-        foreach ( $project->getSortedRefs() as $ref )
-        {
+        foreach ($project->getSortedRefs() as $ref) {
             $list[$ref] = $project->url(null, $ref);
         }
 
@@ -56,12 +53,11 @@ class ProjectMenusComposer
     protected function getProjectList()
     {
         $list = [ ];
-        foreach ( $this->factory->all() as $name => $project )
-        {
-            $list[(string)$project['display_name']] = $this->factory->url($name);;
+        foreach ($this->factory->all() as $name => $project) {
+            $list[(string)$project['display_name']] = $this->factory->url($name);
+            ;
         }
 
         return $list;
     }
-
 }

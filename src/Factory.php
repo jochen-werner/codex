@@ -68,8 +68,7 @@ class Factory
         // 'factory:ready' is called after parameters have been set as class properties.
         static::run('factory:ready', [ $this ]);
 
-        if ( ! isset($this->projects) )
-        {
+        if (! isset($this->projects)) {
             $this->findAll();
         }
 
@@ -88,8 +87,7 @@ class Factory
         $projects       = $finder->in($this->rootDir)->files()->name('config.php')->depth('<= 1')->followLinks();
         $this->projects = [ ];
 
-        foreach ( $projects as $project )
-        {
+        foreach ($projects as $project) {
             $name                    = last(explode(DIRECTORY_SEPARATOR, $project->getPath()));
             $config                  = with(new \Illuminate\Filesystem\Filesystem)->getRequire($project->getRealPath());
             $this->projects[ $name ] = array_replace_recursive($this->config('default_project_config'), $config);
@@ -104,8 +102,7 @@ class Factory
      */
     public function make($name)
     {
-        if ( ! $this->has($name) )
-        {
+        if (! $this->has($name)) {
             throw new \InvalidArgumentException("Project [$name] could not be found in [{$this->rootDir}]");
         }
 
@@ -139,27 +136,21 @@ class Factory
     {
         $uri = $this->config('base_route');
 
-        if ( ! is_null($project) )
-        {
-            if ( ! $project instanceof Project )
-            {
+        if (! is_null($project)) {
+            if (! $project instanceof Project) {
                 $project = $this->make($project);
             }
             $uri .= '/' . $project->getName();
 
 
-            if ( ! is_null($ref) )
-            {
+            if (! is_null($ref)) {
                 $uri .= '/' . $ref;
-            }
-            else
-            {
+            } else {
                 $uri .= '/' . $project->getDefaultRef();
             }
 
 
-            if ( ! is_null($doc) )
-            {
+            if (! is_null($doc)) {
                 $uri .= '/' . $doc;
             }
         }
@@ -196,8 +187,7 @@ class Factory
      */
     public function config($key = null, $default = null)
     {
-        if ( is_null($key) )
-        {
+        if (is_null($key)) {
             return $this->config;
         }
 
@@ -279,8 +269,7 @@ class Factory
      */
     protected static function ensurePoint($name)
     {
-        if ( ! isset(static::$hooks[ $name ]) )
-        {
+        if (! isset(static::$hooks[ $name ])) {
             static::$hooks[ $name ] = [ ];
         }
     }
@@ -294,8 +283,7 @@ class Factory
      */
     public static function hook($point, $handler)
     {
-        if ( ! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false) )
-        {
+        if (! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false)) {
             throw new \InvalidArgumentException("Failed adding hook. Provided handler for [{$point}] is not valid. Either provider a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Hook");
         }
 
@@ -314,14 +302,10 @@ class Factory
     {
         static::ensurePoint($name);
 
-        foreach ( static::$hooks[ $name ] as $handler )
-        {
-            if ( $handler instanceof \Closure )
-            {
+        foreach (static::$hooks[ $name ] as $handler) {
+            if ($handler instanceof \Closure) {
                 call_user_func_array($handler, $params);
-            }
-            elseif ( class_exists($handler) )
-            {
+            } elseif (class_exists($handler)) {
                 $instance = app()->make($handler);
 
                 call_user_func_array([ $instance, 'handle' ], $params);

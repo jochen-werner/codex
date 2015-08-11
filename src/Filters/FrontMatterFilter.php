@@ -27,9 +27,8 @@ class FrontMatterFilter implements Filter
         $content = $document->getContent();
 
         $pattern = '/<!---([\w\W]*?)-->/';
-        if (preg_match($pattern, $content, $matches) === 1)
-        {
-            // not really required when using html doc tags. But in case it's frontmatter, it should be removed
+        if (preg_match($pattern, $content, $matches) === 1) {
+        // not really required when using html doc tags. But in case it's frontmatter, it should be removed
             $content    = preg_replace($pattern, '', $content);
             $attributes = array_merge_recursive($document->getAttributes(), Yaml::parse($matches[1]));
 

@@ -99,8 +99,7 @@ class ParsedownExtra extends BaseParsedownExtra
 
             $headerCells = explode('|', $header);
 
-            foreach ($headerCells as $index => $headerCell)
-            {
+            foreach ($headerCells as $index => $headerCell) {
                 $headerCell = trim($headerCell);
 
                 $headerElement = [

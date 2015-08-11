@@ -97,7 +97,7 @@ class Project
         $branches    = [];
         $this->refs  = [];
 
-        $this->versions = array_filter(array_map(function($dirPath) use ($path, $name, &$branches) {
+        $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches) {
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
             $version      = (string)$version->removeLeft($name.'/');
             $this->refs[] = $version;
@@ -116,7 +116,7 @@ class Project
 
         switch ($this->config['default']) {
             case Project::SHOW_LAST_VERSION:
-                usort($this->versions, function(version $v1, version $v2) {
+                usort($this->versions, function (version $v1, version $v2) {
                     return version::gt($v1, $v2) ? -1 : 1;
                 });
 
@@ -124,7 +124,7 @@ class Project
                 break;
             case Project::SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH:
                 if (count($this->versions) > 0) {
-                    usort($this->versions, function(version $v1, version $v2) {
+                    usort($this->versions, function (version $v1, version $v2) {
                         return version::gt($v1, $v2) ? -1 : 1;
                     });
                 }
@@ -261,11 +261,11 @@ class Project
     {
         $versions = $this->versions;
 
-        usort($versions, function(version $v1, version $v2) {
+        usort($versions, function (version $v1, version $v2) {
             return version::gt($v1, $v2) ? -1 : 1;
         });
 
-        $versions = array_map(function(version $v) {
+        $versions = array_map(function (version $v) {
             return $v->getVersion();
         }, $versions);
 

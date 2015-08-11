@@ -4,6 +4,14 @@ namespace Codex\Codex\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Codex\Codex\Factory;
 
+/**
+ * This is the CodexController.
+ *
+ * @package        Codex\Codex
+ * @author         Caffeinated Dev Team
+ * @copyright      Copyright (c) 2015, Caffeinated
+ * @license        https://tldrlegal.com/license/mit-license MIT License
+ */
 class CodexController extends Controller
 {
     protected $factory;
@@ -42,8 +50,7 @@ class CodexController extends Controller
     {
         $project = $this->factory->make($projectSlug);
 
-        if ( is_null($ref) )
-        {
+        if (is_null($ref)) {
             $ref = $project->getDefaultRef();
         }
 
