@@ -40,7 +40,7 @@ class CodexServiceProvider extends ServiceProvider
 
     protected $viewDirs = [ 'views' => 'codex' ];
 
-    protected $assetDirs = [ 'views' => 'codex' ];
+    protected $assetDirs = [ 'assets' => 'codex' ];
 
     protected $providers = [
         \Caffeinated\Beverage\BeverageServiceProvider::class,

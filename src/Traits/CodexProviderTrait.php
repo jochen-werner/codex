@@ -1,9 +1,7 @@
 <?php
 namespace Codex\Codex\Traits;
 
-use Codex\Codex\Document;
-use Codex\Codex\Factory;
-use Codex\Codex\Hooks;
+use Codex\Codex\Extensions;
 
 /**
  * Codex hook provider trait
@@ -18,26 +16,35 @@ trait CodexProviderTrait
     /**
      * Add a new factory hook.
      *
-     * @param  string                                 $hookPoint
-     * @param  \Closure|\Codex\Codex\Constracts\Hook  $handler
+     * @param  string                                $hookPoint
+     * @param  \Closure|\Codex\Codex\Constracts\Hook $handler
      * @return void
      */
     protected function addCodexHook($hookPoint, $handler)
     {
-        Hooks::hook($hookPoint, $handler);
+        Extensions::addHook($hookPoint, $handler);
     }
 
     /**
      * Add a new document filter.
      *
-     * @param  string                                  $name
-     * @param  \Closure|\Codex\Codex\Contracts\Filter  $handler
+     * @param  string                                 $name
+     * @param  \Closure|\Codex\Codex\Contracts\Filter $handler
      * @return void
      */
     protected function addCodexFilter($name, $handler)
     {
-        Document::filter($name, $handler);
+        Extensions::filter($name, $handler);
     }
 
+    /**
+     * addRouteProjectNameExclusions
+     *
+     * @param string|array $names
+     */
+    protected function addRouteProjectNameExclusions($names)
+    {
+        Extensions::addExcludedProjectNames($names);
+    }
 
 }

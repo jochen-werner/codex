@@ -179,6 +179,11 @@ class Project
         $this->runHook('project:done', [ $this ]);
     }
 
+    public function path($path = null)
+    {
+        return is_null($path) ? Path::join($this->path, $this->ref) : Path::join($this->path, $this->ref, $path);
+    }
+
     /**
      * url
      *

@@ -6,7 +6,7 @@
  */
 namespace Codex\Codex\Traits;
 
-use Codex\Codex\Hooks;
+use Codex\Codex\Extensions;
 use Illuminate\Support\Traits\Macroable;
 
 /**
@@ -23,6 +23,6 @@ trait Hookable
 
     protected function runHook($name, array $params = [ ])
     {
-        Hooks::run($name, $params);
+        Extensions::runHook($name, $params);
     }
 }

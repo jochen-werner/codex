@@ -39,10 +39,6 @@ class Document
      */
     protected $files;
 
-    /**
-     * @var array
-     */
-    protected static $filters = [ ];
 
     /**
      * @var string
@@ -102,7 +98,7 @@ class Document
         $this->runHook('document:render', [ $this ]);
 
         $fsettings = $this->project->config('filters_settings');
-        $filters   = array_only(static::$filters, $this->getProject()->config('filters'));
+        $filters   = Extensions::getFilters($this->getProject()->config('filters'));
 
         if ( count($filters) > 0 )
         {
@@ -123,22 +119,6 @@ class Document
         return $this->content;
     }
 
-    /**
-     * Add a new filter to the registered filters list.
-     *
-     * @param  string                                 $name
-     * @param  \Closure|\Codex\Codex\Contracts\Filter $handler
-     * @return void
-     */
-    public static function filter($name, $handler)
-    {
-        if ( ! $handler instanceof \Closure and ! in_array(Filter::class, class_implements($handler), false) )
-        {
-            throw new \InvalidArgumentException("Failed adding Filter. Provided handler for [{$name}] is not valid. Must either provide a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Filter");
-        }
-
-        static::$filters[ $name ] = $handler;
-    }
 
     /**
      * Get the given attribute.

@@ -35,16 +35,19 @@ class ProjectMenusComposer
     {
         $data = $view->getData();
         $view->with([
-            'projectRefList'     => $this->getRefList($data[ 'project' ]),
-            'projectsList' => $this->getProjectList()
+            'projectRefList' => $this->getRefList($data[ 'project' ]),
+            'projectsList'   => $this->getProjectList(),
+            'projectName'    => $data[ 'project' ]->getName(),
+            'projectRef'            => $data[ 'project' ]->getRef()
         ]);
     }
 
     protected function getRefList(Project $project)
     {
         $list = [ ];
-        foreach ($project->getSortedRefs() as $ref) {
-            $list[$ref] = $project->url(null, $ref);
+        foreach ( $project->getSortedRefs() as $ref )
+        {
+            $list[ $ref ] = $project->url(null, $ref);
         }
 
         return $list;
@@ -53,8 +56,9 @@ class ProjectMenusComposer
     protected function getProjectList()
     {
         $list = [ ];
-        foreach ($this->factory->getProjects() as $project) {
-            $list[(string) $project->config('display_name')] = $project->url();
+        foreach ( $this->factory->getProjects() as $project )
+        {
+            $list[ (string)$project->config('display_name') ] = $project->url();
         }
 
         return $list;

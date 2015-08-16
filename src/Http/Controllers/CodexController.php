@@ -48,9 +48,6 @@ class CodexController extends Controller
 
         $this->view->composer($document->attr('view'), $this->factory->config('projects_menus_view_composer'));
 
-        return  $this->view->make($document->attr('view'), compact('project', 'document', 'content', 'breadcrumb'))->with([
-            'projectName' => $project->getName(),
-            'projectRef'  => $ref
-        ]);
+        return  $this->view->make($document->attr('view'), compact('project', 'document', 'content', 'breadcrumb'));
     }
 }
