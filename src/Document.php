@@ -1,11 +1,10 @@
 <?php
 namespace Codex\Codex;
 
-use Codex\Codex\Contracts\Filter;
+use Codex\Codex\Contracts\Factory;
 use Codex\Codex\Traits\Hookable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Illuminate\Support\Traits\Macroable;
 
 /**
  * Document class.
@@ -57,24 +56,27 @@ class Document
      */
     protected $pathName;
 
-    protected $app;
+    /**
+     * @var \Illuminate\Contracts\Container\Container
+     */
+    protected $container;
 
     /**
      * @param \Codex\Codex\Factory                        $factory
      * @param \Illuminate\Contracts\Filesystem\Filesystem $files
      * @param \Codex\Codex\Project                        $project
-     * @param \Illuminate\Contracts\Container\Container   $app
+     * @param \Illuminate\Contracts\Container\Container   $container
      * @param                                             $path
      * @param                                             $pathName
      */
-    public function __construct(Factory $factory, Filesystem $files, Project $project, Container $app, $path, $pathName)
+    public function __construct(Factory $factory, Filesystem $files, Project $project, Container $container, $path, $pathName)
     {
-        $this->app      = $app;
-        $this->factory  = $factory;
-        $this->project  = $project;
-        $this->files    = $files;
-        $this->path     = $path;
-        $this->pathName = $pathName;
+        $this->container = $container;
+        $this->factory   = $factory;
+        $this->project   = $project;
+        $this->files     = $files;
+        $this->path      = $path;
+        $this->pathName  = $pathName;
 
         $this->runHook('document:ready', [ $this ]);
 
@@ -202,6 +204,18 @@ class Document
     {
         $this->attributes = $attributes;
 
+        return $this;
+    }
+
+    /**
+     * mergeAttributes
+     *
+     * @param array $attributes
+     * @return $this
+     */
+    public function mergeAttributes(array $attributes)
+    {
+        $this->attributes = array_replace_recursive($this->attributes, $attributes);
         return $this;
     }
 

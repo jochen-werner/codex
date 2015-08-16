@@ -71,6 +71,8 @@
         baseUrl: '{!! url('vendor/codex/scripts') !!}'
     })
 </script>
+@stack('config-scripts')
 <script src="{{ asset('vendor/codex/scripts/init.js') }}"></script>
+@stack('init-scripts')
 </body>
 </html>
