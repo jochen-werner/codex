@@ -40,6 +40,10 @@ class CodexServiceProvider extends ServiceProvider
      */
     protected $provides = [ 'codex' ];
 
+    protected $viewDirs = [ 'views' => 'codex' ];
+
+    protected $assetDirs = [ 'views' => 'codex' ];
+
     public function boot()
     {
         $app = parent::boot();
