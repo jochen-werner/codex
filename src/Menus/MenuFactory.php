@@ -93,8 +93,7 @@ class MenuFactory implements MenuFactoryContract
      */
     public function add($id)
     {
-        if ( $this->has($id) )
-        {
+        if ($this->has($id)) {
             return $this->get($id);
         }
 
@@ -142,5 +141,4 @@ class MenuFactory implements MenuFactoryContract
         $this->menus->forget($id);
         return $this;
     }
-
 }

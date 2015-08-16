@@ -87,5 +87,4 @@ class CodexServiceProvider extends ServiceProvider
         $this->addCodexFilter('front_matter', FrontMatterFilter::class);
         $this->addCodexFilter('parsedown', ParsedownFilter::class);
     }
-
 }

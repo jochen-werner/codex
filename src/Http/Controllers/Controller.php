@@ -42,5 +42,4 @@ class Controller extends BaseController
         $this->menus = $menus;
         $this->view = $view;
     }
-
 }

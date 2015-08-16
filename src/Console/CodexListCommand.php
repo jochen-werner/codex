@@ -24,8 +24,7 @@ class CodexListCommand extends BaseCommand
     {
         $headers = ['Name', 'Ref'];
         $rows = [];
-        foreach($this->factory->all() as $name => $config){
-
+        foreach ($this->factory->all() as $name => $config) {
             $rows[] = [$name, $this->factory->make($name)->getRef()];
         }
         $this->table($headers, $rows);

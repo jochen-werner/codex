@@ -102,19 +102,14 @@ class Document
         $fsettings = $this->project->config('filters_settings');
         $filters   = Extensions::getFilters($this->getProject()->config('filters'));
 
-        if ( count($filters) > 0 )
-        {
-            foreach ( $filters as $name => $filter )
-            {
-                if ( $filter instanceof \Closure )
-                {
+        if (count($filters) > 0) {
+            foreach ($filters as $name => $filter) {
+                if ($filter instanceof \Closure) {
                     call_user_func_array($filter, [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                }
-                else
-                {
+                    } else {
                     $instance = app()->make($filter);
                     call_user_func_array([ $instance, 'handle' ], [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                }
+                    }
             }
         }
 

@@ -131,8 +131,7 @@ class Menu
     {
         $node = new Node($id, $this, $value, $meta, $attributes);
 
-        if ( ! is_null($parent) and $this->items->has($parent) )
-        {
+        if (! is_null($parent) and $this->items->has($parent)) {
             $parentNode = $this->items->get($parent);
             $parentNode->addChild($node);
             $node->setMeta('data-parent', $parent);
@@ -210,12 +209,9 @@ class Menu
     public function getBreadcrumbToHref($href)
     {
         $item = $this->findItemByHref($href);
-        if ( $item )
-        {
+        if ($item) {
             return $this->getBreadcrumbTo($item);
-        }
-        else
-        {
+        } else {
             return [ ];
         }
     }
@@ -229,15 +225,13 @@ class Menu
     public function findItemByHref($href)
     {
 
-        $found = $this->items->filter(function (Node $item) use ($href)
-        {
-            if ( $item->hasAttribute('href') && $item->attribute('href') === $href )
-            {
+        $found = $this->items->filter(function (Node $item) use ($href) {
+        
+            if ($item->hasAttribute('href') && $item->attribute('href') === $href) {
                 return true;
             }
         });
-        if ( $found->isEmpty() )
-        {
+        if ($found->isEmpty()) {
             return null;
         }
         /** @var Node $node */
@@ -245,6 +239,4 @@ class Menu
 
         return $node;
     }
-
-
 }

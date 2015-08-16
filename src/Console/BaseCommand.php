@@ -29,5 +29,4 @@ abstract class BaseCommand extends Command
         parent::__construct();
         $this->factory = $factory;
     }
-
 }

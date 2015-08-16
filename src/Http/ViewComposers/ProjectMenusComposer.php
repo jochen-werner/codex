@@ -45,8 +45,7 @@ class ProjectMenusComposer
     protected function getRefList(Project $project)
     {
         $list = [ ];
-        foreach ( $project->getSortedRefs() as $ref )
-        {
+        foreach ($project->getSortedRefs() as $ref) {
             $list[ $ref ] = $project->url(null, $ref);
         }
 
@@ -56,8 +55,7 @@ class ProjectMenusComposer
     protected function getProjectList()
     {
         $list = [ ];
-        foreach ( $this->factory->getProjects() as $project )
-        {
+        foreach ($this->factory->getProjects() as $project) {
             $list[ (string)$project->config('display_name') ] = $project->url();
         }
 

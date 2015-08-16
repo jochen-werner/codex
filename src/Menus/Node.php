@@ -95,12 +95,9 @@ class Node extends \Tree\Node\Node
      */
     public function setAttribute($key, $value = null)
     {
-        if ( is_array($key) && is_null($value) )
-        {
+        if (is_array($key) && is_null($value)) {
             $this->attributes = $key;
-        }
-        else
-        {
+        } else {
             array_set($this->attributes, $key, $value);
         }
 
@@ -116,12 +113,9 @@ class Node extends \Tree\Node\Node
      */
     public function setMeta($key, $value = null)
     {
-        if ( is_array($key) && is_null($value) )
-        {
+        if (is_array($key) && is_null($value)) {
             $this->meta = $key;
-        }
-        else
-        {
+        } else {
             array_set($this->meta, $key, $value);
         }
 
@@ -167,7 +161,7 @@ class Node extends \Tree\Node\Node
     public function parseAttributes()
     {
         $parsed = '';
-        foreach($this->attributes as $key => $val){
+        foreach ($this->attributes as $key => $val) {
             $parsed .= " {$key}=\"{$val}\"";
         }
 
@@ -207,5 +201,4 @@ class Node extends \Tree\Node\Node
 
         return $this;
     }
-
 }

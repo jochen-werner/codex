@@ -46,5 +46,4 @@ trait CodexProviderTrait
     {
         Extensions::addExcludedProjectNames($names);
     }
-
 }

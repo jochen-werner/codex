@@ -35,8 +35,7 @@ class CodexController extends Controller
     {
         $project = $this->factory->getProject($projectSlug);
 
-        if ( is_null($ref) )
-        {
+        if (is_null($ref)) {
             $ref = $project->getDefaultRef();
         }
         $project->setRef($ref);

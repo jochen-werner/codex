@@ -46,8 +46,7 @@ class Extensions
      */
     protected static function ensureHookPoint($name)
     {
-        if ( ! isset(static::$hooks[ $name ]) )
-        {
+        if (! isset(static::$hooks[ $name ])) {
             static::$hooks[ $name ] = [ ];
         }
     }
@@ -61,8 +60,7 @@ class Extensions
      */
     public static function addHook($point, $handler)
     {
-        if ( ! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false) )
-        {
+        if (! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false)) {
             throw new \InvalidArgumentException("Failed adding hook. Provided handler for [{$point}] is not valid. Either provider a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Hook");
         }
 
@@ -81,14 +79,10 @@ class Extensions
     {
         static::ensureHookPoint($name);
 
-        foreach ( static::$hooks[ $name ] as $handler )
-        {
-            if ( $handler instanceof \Closure )
-            {
+        foreach (static::$hooks[ $name ] as $handler) {
+            if ($handler instanceof \Closure) {
                 call_user_func_array($handler, $params);
-            }
-            elseif ( class_exists($handler) )
-            {
+            } elseif (class_exists($handler)) {
                 $instance = app()->make($handler);
 
                 call_user_func_array([ $instance, 'handle' ], $params);
@@ -117,8 +111,7 @@ class Extensions
      */
     public static function addExcludedProjectNames($projectNames)
     {
-        if ( ! is_array($projectNames) )
-        {
+        if (! is_array($projectNames)) {
             $projectNames = [ $projectNames ];
         }
         static::$excludedProjectNames = array_merge(static::$excludedProjectNames, $projectNames);
@@ -148,8 +141,7 @@ class Extensions
      */
     public static function filter($name, $handler)
     {
-        if ( ! $handler instanceof \Closure and ! in_array(Filter::class, class_implements($handler), false) )
-        {
+        if (! $handler instanceof \Closure and ! in_array(Filter::class, class_implements($handler), false)) {
             throw new \InvalidArgumentException("Failed adding Filter. Provided handler for [{$name}] is not valid. Must either provide a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Filter");
         }
 
@@ -163,20 +155,14 @@ class Extensions
      */
     public static function getFilters($filterNames = null)
     {
-        if ( ! is_null($filterNames) )
-        {
-            if ( ! is_array($filterNames) )
-            {
+        if (! is_null($filterNames)) {
+            if (! is_array($filterNames)) {
                 $filterNames = [ $filterNames ];
             }
 
             return array_only(static::$filters, $filterNames);
-        }
-        else
-        {
+        } else {
             return static::$filters;
         }
     }
-
-
 }
