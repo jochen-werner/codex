@@ -1,7 +1,6 @@
 <?php
 namespace Codex\Codex\Menus;
 
-use Codex\Codex\Contracts\Factory;
 use Codex\Codex\Contracts\Menus\MenuFactory as MenuFactoryContract;
 use Codex\Codex\Traits\Hookable;
 use Illuminate\Contracts\Cache\Repository as Cache;
@@ -108,10 +107,14 @@ class Menu
      */
     public function render()
     {
-        return $this->viewFactory->make($this->view, [
-            'menu' => $this,
+        $vars = [
+            'menu'  => $this,
             'items' => $this->get('root')->getChildren()
-        ])->render();
+        ];
+
+        $rendered = $this->viewFactory->make($this->view)->with($vars)->render();
+
+        return $rendered;
     }
 
     /**
@@ -126,11 +129,15 @@ class Menu
      */
     public function add($id, $value, $parent = 'root', array $meta = [ ], array $attributes = [ ])
     {
-        $node = new Node($id, $this, $value);
-        $node
-            ->setMeta($meta)
-            ->setAttribute($attributes)
-            ->setParent($this->get($parent));
+        $node = new Node($id, $this, $value, $meta, $attributes);
+
+        if ( ! is_null($parent) and $this->items->has($parent) )
+        {
+            $parentNode = $this->items->get($parent);
+            $parentNode->addChild($node);
+            $node->setMeta('data-parent', $parent);
+        }
+
         $this->items->put($id, $node);
 
         return $node;
@@ -180,6 +187,63 @@ class Menu
         $this->view = $view;
 
         return $this;
+    }
+
+
+    /**
+     * getBreadcrumbs
+     *
+     * @param $href
+     * @return array
+     */
+    public function getBreadcrumbTo(Node $item)
+    {
+        return $item->getAncestorsAndSelf();
+    }
+
+    /**
+     * getBreadcrumbToHref
+     *
+     * @param $href
+     * @return array
+     */
+    public function getBreadcrumbToHref($href)
+    {
+        $item = $this->findItemByHref($href);
+        if ( $item )
+        {
+            return $this->getBreadcrumbTo($item);
+        }
+        else
+        {
+            return [ ];
+        }
+    }
+
+    /**
+     * findItemByHref
+     *
+     * @param $href
+     * @return \Codex\Codex\Menus\Node|null
+     */
+    public function findItemByHref($href)
+    {
+
+        $found = $this->items->filter(function (Node $item) use ($href)
+        {
+            if ( $item->hasAttribute('href') && $item->attribute('href') === $href )
+            {
+                return true;
+            }
+        });
+        if ( $found->isEmpty() )
+        {
+            return null;
+        }
+        /** @var Node $node */
+        $node = $found->first();
+
+        return $node;
     }
 
 

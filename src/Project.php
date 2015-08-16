@@ -240,7 +240,7 @@ class Project
 
         $menu = $this->resolveDocumentsMenu($array[ 'menu' ]);
         $menu->setView('codex::menus/project-sidebar');
-        $this->runHook('project:menu:documents', [$this, $menu]);
+        $this->runHook('project:documents-menu', [$this, $menu]);
 
         return $menu;
     }
@@ -322,11 +322,11 @@ class Project
     # Config
 
     /**
-     * Retreive this projects config using a dot notated key
+     * config
      *
-     * @param  null|string $key
-     * @param  null|mixed  $default
-     * @return callable
+     * @param null $key
+     * @param null $default
+     * @return array|mixed
      */
     public function config($key = null, $default = null)
     {

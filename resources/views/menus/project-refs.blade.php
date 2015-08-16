@@ -1,34 +1,22 @@
-{{--@if(isset($item['children']))
 
-    <li class="dropdown">
-        <a href="{{ isset($item['href']) ? $item['href'] : '#' }}" class="dropdown-toggle" data-toggle="dropdown">
-            @if(isset($item['icon']))
-                <i class="{{ $item['icon'] }}"></i>
-            @endif
-            {{ $item['name'] }}
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-
-            @each('partials/menu-item', $item['children'], 'item')
-
-        </ul>
-    </li>
-@else--}}
 @foreach($items as $item)
     <li>
-        <a {{ $item->meta() }}>
-            @if(isset($item['icon']))
-                <i class="{{ $item['icon'] }}"></i>
+        <a {{ $item->parseAttributes() }}>
+            @if($item->meta('icon', false) !== false)
+                <i class="{{ $item->meta('icon') }}"></i>
             @endif
-            <span class="title">{{ $item['name'] }}</span>
-            @if(isset($item['children']))
+            <span class="title">{{ $item->getValue() }}</span>
+            @if($item->hasChildren())
                 <span class="arrow"></span>
             @endif
         </a>
-        @if(isset($item['children']))
+        @if($item->hasChildren())
             <ul class="sub-menu">
-            @each('codex::partials/menu-item', $item['children'], 'item')
+                @breakpoint
+            @include($menu->getView(), [
+                'items' => $item->getChildren(),
+                'menu' => $menu
+            ])
             </ul>
         @endif
     </li>

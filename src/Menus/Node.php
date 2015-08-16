@@ -31,6 +31,9 @@ class Node extends \Tree\Node\Node
      */
     protected $meta;
 
+    /**
+     * @var array
+     */
     protected $attributes;
 
     /**
@@ -49,22 +52,47 @@ class Node extends \Tree\Node\Node
         $this->attributes = [ ];
     }
 
+    /**
+     * hasChildren
+     *
+     * @return bool
+     */
     public function hasChildren()
     {
         return count($this->getChildren()) > 0;
     }
 
-
+    /**
+     * attribute
+     *
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
     public function attribute($key, $default = null)
     {
         return array_get($this->attributes, $key, $default);
     }
 
+    /**
+     * meta
+     *
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
     public function meta($key, $default = null)
     {
-        return array_get($this->attributes, $key, $default);
+        return array_get($this->meta, $key, $default);
     }
 
+    /**
+     * setAttribute
+     *
+     * @param      $key
+     * @param null $value
+     * @return $this
+     */
     public function setAttribute($key, $value = null)
     {
         if ( is_array($key) && is_null($value) )
@@ -79,7 +107,13 @@ class Node extends \Tree\Node\Node
         return $this;
     }
 
-
+    /**
+     * setMeta
+     *
+     * @param      $key
+     * @param null $value
+     * @return $this
+     */
     public function setMeta($key, $value = null)
     {
         if ( is_array($key) && is_null($value) )
@@ -94,6 +128,16 @@ class Node extends \Tree\Node\Node
         return $this;
     }
 
+    /**
+     * hasMeta
+     *
+     * @param $key
+     * @return bool
+     */
+    public function hasMeta($key)
+    {
+        return array_has($this->meta, $key);
+    }
 
     /**
      * get meta value
@@ -113,6 +157,32 @@ class Node extends \Tree\Node\Node
     public function getAttributes()
     {
         return $this->attributes;
+    }
+
+    /**
+     * parseAttributes
+     *
+     * @return string
+     */
+    public function parseAttributes()
+    {
+        $parsed = '';
+        foreach($this->attributes as $key => $val){
+            $parsed .= " {$key}=\"{$val}\"";
+        }
+
+        return $parsed;
+    }
+
+    /**
+     * hasAttribute
+     *
+     * @param $key
+     * @return bool
+     */
+    public function hasAttribute($key)
+    {
+        return array_has($this->attributes, $key);
     }
 
     /**

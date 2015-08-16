@@ -7,6 +7,7 @@
 namespace Codex\Codex\Menus;
 
 use Codex\Codex\Contracts\Menus\MenuFactory as MenuFactoryContract;
+use Codex\Codex\Traits\Hookable;
 use Illuminate\Contracts\Cache\Repository as Cache;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -25,18 +26,41 @@ use Illuminate\Support\Collection;
  */
 class MenuFactory implements MenuFactoryContract
 {
+    use Hookable;
+
+    /**
+     * @var \Illuminate\Contracts\Container\Container
+     */
     protected $container;
 
+    /**
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
+     */
     protected $files;
 
+    /**
+     * @var \Illuminate\Contracts\Cache\Repository
+     */
     protected $cache;
 
+    /**
+     * @var \Illuminate\Routing\Router
+     */
     protected $router;
 
+    /**
+     * @var \Illuminate\Contracts\Routing\UrlGenerator
+     */
     protected $url;
 
+    /**
+     * @var \Illuminate\Contracts\View\Factory
+     */
     protected $view;
 
+    /**
+     * @var \Illuminate\Support\Collection
+     */
     protected $menus;
 
     /**
@@ -56,6 +80,8 @@ class MenuFactory implements MenuFactoryContract
         $this->url       = $url;
         $this->view      = $view;
         $this->menus     = new Collection();
+
+        $this->runHook('menu-factory:ready', [$this]);
     }
 
 
@@ -75,8 +101,8 @@ class MenuFactory implements MenuFactoryContract
         $menu = $this->container->make(Menu::class, [
             'menuFactory' => $this
         ]);
+        $this->runHook('menu-factory:add', [$this, $menu]);
         $this->menus->put($id, $menu);
-
         return $menu;
     }
 
@@ -112,6 +138,7 @@ class MenuFactory implements MenuFactoryContract
      */
     public function forget($id)
     {
+        $this->runHook('menu-factory:add', [$this, $id]);
         $this->menus->forget($id);
         return $this;
     }

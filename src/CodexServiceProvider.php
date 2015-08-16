@@ -4,8 +4,6 @@ namespace Codex\Codex;
 use Caffeinated\Beverage\ServiceProvider;
 use Codex\Codex\Filters\FrontMatterFilter;
 use Codex\Codex\Filters\ParsedownFilter;
-use Codex\Codex\Http\ViewComposers\ProjectMenusComposer;
-use Codex\Codex\Providers\RouteServiceProvider;
 use Codex\Codex\Traits\CodexProviderTrait;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -76,6 +74,7 @@ class CodexServiceProvider extends ServiceProvider
     {
         $app = parent::register();
         $this->registerFilters();
+
     }
 
     /**

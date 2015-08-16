@@ -88,6 +88,7 @@ class Document
         $this->runHook('document:done', [ $this ]);
     }
 
+
     /**
      * Render the document.
      *
@@ -100,7 +101,7 @@ class Document
     {
         $this->runHook('document:render', [ $this ]);
 
-        $fsettings = $this->getProject()->config('filters_settings');
+        $fsettings = $this->project->config('filters_settings');
         $filters   = array_only(static::$filters, $this->getProject()->config('filters'));
 
         if ( count($filters) > 0 )
@@ -165,7 +166,7 @@ class Document
      */
     public function getBreadcrumb()
     {
-        return [];// $this->project->getMenu()->getDocumentBreadcrumb($this);
+        return $this->project->getDocumentsMenu()->getBreadcrumbToHref($this->url());
     }
 
     /**

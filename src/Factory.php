@@ -94,6 +94,9 @@ class Factory implements FactoryContract
             return;
         }
 
+        /**
+         * @var \Codex\Codex\Menus\Node $projectsMenu
+         */
         $projectsMenu = $this->menus->add('projects_menu');
         $finder       = new Finder();
         $projects     = $finder->in($this->rootDir)->files()->name('config.php')->depth('<= 1')->followLinks();
@@ -109,9 +112,10 @@ class Factory implements FactoryContract
                 'name'    => $name,
                 'config'  => $config
             ]);
-            $this->runHook('project:make', [ $this, $project ]);
-            $this->projects->put($name, $project);
 
+            $this->runHook('project:make', [ $this, $project ]);
+
+            $this->projects->put($name, $project);
             $projectsMenu->add($name, $name, 'root', [ ], [
                 'href' => $this->url($project)
             ]);
@@ -217,7 +221,7 @@ class Factory implements FactoryContract
         {
             if ( ! $project instanceof Project )
             {
-                $project = $this->make($project);
+                $project = $this->getProject($project);
             }
             $uri .= '/' . $project->getName();
 

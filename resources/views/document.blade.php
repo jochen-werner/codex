@@ -6,18 +6,20 @@
     @parent
     @if(isset($breadcrumb))
         @foreach($breadcrumb as $item)
+            @if($item->getId() !== 'root')
             <li>
-                <a href="{{ isset($item['href']) ? $item['href'] : '' }}">{{ $item['name'] }}</a>
-                @if(! isset($item['last']) || $item['last'] === false)
+                <a {!! $item->parseAttributes() !!}>{{ $item->getValue() }}</a>
+                @if($item->hasChildren())
                     <i class="fa fa-arrow-right"></i>
                 @endif
             </li>
+            @endif
         @endforeach
     @endif
 @stop
 
 @section('sidebar-menu')
-    {{ $project->getDocumentsMenu()->render() }}
+    {!! $project->getDocumentsMenu()->render() !!}
 @stop
 
 @section('header-actions')
