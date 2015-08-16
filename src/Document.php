@@ -2,6 +2,8 @@
 namespace Codex\Codex;
 
 use Codex\Codex\Contracts\Filter;
+use Codex\Codex\Traits\Hookable;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Traits\Macroable;
 
@@ -15,7 +17,7 @@ use Illuminate\Support\Traits\Macroable;
  */
 class Document
 {
-    use Macroable;
+    use Hookable;
 
     /**
      * @var array
@@ -59,28 +61,31 @@ class Document
      */
     protected $pathName;
 
+    protected $app;
+
     /**
-     * Create a new Document instance.
-     *
-     * @param  \Codex\Codex\Factory $factory
-     * @param  \Codex\Codex\Project $project
-     * @param  Filesystem           $files
-     * @param  string               $path
+     * @param \Codex\Codex\Factory                        $factory
+     * @param \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param \Codex\Codex\Project                        $project
+     * @param \Illuminate\Contracts\Container\Container   $app
+     * @param                                             $path
+     * @param                                             $pathName
      */
-    public function __construct(Factory $factory, Project $project, Filesystem $files, $path, $pathName)
+    public function __construct(Factory $factory, Filesystem $files, Project $project, Container $app, $path, $pathName)
     {
-        $this->factory = $factory;
+        $this->app      = $app;
+        $this->factory  = $factory;
         $this->project  = $project;
         $this->files    = $files;
         $this->path     = $path;
         $this->pathName = $pathName;
 
-        Factory::run('document:ready', [ $this ]);
+        $this->runHook('document:ready', [ $this ]);
 
         $this->attributes = $factory->config('default_document_attributes');
         $this->content    = $this->files->get($this->path);
 
-        Factory::run('document:done', [ $this ]);
+        $this->runHook('document:done', [ $this ]);
     }
 
     /**
@@ -93,7 +98,7 @@ class Document
      */
     public function render()
     {
-        Factory::run('document:render', [ $this ]);
+        $this->runHook('document:render', [ $this ]);
 
         $fsettings = $this->getProject()->config('filters_settings');
         $filters   = array_only(static::$filters, $this->getProject()->config('filters'));
@@ -160,7 +165,7 @@ class Document
      */
     public function getBreadcrumb()
     {
-        return $this->project->getMenu()->getDocumentBreadcrumb($this);
+        return [];// $this->project->getMenu()->getDocumentBreadcrumb($this);
     }
 
     /**

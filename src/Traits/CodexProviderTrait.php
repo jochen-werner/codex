@@ -3,6 +3,7 @@ namespace Codex\Codex\Traits;
 
 use Codex\Codex\Document;
 use Codex\Codex\Factory;
+use Codex\Codex\Hooks;
 
 /**
  * Codex hook provider trait
@@ -23,7 +24,7 @@ trait CodexProviderTrait
      */
     protected function addCodexHook($hookPoint, $handler)
     {
-        Factory::hook($hookPoint, $handler);
+        Hooks::hook($hookPoint, $handler);
     }
 
     /**
@@ -37,4 +38,6 @@ trait CodexProviderTrait
     {
         Document::filter($name, $handler);
     }
+
+
 }

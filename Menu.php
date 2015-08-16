@@ -18,7 +18,7 @@ use Symfony\Component\Yaml\Yaml;
  * @copyright Copyright (c) 2015, Codex Project
  * @license   https://tldrlegal.com/license/mit-license MIT License
  */
-class Menu implements Jsonable, Arrayable
+class Menu3 implements Jsonable, Arrayable
 {
     use Macroable;
 
@@ -273,4 +273,175 @@ class Menu implements Jsonable, Arrayable
     {
         return json_encode($this->menu, $options);
     }
+
+
+    /*
+     |---------------------------------------------------------------------
+     | Getters / Setters
+     |---------------------------------------------------------------------
+     |
+     */
+
+    /**
+     * get menu value
+     *
+     * @return array
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+
+    /**
+     * Set the menu value
+     *
+     * @param array $menu
+     * @return Menu
+     */
+    public function setMenu($menu)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * get cache value
+     *
+     * @return Cache
+     */
+    public function getCache()
+    {
+        return $this->cache;
+    }
+
+    /**
+     * Set the cache value
+     *
+     * @param Cache $cache
+     * @return Menu
+     */
+    public function setCache($cache)
+    {
+        $this->cache = $cache;
+
+        return $this;
+    }
+
+    /**
+     * get files value
+     *
+     * @return \Illuminate\Filesystem\Filesystem
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * Set the files value
+     *
+     * @param \Illuminate\Filesystem\Filesystem $files
+     * @return Menu
+     */
+    public function setFiles($files)
+    {
+        $this->files = $files;
+
+        return $this;
+    }
+
+    /**
+     * get flatMenu value
+     *
+     * @return array
+     */
+    public function getFlatMenu()
+    {
+        return $this->flatMenu;
+    }
+
+    /**
+     * Set the flatMenu value
+     *
+     * @param array $flatMenu
+     * @return Menu
+     */
+    public function setFlatMenu($flatMenu)
+    {
+        $this->flatMenu = $flatMenu;
+
+        return $this;
+    }
+
+    /**
+     * get path value
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set the path value
+     *
+     * @param string $path
+     * @return Menu
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * get project value
+     *
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * Set the project value
+     *
+     * @param Project $project
+     * @return Menu
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * get raw value
+     *
+     * @return string
+     */
+    public function getRaw()
+    {
+        return $this->raw;
+    }
+
+    /**
+     * Set the raw value
+     *
+     * @param string $raw
+     * @return Menu
+     */
+    public function setRaw($raw)
+    {
+        $this->raw = $raw;
+
+        return $this;
+    }
+
+
 }

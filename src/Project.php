@@ -3,8 +3,11 @@ namespace Codex\Codex;
 
 use Caffeinated\Beverage\Path;
 use Caffeinated\Beverage\Str;
+use Codex\Codex\Contracts\Factory;
+use Codex\Codex\Traits\Hookable;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Illuminate\Support\Traits\Macroable;
+use Symfony\Component\Yaml\Yaml;
 use vierbergenlars\SemVer\version;
 
 /**
@@ -17,7 +20,7 @@ use vierbergenlars\SemVer\version;
  */
 class Project
 {
-    use Macroable;
+    use Hookable;
 
     const SHOW_MASTER_BRANCH = 0;
     const SHOW_LAST_VERSION = 1;
@@ -89,21 +92,32 @@ class Project
      */
     protected $menu;
 
+    /**s
+     *
+     * @var \Illuminate\Contracts\Container\Container
+     */
+    protected $container;
+
     /**
      * @param \Codex\Codex\Factory                        $factory
      * @param \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param \Illuminate\Contracts\Container\Container   $container
      * @param                                             $name
      * @param                                             $config
      */
-    public function __construct(Factory $factory, Filesystem $files, $name, $config)
+    public function __construct(Factory $factory, Filesystem $files, Container $container, $name, $config)
     {
-        $this->factory = $factory;
-        $this->files   = $files;
-        $this->name    = $name;
-        $this->config  = $config;
-        $this->path    = $path = Path::join($factory->getRootDir(), $name);
+        $this->container = $container;
+        $this->factory   = $factory;
+        $this->files     = $files;
+        $this->name      = $name;
+        $this->config    = $config;
+        $this->path      = $path = Path::join($factory->getRootDir(), $name);
 
-        Factory::run('project:ready', [ $this ]);
+
+        $this->runHook('project:ready', [ $this ]);
+
+        # Resolve refs
 
         $directories = $this->files->directories($this->path);
         $branches    = [ ];
@@ -160,6 +174,9 @@ class Project
         }
 
         $this->ref = $this->defaultRef = (string)$defaultRef;
+
+        # Resolve menu
+        $this->runHook('project:done', [ $this ]);
     }
 
     /**
@@ -173,6 +190,136 @@ class Project
     {
         return $this->factory->url($this, $ref, $doc);
     }
+
+    /**
+     * getDocument
+     *
+     * @param string $pathName
+     * @return \Codex\Codex\Document
+     */
+    public function getDocument($pathName = '')
+    {
+        if ( $pathName === '' )
+        {
+            $pathName = 'index';
+        }
+
+        if ( ! isset($this->documents[ $pathName ]) )
+        {
+            $path = Path::join($this->path, $this->ref, $pathName . '.md');
+
+            $this->documents[ $pathName ] = $this->container->make(Document::class, [
+                'factory'  => $this->factory,
+                'project'  => $this,
+                'path'     => $path,
+                'pathName' => $pathName
+            ]);
+            //new Document($this->factory, $this, $this->files, $path, $pathName);
+
+            $this->runHook('project:document', [ $this->documents[ $pathName ] ]);
+        }
+
+
+        return $this->documents[ $pathName ];
+    }
+
+
+    # Menu
+
+    /**
+     * getDocumentsMenu
+     *
+     * @return \Codex\Codex\Menus\Menu
+     */
+    public function getDocumentsMenu()
+    {
+
+        $yaml  = $this->files->get(Path::join($this->path, $this->ref, 'menu.yml'));
+        $array = Yaml::parse($yaml);
+        $this->factory->getMenus()->forget('project_sidebar_menu');
+
+        $menu = $this->resolveDocumentsMenu($array[ 'menu' ]);
+        $menu->setView('codex::menus/project-sidebar');
+        $this->runHook('project:menu:documents', [$this, $menu]);
+
+        return $menu;
+    }
+
+    /**
+     * getRefsMenu
+     *
+     * @return \Codex\Codex\Menus\Menu
+     */
+    public function getRefsMenu()
+    {
+        $menus = $this->factory->getMenus();
+        $menus->forget('project_versions_menu');
+        /**
+         * @var Menus\Menu $menu
+         */
+        $menu = $menus->add('project_versions_menu');
+        foreach ( $this->getSortedRefs() as $ref )
+        {
+            $node = $menu->add($ref, $ref);
+            $node->setAttribute('href', $this->factory->url($this, $ref));
+        }
+
+        $menu->setView('codex::menus/project-refs');
+        $this->runHook('project:menu:refs', [$this, $menu]);
+        return $menu;
+    }
+
+    /**
+     * resolveMenu
+     *
+     * @param        $items
+     * @param string $parentId
+     * @return \Codex\Codex\Menus\Menu
+     */
+    protected function resolveDocumentsMenu($items, $parentId = 'root')
+    {
+        /**
+         * @var Menus\Menu $menu
+         */
+        $menu = $this->factory->getMenus()->add('project_sidebar_menu');
+
+        foreach ( $items as $item )
+        {
+            $link = '';
+            if ( array_key_exists('document', $item) )
+            {
+                // remove .md extension if present
+                $path = Str::endsWith($item[ 'document' ], '.md', false) ? Str::remove($item[ 'document' ], '.md') : $item[ 'document' ];
+                $link = $this->factory->url($this, $this->ref, $path);
+            }
+            elseif ( array_key_exists('href', $item) )
+            {
+                $link = $item[ 'href' ];
+            }
+
+            $id = md5($item[ 'name' ] . $link);
+
+            $node = $menu->add($id, $item[ 'name' ], $parentId);
+            $node->setAttribute('href', $link);
+            $node->setAttribute('id', $id);
+
+            if ( isset($item[ 'icon' ]) )
+            {
+                $node->setMeta('icon', $item[ 'icon' ]);
+            }
+
+            if ( isset($item[ 'children' ]) )
+            {
+                $this->resolveDocumentsMenu($item[ 'children' ], $id);
+            }
+        }
+
+        return $menu;
+    }
+
+
+
+    # Config
 
     /**
      * Retreive this projects config using a dot notated key
@@ -202,6 +349,9 @@ class Project
         $this->config = $config;
     }
 
+
+    # Refs / versions
+
     /**
      * Set the ref (version/branch) you want to use. getDocument will be getting stuff using the ref
      *
@@ -213,50 +363,6 @@ class Project
         $this->ref = $name;
 
         return $this;
-    }
-
-    /**
-     * Get a document using the provided path.
-     *
-     * It will retreive it from the current $ref or otherwise the $defaultRef folder
-     *
-     * @param  string $absolutePath
-     * @return \Codex\Codex\Document
-     */
-    public function getDocument($pathName = '')
-    {
-        if ( $pathName === '' )
-        {
-            $pathName = 'index';
-        }
-
-        if ( ! isset($this->documents[ $pathName ]) )
-        {
-            $path                         = Path::join($this->path, $this->ref, $pathName . '.md');
-            $this->documents[ $pathName ] = new Document($this->factory, $this, $this->files, $path, $pathName);
-
-            Factory::run('project:document', [ $this->documents[ $pathName ] ]);
-        }
-
-
-        return $this->documents[ $pathName ];
-    }
-
-    /**
-     * Get the projects menu file.
-     *
-     * @return \Codex\Codex\Menu
-     */
-    public function getMenu()
-    {
-        if ( ! isset($this->menu) )
-        {
-            $path = Path::join($this->getPath(), $this->ref, 'menu.yml');
-
-            $this->menu = new Menu($this, $this->files, $this->factory->getCache(), $path);
-        }
-
-        return $this->menu;
     }
 
     /**
@@ -310,6 +416,9 @@ class Project
 
         return array_merge($this->branches, $versions);
     }
+
+
+    # Getters / setters
 
     /**
      * Get project files.

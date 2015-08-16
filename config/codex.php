@@ -52,6 +52,7 @@ return [
         'author' => 'John Doe',
         'title' => 'Documentation',
         'subtitle' => '',
+        'layout' => 'codex::layouts/default',
         'view' => 'codex::document'
     ],
 

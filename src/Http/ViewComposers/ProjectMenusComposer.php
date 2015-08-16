@@ -53,7 +53,7 @@ class ProjectMenusComposer
     protected function getProjectList()
     {
         $list = [ ];
-        foreach ($this->factory->all() as $name => $project) {
+        foreach ($this->factory->getMenu('projects_menu') as $name => $project) {
             $list[(string)$project['display_name']] = $this->factory->url($name);
             ;
         }

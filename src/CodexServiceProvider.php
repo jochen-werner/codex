@@ -44,15 +44,26 @@ class CodexServiceProvider extends ServiceProvider
 
     protected $assetDirs = [ 'views' => 'codex' ];
 
+    protected $providers = [
+        \Caffeinated\Beverage\BeverageServiceProvider::class,
+        Providers\ConsoleServiceProvider::class,
+        Providers\RouteServiceProvider::class
+    ];
+
+    protected $singletons = [
+        Contracts\Factory::class => Factory::class,
+        Contracts\Menus\MenuFactory::class => Menus\MenuFactory::class
+    ];
+
+    protected $aliases = [
+        Contracts\Factory::class => 'codex',
+        Contracts\Menus\MenuFactory::class => 'codex.menus'
+    ];
+
+
     public function boot()
     {
         $app = parent::boot();
-
-        $this->loadViewsFrom(realpath(__DIR__ . '/../resources/views'), 'codex');
-
-        $this->publishes([ realpath(__DIR__ . '/../resources/assets') => public_path('vendor/codex') ], 'public');
-
-        $app->make('view')->composer([ 'codex::document' ], ProjectMenusComposer::class);
     }
 
 
@@ -64,11 +75,6 @@ class CodexServiceProvider extends ServiceProvider
     public function register()
     {
         $app = parent::register();
-
-        $this->app->singleton('codex', Factory::class);
-
-        $this->registerRoute();
-
         $this->registerFilters();
     }
 
@@ -83,13 +89,4 @@ class CodexServiceProvider extends ServiceProvider
         $this->addCodexFilter('parsedown', ParsedownFilter::class);
     }
 
-    /**
-     * If enabled, register the provided HTTP routes.
-     *
-     * @return void
-     */
-    protected function registerRoute()
-    {
-        $this->app->register(RouteServiceProvider::class);
-    }
 }

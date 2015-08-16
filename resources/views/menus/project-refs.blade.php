@@ -15,6 +15,7 @@
         </ul>
     </li>
 @else--}}
+@foreach($items as $item)
     <li>
         <a {{ $item->meta() }}>
             @if(isset($item['icon']))
@@ -31,4 +32,4 @@
             </ul>
         @endif
     </li>
-
+@endforeach

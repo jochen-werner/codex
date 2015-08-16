@@ -2,7 +2,8 @@
 namespace Codex\Codex\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Codex\Codex\Factory;
+use Codex\Codex\Contracts\Factory;
+use Codex\Codex\Contracts\Menus\MenuFactory;
 
 /**
  * This is the CodexController.
@@ -14,16 +15,24 @@ use Codex\Codex\Factory;
  */
 class CodexController extends Controller
 {
+    /**
+     * @var \Codex\Codex\Contracts\Factory|\Codex\Codex\Factory
+     */
     protected $factory;
 
     /**
-     * Create a new CodexContrller instance.
-     *
-     * @param \Codex\Codex\Factory $factory
+     * @var \Codex\Codex\Contracts\Menus\MenuFactory|\Codex\Codex\Menus\MenuFactory
      */
-    public function __construct(Factory $factory)
+    protected $menus;
+
+    /**
+     * @param \Codex\Codex\Factory           $factory
+     * @param \Codex\Codex\Menus\MenuFactory $menus
+     */
+    public function __construct(Factory $factory, MenuFactory $menus)
     {
         $this->factory = $factory;
+        $this->menus = $menus;
     }
 
     /**
@@ -48,6 +57,18 @@ class CodexController extends Controller
      */
     public function document($projectSlug, $ref = null, $path = '')
     {
+        $project = $this->factory->getProject($projectSlug);
+
+        if (is_null($ref)) {
+            $ref = $project->getDefaultRef();
+        }
+
+        $project->setRef($ref);
+
+        $document = $project->getDocument($path);
+        $content = '';
+        $breadcrumb = [];
+        /*
         $project = $this->factory->make($projectSlug);
 
         if (is_null($ref)) {
@@ -60,7 +81,8 @@ class CodexController extends Controller
         $breadcrumb = $document->getBreadcrumb();
         $menu = $project->getMenu();
 
-        return view($document->attr('view'), compact('project', 'document', 'content', 'menu', 'breadcrumb'))->with([
+        */
+        return view($document->attr('view'), compact('project', 'document', 'content', 'breadcrumb'))->with([
             'projectName' => $project->getName(),
             'projectRef' => $ref
         ]);

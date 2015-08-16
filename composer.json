@@ -22,7 +22,8 @@
         "erusev/parsedown": "~1.5",
         "erusev/parsedown-extra": "~0.7",
         "symfony/yaml": "~2.7",
-        "vierbergenlars/php-semver": "3.0.*"
+        "vierbergenlars/php-semver": "3.0.*",
+        "nicmart/tree": "0.2.*"
     },
     "require-dev": {
         "caffeinated/dev": "dev-master@dev"

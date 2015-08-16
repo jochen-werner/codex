@@ -16,7 +16,7 @@
     </li>
 @else--}}
     <li>
-        <a {{ $item->meta() }}>
+        <a href="{{ isset($item['href']) ? $item['href'] : '#' }}">
             @if(isset($item['icon']))
                 <i class="{{ $item['icon'] }}"></i>
             @endif

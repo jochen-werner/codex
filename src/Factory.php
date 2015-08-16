@@ -1,11 +1,15 @@
 <?php
 namespace Codex\Codex;
 
-use Codex\Codex\Contracts\Hook;
+use Caffeinated\Beverage\Path;
+use Codex\Codex\Contracts\Factory as FactoryContract;
+use Codex\Codex\Contracts\Menus\MenuFactory;
+use Codex\Codex\Traits\Hookable;
 use Illuminate\Contracts\Cache\Repository as Cache;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Illuminate\Support\Traits\Macroable;
+use Illuminate\Support\Collection;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -16,9 +20,9 @@ use Symfony\Component\Finder\Finder;
  * @copyright Copyright (c) 2015, Codex Project
  * @license   https://tldrlegal.com/license/mit-license MIT License
  */
-class Factory
+class Factory implements FactoryContract
 {
-    use Macroable;
+    use Hookable;
 
     /**
      * @var \Illuminate\Contracts\Cache\Repository
@@ -36,16 +40,6 @@ class Factory
     protected $files;
 
     /**
-     * @var array
-     */
-    protected static $hooks = [ ];
-
-    /**
-     * @var Project[]
-     */
-    protected $projects;
-
-    /**
      * Path to the directory containing all docs
      *
      * @var string
@@ -53,64 +47,94 @@ class Factory
     protected $rootDir;
 
     /**
-     * @param  \Illuminate\Contracts\Filesystem\Filesystem $files
-     * @param  \Illuminate\Contracts\Config\Repository     $config
-     * @param  \Illuminate\Contracts\Cache\Repository      $cache
-     * @return void
+     * @var \Illuminate\Contracts\Container\Container
      */
-    public function __construct(Filesystem $files, Repository $config, Cache $cache)
+    protected $container;
+
+    /**
+     * @var \Codex\Codex\Menus\MenuFactory
+     */
+    protected $menus;
+
+    /**
+     * @var \Illuminate\Support\Collection
+     */
+    protected $projects;
+
+    /**
+     * @param \Illuminate\Contracts\Container\Container   $container
+     * @param \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param \Illuminate\Contracts\Config\Repository     $config
+     * @param \Illuminate\Contracts\Cache\Repository      $cache
+     * @param \Codex\Codex\Contracts\Menus\MenuFactory    $menus
+     */
+    public function __construct(Container $container, Filesystem $files, Repository $config, Cache $cache, MenuFactory $menus)
     {
-        $this->cache   = $cache;
-        $this->config  = $config->get('codex');
-        $this->files   = $files;
-        $this->rootDir = config('codex.root_dir');
+        $this->container = $container;
+        $this->cache     = $cache;
+        $this->config    = $config->get('codex');
+        $this->files     = $files;
+        $this->rootDir   = config('codex.root_dir');
+        $this->menus     = $menus;
+        $this->projects  = new Collection();
 
         // 'factory:ready' is called after parameters have been set as class properties.
-        static::run('factory:ready', [ $this ]);
+        $this->runHook('factory:ready', [ $this ]);
 
-        if (! isset($this->projects)) {
-            $this->findAll();
-        }
+        $this->resolveProjects();
 
         // 'factory:done' called after all factory operations have completed.
-        static::run('factory:done', [ $this ]);
+        $this->runHook('factory:done', [ $this ]);
     }
 
-    /**
-     * Find and return all projects.
-     *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
-    public function findAll()
+    protected function resolveProjects()
     {
-        $finder         = new Finder();
-        $projects       = $finder->in($this->rootDir)->files()->name('config.php')->depth('<= 1')->followLinks();
-        $this->projects = [ ];
+        if ( ! $this->projects->isEmpty() )
+        {
+            return;
+        }
 
-        foreach ($projects as $project) {
-            $name                    = last(explode(DIRECTORY_SEPARATOR, $project->getPath()));
-            $config                  = with(new \Illuminate\Filesystem\Filesystem)->getRequire($project->getRealPath());
-            $this->projects[ $name ] = array_replace_recursive($this->config('default_project_config'), $config);
+        $projectsMenu = $this->menus->add('projects_menu');
+        $finder       = new Finder();
+        $projects     = $finder->in($this->rootDir)->files()->name('config.php')->depth('<= 1')->followLinks();
+
+        foreach ( $projects as $projectDir )
+        {
+            /** @var \SplFileInfo $projectDir */
+            $name    = Path::getDirectoryName($projectDir->getPath());
+            $config  = $this->container->make('fs')->getRequire($projectDir->getRealPath());
+            $config  = array_replace_recursive($this->config('default_project_config'), $config);
+            $project = $this->container->make(Project::class, [
+                'factory' => $this,
+                'name'    => $name,
+                'config'  => $config
+            ]);
+            $this->runHook('project:make', [ $this, $project ]);
+            $this->projects->put($name, $project);
+
+            $projectsMenu->add($name, $name, 'root', [ ], [
+                'href' => $this->url($project)
+            ]);
         }
     }
 
+
+    # Projects
+
     /**
-     * Make a new project object, will represent a project based on directory name.
+     * project
      *
-     * @param  string $name
+     * @param $name
      * @return \Codex\Codex\Project
      */
-    public function make($name)
+    public function getProject($name)
     {
-        if (! $this->has($name)) {
+        if ( ! $this->hasProject($name) )
+        {
             throw new \InvalidArgumentException("Project [$name] could not be found in [{$this->rootDir}]");
         }
 
-        $project = new Project($this, $this->files, $name, $this->projects[ $name ]);
-
-        static::run('project:make', [ $this, $project ]);
-
-        return $project;
+        return $this->projects->get($name);
     }
 
     /**
@@ -119,43 +143,9 @@ class Factory
      * @param  string $name
      * @return bool
      */
-    public function has($name)
+    public function hasProject($name)
     {
-        return array_key_exists($name, $this->projects);
-    }
-
-    /**
-     * Generate a URL to a project's default page and version.
-     *
-     * @param  Project     $project
-     * @param  null|string $ref
-     * @param  null|string $doc
-     * @return string
-     */
-    public function url($project = null, $ref = null, $doc = null)
-    {
-        $uri = $this->config('base_route');
-
-        if (! is_null($project)) {
-            if (! $project instanceof Project) {
-                $project = $this->make($project);
-            }
-            $uri .= '/' . $project->getName();
-
-
-            if (! is_null($ref)) {
-                $uri .= '/' . $ref;
-            } else {
-                $uri .= '/' . $project->getDefaultRef();
-            }
-
-
-            if (! is_null($doc)) {
-                $uri .= '/' . $doc;
-            }
-        }
-
-        return url($uri);
+        return $this->projects->has($name);
     }
 
     /**
@@ -163,20 +153,12 @@ class Factory
      *
      * @return Project[]
      */
-    public function all()
+    public function getProjects()
     {
-        return $this->projects;
+        return $this->projects->all();
     }
 
-    /**
-     * Get root directory.
-     *
-     * @return string
-     */
-    public function getRootDir()
-    {
-        return $this->rootDir;
-    }
+    # Config
 
     /**
      * Retreive codex config using a dot notated key.
@@ -187,7 +169,8 @@ class Factory
      */
     public function config($key = null, $default = null)
     {
-        if (is_null($key)) {
+        if ( is_null($key) )
+        {
             return $this->config;
         }
 
@@ -214,6 +197,63 @@ class Factory
     {
         $this->config = $config;
     }
+
+
+    # Helper functions
+
+    /**
+     * Generate a URL to a project's default page and version.
+     *
+     * @param  Project     $project
+     * @param  null|string $ref
+     * @param  null|string $doc
+     * @return string
+     */
+    public function url($project = null, $ref = null, $doc = null)
+    {
+        $uri = $this->config('base_route');
+
+        if ( ! is_null($project) )
+        {
+            if ( ! $project instanceof Project )
+            {
+                $project = $this->make($project);
+            }
+            $uri .= '/' . $project->getName();
+
+
+            if ( ! is_null($ref) )
+            {
+                $uri .= '/' . $ref;
+            }
+            else
+            {
+                $uri .= '/' . $project->getDefaultRef();
+            }
+
+
+            if ( ! is_null($doc) )
+            {
+                $uri .= '/' . $doc;
+            }
+        }
+
+        return url($uri);
+    }
+
+
+    # Getters / setters
+
+    /**
+     * Get root directory.
+     *
+     * @return string
+     */
+    public function getRootDir()
+    {
+        return $this->rootDir;
+    }
+
 
     /**
      * Get files.
@@ -262,54 +302,50 @@ class Factory
     }
 
     /**
-     * Ensure point.
+     * get app value
      *
-     * @param  string $name
-     * @return void
+     * @return \Illuminate\Contracts\Container\Container
      */
-    protected static function ensurePoint($name)
+    public function getApp()
     {
-        if (! isset(static::$hooks[ $name ])) {
-            static::$hooks[ $name ] = [ ];
-        }
+        return $this->container;
     }
 
     /**
-     * Register a hook instance.
+     * Set the app value
      *
-     * @param  string          $point
-     * @param  string|\Closure $handler
-     * @return void
+     * @param \Illuminate\Contracts\Container\Container $app
+     * @return Factory
      */
-    public static function hook($point, $handler)
+    public function setApp($app)
     {
-        if (! $handler instanceof \Closure and ! in_array(Hook::class, class_implements($handler), false)) {
-            throw new \InvalidArgumentException("Failed adding hook. Provided handler for [{$point}] is not valid. Either provider a \\Closure or classpath that impelments \\Codex\\Codex\\Contracts\\Hook");
-        }
+        $this->container = $app;
 
-        static::ensurePoint($point);
-        static::$hooks[ $point ][] = $handler;
+        return $this;
     }
 
     /**
-     * Run the given hook.
+     * get menus value
      *
-     * @param  string $name
-     * @param  array  $params
-     * @return void
+     * @return Menus\MenuFactory
      */
-    public static function run($name, array $params = [ ])
+    public function getMenus()
     {
-        static::ensurePoint($name);
-
-        foreach (static::$hooks[ $name ] as $handler) {
-            if ($handler instanceof \Closure) {
-                call_user_func_array($handler, $params);
-            } elseif (class_exists($handler)) {
-                $instance = app()->make($handler);
-
-                call_user_func_array([ $instance, 'handle' ], $params);
-            }
-        }
+        return $this->menus;
     }
+
+    /**
+     * Set the menus value
+     *
+     * @param Menus\MenuFactory $menus
+     * @return Factory
+     */
+    public function setMenus($menus)
+    {
+        $this->menus = $menus;
+
+        return $this;
+    }
+
+
 }

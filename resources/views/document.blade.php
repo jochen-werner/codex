@@ -1,4 +1,4 @@
-@extends('codex::layouts/default')
+@extends($document->attr('layout'))
 
 @section('pageTitle', $document->attr('title'))
 @section('pageSubtitle', $document->attr('subtitle', null))
@@ -17,7 +17,7 @@
 @stop
 
 @section('sidebar-menu')
-    @each('codex::partials/menu-item', $menu->toArray(), 'item')
+    {{ $project->getDocumentsMenu()->render() }}
 @stop
 
 @section('header-actions')
