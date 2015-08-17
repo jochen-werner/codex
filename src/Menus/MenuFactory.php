@@ -86,9 +86,9 @@ class MenuFactory implements MenuFactoryContract
 
 
     /**
-     * createMenu
+     * Creates a new menu or returns an existing
      *
-     * @param $id
+     * @param string $id
      * @return \Codex\Codex\Menus\Menu
      */
     public function add($id)
@@ -107,9 +107,9 @@ class MenuFactory implements MenuFactoryContract
 
 
     /**
-     * get
+     * Returns a menu
      *
-     * @param      $id
+     * @param string $id
      * @param null $default
      * @return \Codex\Codex\Menus\Menu
      */
@@ -130,7 +130,7 @@ class MenuFactory implements MenuFactoryContract
     }
 
     /**
-     * forget
+     * Removes a menu
      *
      * @param $id
      * @return MenuFactory

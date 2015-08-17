@@ -1,4 +1,9 @@
 <?php
+/**
+* Part of the Caffeinated PHP packages.
+*
+* MIT License and copyright information bundled with this package in the LICENSE file
+ */
 namespace Codex\Codex;
 
 use Caffeinated\Beverage\Path;
@@ -30,12 +35,16 @@ class Factory implements FactoryContract
     protected $cache;
 
     /**
+     * The codex configuration
+     *
      * @var array
      */
     protected $config;
 
     /**
-     * @var array
+     * The filesystem instance
+     *
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     protected $files;
 
@@ -66,7 +75,7 @@ class Factory implements FactoryContract
      * @param \Illuminate\Contracts\Filesystem\Filesystem $files
      * @param \Illuminate\Contracts\Config\Repository     $config
      * @param \Illuminate\Contracts\Cache\Repository      $cache
-     * @param \Codex\Codex\Contracts\Menus\MenuFactory    $menus
+     * @param \Codex\Codex\Contracts\Menus\MenuFactory    $menus The menu factory
      */
     public function __construct(Container $container, Filesystem $files, Repository $config, Cache $cache, MenuFactory $menus)
     {
@@ -87,6 +96,11 @@ class Factory implements FactoryContract
         $this->runHook('factory:done', [ $this ]);
     }
 
+    /**
+     * resolveProjects
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
     protected function resolveProjects()
     {
         if (! $this->projects->isEmpty()) {
@@ -204,9 +218,9 @@ class Factory implements FactoryContract
     /**
      * Generate a URL to a project's default page and version.
      *
-     * @param  Project     $project
-     * @param  null|string $ref
-     * @param  null|string $doc
+     * @param  Project|string $project A Project instance or projectName, will auto-resolve
+     * @param  null|string    $ref
+     * @param  null|string    $doc
      * @return string
      */
     public function url($project = null, $ref = null, $doc = null)

@@ -1,4 +1,9 @@
 <?php
+/**
+* Part of the Caffeinated PHP packages.
+*
+* MIT License and copyright information bundled with this package in the LICENSE file
+ */
 namespace Codex\Codex;
 
 use Codex\Codex\Contracts\Factory;
@@ -19,6 +24,8 @@ class Document
     use Hookable;
 
     /**
+     * The document attributes. Defaults can be set in the config, documents can use frontmatter to customize it.
+     *
      * @var array
      */
     protected $attributes;
@@ -38,13 +45,16 @@ class Document
      */
     protected $files;
 
-
     /**
+     * Absolute path to this document
+     *
      * @var string
      */
     protected $path;
 
     /**
+     * The project instance
+     *
      * @var \Codex\Codex\Project
      */
     protected $project;
@@ -62,12 +72,14 @@ class Document
     protected $container;
 
     /**
-     * @param \Codex\Codex\Factory                        $factory
-     * @param \Illuminate\Contracts\Filesystem\Filesystem $files
-     * @param \Codex\Codex\Project                        $project
-     * @param \Illuminate\Contracts\Container\Container   $container
-     * @param                                             $path
-     * @param                                             $pathName
+     * Creates a new Document class
+     *
+     * @param \Codex\Codex\Contracts\Factory              $factory   The factory class
+     * @param \Illuminate\Contracts\Filesystem\Filesystem $files     The filesystem
+     * @param \Codex\Codex\Project                        $project   The project instance
+     * @param \Illuminate\Contracts\Container\Container   $container The container class
+     * @param string                                      $path      The absolute path to the document
+     * @param string                                      $pathName  The relative path to the document
      */
     public function __construct(Factory $factory, Filesystem $files, Project $project, Container $container, $path, $pathName)
     {
@@ -106,10 +118,10 @@ class Document
             foreach ($filters as $name => $filter) {
                 if ($filter instanceof \Closure) {
                     call_user_func_array($filter, [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                } else {
+                    } else {
                     $instance = app()->make($filter);
                     call_user_func_array([ $instance, 'handle' ], [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                }
+                    }
             }
         }
 
@@ -118,10 +130,11 @@ class Document
 
 
     /**
-     * Get the given attribute.
+     * Get a attribute using dot notation
      *
-     * @param  string $key
-     * @return array
+     * @param  string    $key
+     * @param null|mixed $default
+     * @return array|null|mixed
      */
     public function attr($key = null, $default = null)
     {
@@ -139,7 +152,9 @@ class Document
     }
 
     /**
-     * getBreadcrumb
+     * Returns an array of parent menu items
+     *
+     * @return array
      */
     public function getBreadcrumb()
     {
@@ -211,6 +226,7 @@ class Document
     public function mergeAttributes(array $attributes)
     {
         $this->attributes = array_replace_recursive($this->attributes, $attributes);
+
         return $this;
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="API Documentation" version="v2.8.5">
   <partials/>
-  <file path="Traits/Hookable.php" generated-path="Traits.Hookable.html" hash="c470b45685b8c527a7d396ffba5b54b4" package="Default">
+  <file path="Traits/Hookable.php" generated-path="Traits.Hookable.html" hash="07180b83b585ec705bbea2212dc7fc5f" package="Default">
     <docblock line="0">
       <description>Part of the Caffeinated PHP packages.</description>
       <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
@@ -20,12 +20,16 @@
         <tag name="copyright" line="20" description="Copyright (c) 2015, Caffeinated"/>
         <tag name="license" line="20" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Traits" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Traits" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -39,12 +43,7 @@
         </argument>
       </method>
     </trait>
-    <parse_markers>
-      <error line="24" code="PPC:ERR-50015">Argument $name is missing from the Docblock of runHook</error>
-      <error line="24" code="PPC:ERR-50015">Argument $params is missing from the Docblock of runHook</error>
-      <error line="24" code="PPC:ERR-50008">No summary for method runHook()</error>
-    </parse_markers>
-    <source>eJxdUcFqAjEQvecr5uBBpXXbQi/a0oIVFLQIeqs9jNmsG8wmIcm2SvHfm8SsbjssC7vz3ps3b55edKlJ1u8T6MMSjQNVgCsZjLEoGJfoWA7L6RI00j3umB14YMAuZmuYc8qkZYAyB6r00fBd6YDLQpkKHVcStrXMhVf45q70stw2Oh4Vx8xn48n7agIFF8zLZkRixawHeQcqZ4fN+b02yJ0dEVLbv43JwXkLfpRvht5MiLqKtjerWmtlXOJuFkiNwq1gXiXtuw6G/BOMTJXah26z32tjNFVraGxj7Upl4NJuxfXGvmDNsIq4ay5Jpvns0h483N0/3rS5kSJSrKlK57QdZpkTuRFsh2JAVZUlUFZxd9sQWjeJWbqw+WUz8kOCXEipnUX4p41yjAbvRS1pvJypZSB2O+EgN4DG4BE6Gg1WFp7hAz57kXoWDXU9xXD4j514vVEEn8iJ/AI0bMj0</source>
+    <source>eJxdUtFqwjAUfc9X3AcftDi7DfaiGxs4QUGHzL7NPVzb1AbTJKTppgz/fUlMtXopLcm55+Tckz6/qkKROIoIRLBEbUDmYAoKY8xzygQamsFyugSF6Q63tBrYRte7mCUwZykVFQUUGaRSHTTbFgaYyKUu0TApYFOLjFuFX2YKK8uqRsd2+WPms/HkYzWBnHFqZWMisKSVbbIOZEb369M70chMNSKkrq6Byd5YC/YoCzpsxnldetvrVa2U1CZw1wtMtcQNp1YlzJs4Q/ZxRqZS7hzazPfWGA3VOtTDWJtCajjDrbje6Q8kFEvfd8klyDTLbtqDx/uHp36b6yk8xBqqMEZVwzg2PNOcbpEPUlnGoSkumblrCK078VkaN/l5MvJHnJxLqZ2F2/N5uIrgsxaAUFhO2GkAG4jGMnjquGu6QVBrPEDHL6qAxf6rtDQ0ddHktUj9j6Fr4Xx1vVD/mgsv8AXfPU89eXZ1uenh8IYdeL2Rbz6SI/kHKnbeiQ==</source>
   </file>
   <file path="Traits/CodexProviderTrait.php" generated-path="Traits.CodexProviderTrait.html" hash="b39e9c860c4e63c0a1584fca87ae7b4b" package="Default">
     <docblock line="0">
@@ -565,10 +564,10 @@
     </parse_markers>
     <source>eJyVU11PwyAUfedX3Acf5jKtmvji/NYYTfRt8WmJQXa3NlIgQKdG/e8CpR1bnVPSUNpz7jmXe+H4TOWKCFqiUZQhXMkJvo3r+dZa5ZbCask5ajMkpDIIF0p1oGQN1MAlNbj4MwxhqXLAKLNmfONmqd9/ozygqOp5iXzHeVUWglpMuI8FvjaaPhH/3UaRrN8n0IdRXhhwj82j5SLVXYd7yrkrxgudIcSRZBZgWtlcamhhOp1iyGUC1ziHEdIy8JhU77qY5baRaT57bBsO9vYPB2lsCOEFQ2Fa59xV2hxlmeUTzXFG+S6TZRZJWVnYnSbg4W4E9/XaCWWEcWoMJI3BN4tistod8kG8T6iNHy6FOdUw/rVfn0tw/Bnjs/BWWlpkviBb07YB/zDqdH3ZsgOvMy89cZ11cobSk7NOa+44P0gpqmm5oWCwGE09/hbf2Wjc0mr05usQ3f0mljdYPbsjBNNKMFtIAU9PTApjdcVsr/WMOQ+gm8kgvWW1/nYQrg9WMLXuyu2cRhE4Sc7ECiUoekLs2wrsxT1ad8IDX+SLfAPRc4nY</source>
   </file>
-  <file path="Factory.php" generated-path="Factory.html" hash="c53e02c0fa0125df0cced3ce0574f9c6" package="Default">
+  <file path="Factory.php" generated-path="Factory.html" hash="30b1c46bffdafab3d9056e5296e45f6c" package="Default">
     <docblock line="0">
-      <description></description>
-      <long-description></long-description>
+      <description>Part of the Caffeinated PHP packages.</description>
+      <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="Path">\Caffeinated\Beverage\Path</namespace-alias>
@@ -581,122 +580,122 @@
     <namespace-alias name="Filesystem">\Illuminate\Contracts\Filesystem\Filesystem</namespace-alias>
     <namespace-alias name="Collection">\Illuminate\Support\Collection</namespace-alias>
     <namespace-alias name="Finder">\Symfony\Component\Finder\Finder</namespace-alias>
-    <class final="false" abstract="false" namespace="Codex\Codex" line="23" package="Codex\Codex">
+    <class final="false" abstract="false" namespace="Codex\Codex" line="28" package="Codex\Codex">
       <extends/>
       <implements>\Codex\Codex\Contracts\Factory</implements>
       <name>Factory</name>
       <full_name>\Codex\Codex\Factory</full_name>
-      <docblock line="23">
+      <docblock line="28">
         <description>Factory class.</description>
         <long-description></long-description>
-        <tag name="package" line="23" description="Codex\Codex"/>
-        <tag name="author" line="23" description="Codex Project Dev Team"/>
-        <tag name="copyright" line="23" description="Copyright (c) 2015, Codex Project"/>
-        <tag name="license" line="23" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
+        <tag name="package" line="28" description="Codex\Codex"/>
+        <tag name="author" line="28" description="Codex Project Dev Team"/>
+        <tag name="copyright" line="28" description="Copyright (c) 2015, Codex Project"/>
+        <tag name="license" line="28" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="30" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="35" package="Codex\Codex">
         <name>$cache</name>
         <full_name>\Codex\Codex\Factory::cache</full_name>
-        <default></default>
-        <docblock line="30">
-          <description></description>
-          <long-description></long-description>
-          <tag name="var" line="30" description="" type="\Illuminate\Contracts\Cache\Repository" variable="">
-            <type>\Illuminate\Contracts\Cache\Repository</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="35" package="Codex\Codex">
-        <name>$config</name>
-        <full_name>\Codex\Codex\Factory::config</full_name>
         <default></default>
         <docblock line="35">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="35" description="" type="array" variable="">
+          <tag name="var" line="35" description="" type="\Illuminate\Contracts\Cache\Repository" variable="">
+            <type>\Illuminate\Contracts\Cache\Repository</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="42" package="Codex\Codex">
+        <name>$config</name>
+        <full_name>\Codex\Codex\Factory::config</full_name>
+        <default></default>
+        <docblock line="42">
+          <description>The codex configuration</description>
+          <long-description></long-description>
+          <tag name="var" line="42" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="40" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="49" package="Codex\Codex">
         <name>$files</name>
         <full_name>\Codex\Codex\Factory::files</full_name>
         <default></default>
-        <docblock line="40">
-          <description></description>
+        <docblock line="49">
+          <description>The filesystem instance</description>
           <long-description></long-description>
-          <tag name="var" line="40" description="" type="array" variable="">
-            <type>array</type>
+          <tag name="var" line="49" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="">
+            <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="47" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="56" package="Codex\Codex">
         <name>$rootDir</name>
         <full_name>\Codex\Codex\Factory::rootDir</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="56">
           <description>Path to the directory containing all docs</description>
           <long-description></long-description>
-          <tag name="var" line="47" description="" type="string" variable="">
+          <tag name="var" line="56" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="52" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="61" package="Codex\Codex">
         <name>$container</name>
         <full_name>\Codex\Codex\Factory::container</full_name>
         <default></default>
-        <docblock line="52">
+        <docblock line="61">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="52" description="" type="\Illuminate\Contracts\Container\Container" variable="">
+          <tag name="var" line="61" description="" type="\Illuminate\Contracts\Container\Container" variable="">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="57" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="66" package="Codex\Codex">
         <name>$menus</name>
         <full_name>\Codex\Codex\Factory::menus</full_name>
         <default></default>
-        <docblock line="57">
+        <docblock line="66">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="57" description="" type="\Codex\Codex\Menus\MenuFactory" variable="">
+          <tag name="var" line="66" description="" type="\Codex\Codex\Menus\MenuFactory" variable="">
             <type>\Codex\Codex\Menus\MenuFactory</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="62" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="71" package="Codex\Codex">
         <name>$projects</name>
         <full_name>\Codex\Codex\Factory::projects</full_name>
         <default></default>
-        <docblock line="62">
+        <docblock line="71">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="62" description="" type="\Illuminate\Support\Collection" variable="">
+          <tag name="var" line="71" description="" type="\Illuminate\Support\Collection" variable="">
             <type>\Illuminate\Support\Collection</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="71" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="80" package="Codex\Codex">
         <name>__construct</name>
         <full_name>\Codex\Codex\Factory::__construct()</full_name>
-        <docblock line="71">
+        <docblock line="80">
           <description></description>
           <long-description></long-description>
-          <tag name="param" line="71" description="" type="\Illuminate\Contracts\Container\Container" variable="$container">
+          <tag name="param" line="80" description="" type="\Illuminate\Contracts\Container\Container" variable="$container">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
-          <tag name="param" line="71" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+          <tag name="param" line="80" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
-          <tag name="param" line="71" description="" type="\Illuminate\Contracts\Config\Repository" variable="$config">
+          <tag name="param" line="80" description="" type="\Illuminate\Contracts\Config\Repository" variable="$config">
             <type>\Illuminate\Contracts\Config\Repository</type>
           </tag>
-          <tag name="param" line="71" description="" type="\Illuminate\Contracts\Cache\Repository" variable="$cache">
+          <tag name="param" line="80" description="" type="\Illuminate\Contracts\Cache\Repository" variable="$cache">
             <type>\Illuminate\Contracts\Cache\Repository</type>
           </tag>
-          <tag name="param" line="71" description="" type="\Codex\Codex\Contracts\Menus\MenuFactory" variable="$menus">
+          <tag name="param" line="80" description="&lt;p&gt;The menu factory&lt;/p&gt;" type="\Codex\Codex\Contracts\Menus\MenuFactory" variable="$menus">
             <type>\Codex\Codex\Contracts\Menus\MenuFactory</type>
           </tag>
         </docblock>
@@ -726,22 +725,25 @@
           <type>\Codex\Codex\Contracts\Menus\MenuFactory</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="90" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="104" package="Codex\Codex">
         <name>resolveProjects</name>
         <full_name>\Codex\Codex\Factory::resolveProjects()</full_name>
-        <docblock line="90">
-          <description></description>
+        <docblock line="104">
+          <description>resolveProjects</description>
           <long-description></long-description>
+          <tag name="throws" line="104" description="" type="\Illuminate\Contracts\Filesystem\FileNotFoundException">
+            <type>\Illuminate\Contracts\Filesystem\FileNotFoundException</type>
+          </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="132" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="146" package="Codex\Codex">
         <name>getProject</name>
         <full_name>\Codex\Codex\Factory::getProject()</full_name>
-        <docblock line="132">
+        <docblock line="146">
           <description>project</description>
           <long-description></long-description>
-          <tag name="param" line="132" description="" type="" variable="$name"/>
-          <tag name="return" line="132" description="" type="\Codex\Codex\Project">
+          <tag name="param" line="146" description="" type="" variable="$name"/>
+          <tag name="return" line="146" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
@@ -751,16 +753,16 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="147" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="161" package="Codex\Codex">
         <name>hasProject</name>
         <full_name>\Codex\Codex\Factory::hasProject()</full_name>
-        <docblock line="147">
+        <docblock line="161">
           <description>Check if the given project exists.</description>
           <long-description></long-description>
-          <tag name="param" line="147" description="" type="string" variable="$name">
+          <tag name="param" line="161" description="" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="return" line="147" description="" type="boolean">
+          <tag name="return" line="161" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -770,32 +772,32 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="157" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="171" package="Codex\Codex">
         <name>getProjects</name>
         <full_name>\Codex\Codex\Factory::getProjects()</full_name>
-        <docblock line="157">
+        <docblock line="171">
           <description>Return all found projects.</description>
           <long-description></long-description>
-          <tag name="return" line="157" description="" type="array&lt;mixed,\Codex\Codex\Project&gt;">
+          <tag name="return" line="171" description="" type="array&lt;mixed,\Codex\Codex\Project&gt;">
             <type>array&lt;mixed,\Codex\Codex\Project&gt;</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="171" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="185" package="Codex\Codex">
         <name>config</name>
         <full_name>\Codex\Codex\Factory::config()</full_name>
-        <docblock line="171">
+        <docblock line="185">
           <description>Retreive codex config using a dot notated key.</description>
           <long-description></long-description>
-          <tag name="param" line="171" description="" type="null|string" variable="$key">
+          <tag name="param" line="185" description="" type="null|string" variable="$key">
             <type>null</type>
             <type>string</type>
           </tag>
-          <tag name="param" line="171" description="" type="null|string" variable="$default">
+          <tag name="param" line="185" description="" type="null|string" variable="$default">
             <type>null</type>
             <type>string</type>
           </tag>
-          <tag name="return" line="171" description="" type="array|mixed">
+          <tag name="return" line="185" description="" type="array|mixed">
             <type>array</type>
             <type>mixed</type>
           </tag>
@@ -811,27 +813,27 @@
           <type>null|string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="185" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="199" package="Codex\Codex">
         <name>getConfig</name>
         <full_name>\Codex\Codex\Factory::getConfig()</full_name>
-        <docblock line="185">
+        <docblock line="199">
           <description>Get config.</description>
           <long-description></long-description>
-          <tag name="return" line="185" description="" type="array">
+          <tag name="return" line="199" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="196" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="210" package="Codex\Codex">
         <name>setConfig</name>
         <full_name>\Codex\Codex\Factory::setConfig()</full_name>
-        <docblock line="196">
+        <docblock line="210">
           <description>Set the config.</description>
           <long-description></long-description>
-          <tag name="param" line="196" description="" type="array" variable="$config">
+          <tag name="param" line="210" description="" type="array" variable="$config">
             <type>array</type>
           </tag>
-          <tag name="return" line="196" description="" type="void">
+          <tag name="return" line="210" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -841,31 +843,32 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="212" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="226" package="Codex\Codex">
         <name>url</name>
         <full_name>\Codex\Codex\Factory::url()</full_name>
-        <docblock line="212">
+        <docblock line="226">
           <description>Generate a URL to a project's default page and version.</description>
           <long-description></long-description>
-          <tag name="param" line="212" description="" type="\Codex\Codex\Project" variable="$project">
+          <tag name="param" line="226" description="&lt;p&gt;A Project instance or projectName, will auto-resolve&lt;/p&gt;" type="\Codex\Codex\Project|string" variable="$project">
             <type>\Codex\Codex\Project</type>
+            <type>string</type>
           </tag>
-          <tag name="param" line="212" description="" type="null|string" variable="$ref">
+          <tag name="param" line="226" description="" type="null|string" variable="$ref">
             <type>null</type>
             <type>string</type>
           </tag>
-          <tag name="param" line="212" description="" type="null|string" variable="$doc">
+          <tag name="param" line="226" description="" type="null|string" variable="$doc">
             <type>null</type>
             <type>string</type>
           </tag>
-          <tag name="return" line="212" description="" type="string">
+          <tag name="return" line="226" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$project</name>
           <default>null</default>
-          <type>\Codex\Codex\Project</type>
+          <type>\Codex\Codex\Project|string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$ref</name>
@@ -878,38 +881,38 @@
           <type>null|string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="246" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="260" package="Codex\Codex">
         <name>getRootDir</name>
         <full_name>\Codex\Codex\Factory::getRootDir()</full_name>
-        <docblock line="246">
+        <docblock line="260">
           <description>Get root directory.</description>
           <long-description></long-description>
-          <tag name="return" line="246" description="" type="string">
+          <tag name="return" line="260" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="257" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="271" package="Codex\Codex">
         <name>getFiles</name>
         <full_name>\Codex\Codex\Factory::getFiles()</full_name>
-        <docblock line="257">
+        <docblock line="271">
           <description>Get files.</description>
           <long-description></long-description>
-          <tag name="return" line="257" description="" type="mixed">
+          <tag name="return" line="271" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="268" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="282" package="Codex\Codex">
         <name>setFiles</name>
         <full_name>\Codex\Codex\Factory::setFiles()</full_name>
-        <docblock line="268">
+        <docblock line="282">
           <description>Set files.</description>
           <long-description></long-description>
-          <tag name="param" line="268" description="" type="mixed" variable="$files">
+          <tag name="param" line="282" description="" type="mixed" variable="$files">
             <type>mixed</type>
           </tag>
-          <tag name="return" line="268" description="" type="\Codex\Codex\Factory">
+          <tag name="return" line="282" description="" type="\Codex\Codex\Factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
@@ -919,27 +922,27 @@
           <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="280" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="294" package="Codex\Codex">
         <name>getCache</name>
         <full_name>\Codex\Codex\Factory::getCache()</full_name>
-        <docblock line="280">
+        <docblock line="294">
           <description>Get cache.</description>
           <long-description></long-description>
-          <tag name="return" line="280" description="" type="\Illuminate\Contracts\Cache\Repository">
+          <tag name="return" line="294" description="" type="\Illuminate\Contracts\Cache\Repository">
             <type>\Illuminate\Contracts\Cache\Repository</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="291" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="305" package="Codex\Codex">
         <name>setCache</name>
         <full_name>\Codex\Codex\Factory::setCache()</full_name>
-        <docblock line="291">
+        <docblock line="305">
           <description>Set cache.</description>
           <long-description></long-description>
-          <tag name="param" line="291" description="" type="\Illuminate\Cache\CacheManager" variable="$cache">
+          <tag name="param" line="305" description="" type="\Illuminate\Cache\CacheManager" variable="$cache">
             <type>\Illuminate\Cache\CacheManager</type>
           </tag>
-          <tag name="return" line="291" description="" type="\Codex\Codex\Factory">
+          <tag name="return" line="305" description="" type="\Codex\Codex\Factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
@@ -949,27 +952,27 @@
           <type>\Illuminate\Cache\CacheManager</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="303" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="317" package="Codex\Codex">
         <name>getApp</name>
         <full_name>\Codex\Codex\Factory::getApp()</full_name>
-        <docblock line="303">
+        <docblock line="317">
           <description>get app value</description>
           <long-description></long-description>
-          <tag name="return" line="303" description="" type="\Illuminate\Contracts\Container\Container">
+          <tag name="return" line="317" description="" type="\Illuminate\Contracts\Container\Container">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="314" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="328" package="Codex\Codex">
         <name>setApp</name>
         <full_name>\Codex\Codex\Factory::setApp()</full_name>
-        <docblock line="314">
+        <docblock line="328">
           <description>Set the app value</description>
           <long-description></long-description>
-          <tag name="param" line="314" description="" type="\Illuminate\Contracts\Container\Container" variable="$app">
+          <tag name="param" line="328" description="" type="\Illuminate\Contracts\Container\Container" variable="$app">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
-          <tag name="return" line="314" description="" type="\Codex\Codex\Factory">
+          <tag name="return" line="328" description="" type="\Codex\Codex\Factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
@@ -979,27 +982,27 @@
           <type>\Illuminate\Contracts\Container\Container</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="326" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="340" package="Codex\Codex">
         <name>getMenus</name>
         <full_name>\Codex\Codex\Factory::getMenus()</full_name>
-        <docblock line="326">
+        <docblock line="340">
           <description>get menus value</description>
           <long-description></long-description>
-          <tag name="return" line="326" description="" type="\Codex\Codex\Menus\MenuFactory">
+          <tag name="return" line="340" description="" type="\Codex\Codex\Menus\MenuFactory">
             <type>\Codex\Codex\Menus\MenuFactory</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="337" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="351" package="Codex\Codex">
         <name>setMenus</name>
         <full_name>\Codex\Codex\Factory::setMenus()</full_name>
-        <docblock line="337">
+        <docblock line="351">
           <description>Set the menus value</description>
           <long-description></long-description>
-          <tag name="param" line="337" description="" type="\Codex\Codex\Menus\MenuFactory" variable="$menus">
+          <tag name="param" line="351" description="" type="\Codex\Codex\Menus\MenuFactory" variable="$menus">
             <type>\Codex\Codex\Menus\MenuFactory</type>
           </tag>
-          <tag name="return" line="337" description="" type="\Codex\Codex\Factory">
+          <tag name="return" line="351" description="" type="\Codex\Codex\Factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
@@ -1009,12 +1012,16 @@
           <type>\Codex\Codex\Menus\MenuFactory</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -1030,22 +1037,18 @@
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="71" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="90" code="PPC:ERR-50008">No summary for method resolveProjects()</error>
-      <error line="30" code="PPC:ERR-50007">No summary for property $cache</error>
-      <error line="35" code="PPC:ERR-50007">No summary for property $config</error>
-      <error line="40" code="PPC:ERR-50007">No summary for property $files</error>
-      <error line="52" code="PPC:ERR-50007">No summary for property $container</error>
-      <error line="57" code="PPC:ERR-50007">No summary for property $menus</error>
-      <error line="62" code="PPC:ERR-50007">No summary for property $projects</error>
+      <error line="80" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="35" code="PPC:ERR-50007">No summary for property $cache</error>
+      <error line="61" code="PPC:ERR-50007">No summary for property $container</error>
+      <error line="66" code="PPC:ERR-50007">No summary for property $menus</error>
+      <error line="71" code="PPC:ERR-50007">No summary for property $projects</error>
     </parse_markers>
-    <source>eJydWd1v2zYQf/dfwbUFJBdOvA7YS1pn69K1DdAWRdI9JYHBSJSlRRY1inJjtPnfd8cPixIl2YkfHJm6O/7ueF+8vPmjTMtJQdesKmnEyBmP2f21+n49mdQVrNAkYVlBJYuv/2IbJuiKXX+lMn2tXzcM8F1IQSNZXb+Hby62hFbEPNp3Y1yfWVHrb8PkE38TNAPKj5zf0ducaYLzPK/XCqIj7IxGKbu+YCWvMotFrY3x8CLJVg7TOK2kWcFE8zRC/T7LWbWtJFs7jx79ZV2WXEjgy3MWyYwXmuRyu054sYX1dckLVkgQUsSwtf4DJzV/+XJCXlpjkyinVXUMK7j4J5zsHZwaIa4p1Rtay5QLYt+Qr4L/CxuTd2xDvjG6VkQRL7ciW6USiOxTGE3Jb7+++n3WZlT0eRaxosLtUinL6mQ+l3kscrai+XHE13Pzfr7O5JGl/Xz+jXzSzyBjPlEK7NTJ1mXO1qC3506THxNEj0ZqfEItKYvgBxBtqCDXB3mJYZmrv6XgEpRiMXkRac/plUyFoMOMyqWewpmgn/iMGHpEciJTRuJMMHPg2gezYkVonpOYR5VhaG1YSQEkQzsKzuW7TDzOgH4YjJjCxkn/Bm6ge7lgSOoaCQ+A7MfWkMRS+3Kf0JIKuj7cEsDUaH2QkN48YXzhUBTtFKaYjBseJqGbOI0EXO4KODCPKwHqoNo2r28h/klSF+o8yHIJMMFF60iGjQ0bC86IZ5MZcYAaLWc6zxvIM+IC0SimanudOhQ2mWbV0eluI7JoeWuXTEnHz2KXGHxJAMSSqB9HpysmwyBCWwVTj0NpY4Wa0O+QmPBUJFqmEXeMb5aQDHrkKn2tXBMrHRLr70hSsO+kiZBwamJAxcGcBIk244lgNN4GJKtIBOkGgoYmEsymvILBU0VSumHklrGCVExi7dUZHfYqmZAZw+rUUa8uMIWHnU1m5EpTkBsXjWViFc83zJSfahBwDGUzaIPFPGleEwRFUWMDHMoUVBzIBvtRKsltkEj+MOmklZ2Xe5A7zpglJPylezZHp1n197qU23A6dWjxI5isRdGc6oNjAZu68DOcZb/Ac5P2cM3hmjcWcCnQnRwPOzqlcRwGlmKJiy1vTFSnYn5pP9PNS+hSNa5oAwFJQPkibAfB1ERMCA/YvWIkYEQcQzsbwFrMSpmGwZsFeYU/E3Bp/v1TVty1XSTh4GRRSsJmZ3BV+wP3cYwN1jQmvCxzzETnRcJdYtdYSh1EpjXBqn1yAhngnS3ZXxC1w6zyA5LBCb9ui7HZZOElKrA+vQPlkwq1BAEX7L8advAEXzCa7xOuupGlYGUONwH4G9WiyjYsbOW0MIhZQutcLs0OS70eTGdWVncHQzgM34TCyYnKERBLLX782GgLyOJUS5n5NGjtQJn7VJu+h8aA1TRuUTSfVo5R6Dthb5Q5QeBN2M8aLYckNJFc1jLU+HZcAyZTkaZDyzLoPwGGgdr+ptdcqWBJY6uj01rkO5eYegrb5webudTf57apr7w+qLTdvvrZaQoUxN2azk7trPO1xd7fC2AwaDKt+miWTGnVJu7mSJkK/l0lnevzYkPzLH4rVjXeKP6+jyBVYK17Zi8/V0rGDRSBOo9JwSXUMcgUdRGTrCBXP9qZ6OHm2bQ3+RrNvePHNkCjbFUKx7xnKYvuUEPs8VcQgoW1OGH3WSVt7exa3rT3/Sdwy3k+anHPiB2LD+kDfHv0udCcquAqM1pmTw+zh8FxdXOgi/hFdAgsYAjbOJ8T3TL3oRYsU80A3nBNnqwrdceCG5ZE18CxCLlj26ETKeo8/2mPBehG35vM2rWGyss/19k9i0ftYRI0boMVFiTPdjLNQl8UZdUSXym+geai3daOebuuIcrFXZaZUr6BM+gqH6BZNJV8wDd67sy+X+gj3eMVrjY+kktAgvE3gMacn0LjXa/MPhuejZ9YtUPakjN8PUEPXDRDBYPc+PFHlkMbu5Pup+0PrMA2l4H7/nPxCYcI1IZiUBHrKSWOiihE6Qb6eJAzpLpNlwphuyL0uzfUpHH351HXgn3zio4N3dLWuD3s5cQAjwb8/0UtslZfojqcW1pB/8NryQK3mOuSswsXW067IWMqk4WUwY2WFhHjibVYl8E1YAPGLYD9XcJDu2dAVY4XJJgH5HgnT8lRrSZq0oNzpw5YzFOlRy6QdVAQlldsP6ML6J12tQuWhJ5OoyDhJA8BCWRDpvJTlnIg4J924wlykbrKzjFO8ak3W2Eb0AzihrLWAY6MXbpuKfbkrd2YzoXbQaUuR0Ng9pcSwPJeX69GkThziv4E2g/DBL+C0Z1tmQ16h35+9tQgtYiBrKkHK4v2PLWrymg5wgnPkCnPnKnYcDVCon3FqJkj9ZuyH4YxZWuSp+Z36vszLSCZi+7w7nE21ui1iKHKpCZii/aY/FAbr3A+VJYE2vKaDZj5ibNn/yjeluX+rsCd+w03BoOYHzskfgGSnng2qA6yHzLQBLInnIyeH46dzZ5JvX8GimHPKTiTyuETGMGmz8AfRLem0I+1tgY+OkLWkBbtf0sM2fth8j8sgHix</source>
+    <source>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</source>
   </file>
-  <file path="Project.php" generated-path="Project.html" hash="b09d0913a5c9a0f34a1539378ddc1812" package="Default">
+  <file path="Project.php" generated-path="Project.html" hash="3b0422b0324b793f2b32c32fcbe1a857" package="Default">
     <docblock line="0">
-      <description></description>
-      <long-description></long-description>
+      <description>Part of the Caffeinated PHP packages.</description>
+      <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="Path">\Caffeinated\Beverage\Path</namespace-alias>
@@ -1056,224 +1059,231 @@
     <namespace-alias name="Filesystem">\Illuminate\Contracts\Filesystem\Filesystem</namespace-alias>
     <namespace-alias name="Yaml">\Symfony\Component\Yaml\Yaml</namespace-alias>
     <namespace-alias name="version">\vierbergenlars\SemVer\version</namespace-alias>
-    <class final="false" abstract="false" namespace="Codex\Codex" line="21" package="Codex\Codex">
+    <class final="false" abstract="false" namespace="Codex\Codex" line="27" package="Codex\Codex">
       <extends/>
       <name>Project</name>
       <full_name>\Codex\Codex\Project</full_name>
-      <docblock line="21">
+      <docblock line="27">
         <description>Project class.</description>
         <long-description></long-description>
-        <tag name="package" line="21" description="Codex\Codex"/>
-        <tag name="author" line="21" description="Codex Project Dev Team"/>
-        <tag name="copyright" line="21" description="Copyright (c) 2015, Codex Project"/>
-        <tag name="license" line="21" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
+        <tag name="package" line="27" description="Codex\Codex"/>
+        <tag name="author" line="27" description="Codex Project Dev Team"/>
+        <tag name="copyright" line="27" description="Copyright (c) 2015, Codex Project"/>
+        <tag name="license" line="27" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
       </docblock>
-      <constant namespace="Codex\Codex" line="25" package="Codex\Codex">
+      <constant namespace="Codex\Codex" line="31" package="Codex\Codex">
         <name>SHOW_MASTER_BRANCH</name>
         <full_name>\Codex\Codex\Project::SHOW_MASTER_BRANCH</full_name>
         <value>0</value>
-        <docblock line="25">
+        <docblock line="31">
           <description></description>
           <long-description></long-description>
         </docblock>
       </constant>
-      <constant namespace="Codex\Codex" line="26" package="Codex\Codex">
+      <constant namespace="Codex\Codex" line="32" package="Codex\Codex">
         <name>SHOW_LAST_VERSION</name>
         <full_name>\Codex\Codex\Project::SHOW_LAST_VERSION</full_name>
         <value>1</value>
-        <docblock line="26">
+        <docblock line="32">
           <description></description>
           <long-description></long-description>
         </docblock>
       </constant>
-      <constant namespace="Codex\Codex" line="27" package="Codex\Codex">
+      <constant namespace="Codex\Codex" line="33" package="Codex\Codex">
         <name>SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH</name>
         <full_name>\Codex\Codex\Project::SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH</full_name>
         <value>2</value>
-        <docblock line="27">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <constant namespace="Codex\Codex" line="28" package="Codex\Codex">
-        <name>SHOW_CUSTOM</name>
-        <full_name>\Codex\Codex\Project::SHOW_CUSTOM</full_name>
-        <value>3</value>
-        <docblock line="28">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </constant>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="33" package="Codex\Codex">
-        <name>$branches</name>
-        <full_name>\Codex\Codex\Project::branches</full_name>
-        <default></default>
         <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="33" description="" type="array" variable="">
+        </docblock>
+      </constant>
+      <constant namespace="Codex\Codex" line="34" package="Codex\Codex">
+        <name>SHOW_CUSTOM</name>
+        <full_name>\Codex\Codex\Project::SHOW_CUSTOM</full_name>
+        <value>3</value>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="39" package="Codex\Codex">
+        <name>$branches</name>
+        <full_name>\Codex\Codex\Project::branches</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="38" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="44" package="Codex\Codex">
         <name>$config</name>
         <full_name>\Codex\Codex\Project::config</full_name>
         <default></default>
-        <docblock line="38">
+        <docblock line="44">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="38" description="" type="array" variable="">
+          <tag name="var" line="44" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="43" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="49" package="Codex\Codex">
         <name>$defaultRef</name>
         <full_name>\Codex\Codex\Project::defaultRef</full_name>
         <default></default>
-        <docblock line="43">
+        <docblock line="49">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="43" description="" type="string" variable="">
+          <tag name="var" line="49" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="48" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="54" package="Codex\Codex">
         <name>$factory</name>
         <full_name>\Codex\Codex\Project::factory</full_name>
         <default></default>
-        <docblock line="48">
+        <docblock line="54">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="48" description="" type="\Codex\Codex\Factory" variable="">
+          <tag name="var" line="54" description="" type="\Codex\Codex\Factory" variable="">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="53" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="59" package="Codex\Codex">
         <name>$files</name>
         <full_name>\Codex\Codex\Project::files</full_name>
         <default></default>
-        <docblock line="53">
+        <docblock line="59">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="53" description="" type="\Illuminate\Filesystem\Filesystem" variable="">
+          <tag name="var" line="59" description="" type="\Illuminate\Filesystem\Filesystem" variable="">
             <type>\Illuminate\Filesystem\Filesystem</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="58" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="64" package="Codex\Codex">
         <name>$name</name>
         <full_name>\Codex\Codex\Project::name</full_name>
         <default></default>
-        <docblock line="58">
+        <docblock line="64">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="58" description="" type="string" variable="">
+          <tag name="var" line="64" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="63" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="69" package="Codex\Codex">
         <name>$path</name>
         <full_name>\Codex\Codex\Project::path</full_name>
         <default></default>
-        <docblock line="63">
+        <docblock line="69">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="63" description="" type="string" variable="">
+          <tag name="var" line="69" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="68" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="74" package="Codex\Codex">
         <name>$ref</name>
         <full_name>\Codex\Codex\Project::ref</full_name>
         <default></default>
-        <docblock line="68">
+        <docblock line="74">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="68" description="" type="string" variable="">
+          <tag name="var" line="74" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="73" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="79" package="Codex\Codex">
         <name>$refs</name>
         <full_name>\Codex\Codex\Project::refs</full_name>
         <default></default>
-        <docblock line="73">
+        <docblock line="79">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="73" description="" type="array" variable="">
+          <tag name="var" line="79" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="78" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="84" package="Codex\Codex">
         <name>$versions</name>
         <full_name>\Codex\Codex\Project::versions</full_name>
         <default></default>
-        <docblock line="78">
+        <docblock line="84">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="78" description="" type="array" variable="">
+          <tag name="var" line="84" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="85" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="91" package="Codex\Codex">
         <name>$documents</name>
         <full_name>\Codex\Codex\Project::documents</full_name>
         <default>array()</default>
-        <docblock line="85">
+        <docblock line="91">
           <description>A collection of documents that have already been instantiated. getDocument method will first check if the document is here.</description>
           <long-description></long-description>
-          <tag name="var" line="85" description="" type="array&lt;mixed,\Codex\Codex\Document&gt;" variable="">
+          <tag name="var" line="91" description="" type="array&lt;mixed,\Codex\Codex\Document&gt;" variable="">
             <type>array&lt;mixed,\Codex\Codex\Document&gt;</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="93" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="99" package="Codex\Codex">
         <name>$menu</name>
         <full_name>\Codex\Codex\Project::menu</full_name>
         <default></default>
-        <docblock line="93">
+        <docblock line="99">
           <description>The menu instance, getMenu will first check if this property is set and if so returns it.</description>
           <long-description>Otherwise it will instanciate a new Menu and set this property</long-description>
-          <tag name="var" line="93" description="" type="\Codex\Codex\Menu" variable="">
+          <tag name="var" line="99" description="" type="\Codex\Codex\Menu" variable="">
             <type>\Codex\Codex\Menu</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="99" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="104" package="Codex\Codex">
         <name>$container</name>
         <full_name>\Codex\Codex\Project::container</full_name>
         <default></default>
-        <docblock line="99">
+        <docblock line="104">
           <description></description>
           <long-description></long-description>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="108" package="Codex\Codex">
-        <name>__construct</name>
-        <full_name>\Codex\Codex\Project::__construct()</full_name>
-        <docblock line="108">
-          <description></description>
-          <long-description></long-description>
-          <tag name="param" line="108" description="" type="\Codex\Codex\Factory" variable="$factory">
-            <type>\Codex\Codex\Factory</type>
-          </tag>
-          <tag name="param" line="108" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
-            <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
-          </tag>
-          <tag name="param" line="108" description="" type="\Illuminate\Contracts\Container\Container" variable="$container">
+          <tag name="var" line="104" description="" type="\Illuminate\Contracts\Container\Container" variable="">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
-          <tag name="param" line="108" description="" type="" variable="$name"/>
-          <tag name="param" line="108" description="" type="" variable="$config"/>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="113" package="Codex\Codex">
+        <name>__construct</name>
+        <full_name>\Codex\Codex\Project::__construct()</full_name>
+        <docblock line="113">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="113" description="" type="\Codex\Codex\Factory" variable="$factory">
+            <type>\Codex\Codex\Factory</type>
+          </tag>
+          <tag name="param" line="113" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+            <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
+          </tag>
+          <tag name="param" line="113" description="" type="\Illuminate\Contracts\Container\Container" variable="$container">
+            <type>\Illuminate\Contracts\Container\Container</type>
+          </tag>
+          <tag name="param" line="113" description="" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="113" description="" type="array" variable="$config">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$factory</name>
@@ -1293,40 +1303,48 @@
         <argument line="0" by_reference="false">
           <name>$name</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$config</name>
           <default></default>
-          <type/>
+          <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="177" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="191" package="Codex\Codex">
         <name>path</name>
         <full_name>\Codex\Codex\Project::path()</full_name>
-        <docblock line="177">
-          <description></description>
+        <docblock line="191">
+          <description>Get the absolute path to a file in the project using the current ref</description>
           <long-description></long-description>
+          <tag name="param" line="191" description="" type="null|string" variable="$path">
+            <type>null</type>
+            <type>string</type>
+          </tag>
+          <tag name="return" line="191" description="" type="string">
+            <type>string</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$path</name>
           <default>null</default>
-          <type/>
+          <type>null|string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="189" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="203" package="Codex\Codex">
         <name>url</name>
         <full_name>\Codex\Codex\Project::url()</full_name>
-        <docblock line="189">
+        <docblock line="203">
           <description>url</description>
           <long-description></long-description>
-          <tag name="param" line="189" description="" type="string" variable="$doc">
+          <tag name="param" line="203" description="" type="string" variable="$doc">
             <type>string</type>
           </tag>
-          <tag name="param" line="189" description="" type="null" variable="$ref">
+          <tag name="param" line="203" description="" type="null|string" variable="$ref">
             <type>null</type>
+            <type>string</type>
           </tag>
-          <tag name="return" line="189" description="" type="string">
+          <tag name="return" line="203" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -1338,19 +1356,19 @@
         <argument line="0" by_reference="false">
           <name>$ref</name>
           <default>null</default>
-          <type>null</type>
+          <type>null|string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="200" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="214" package="Codex\Codex">
         <name>getDocument</name>
         <full_name>\Codex\Codex\Project::getDocument()</full_name>
-        <docblock line="200">
+        <docblock line="214">
           <description>getDocument</description>
           <long-description></long-description>
-          <tag name="param" line="200" description="" type="string" variable="$pathName">
+          <tag name="param" line="214" description="" type="string" variable="$pathName">
             <type>string</type>
           </tag>
-          <tag name="return" line="200" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="214" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
         </docblock>
@@ -1360,46 +1378,37 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="232" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="246" package="Codex\Codex">
         <name>getDocumentsMenu</name>
         <full_name>\Codex\Codex\Project::getDocumentsMenu()</full_name>
-        <docblock line="232">
-          <description>getDocumentsMenu</description>
+        <docblock line="246">
+          <description>Returns the menu for this project</description>
           <long-description></long-description>
-          <tag name="return" line="232" description="" type="\Codex\Codex\Menus\Menu">
+          <tag name="return" line="246" description="" type="\Codex\Codex\Menus\Menu">
             <type>\Codex\Codex\Menus\Menu</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="251" package="Codex\Codex">
-        <name>getRefsMenu</name>
-        <full_name>\Codex\Codex\Project::getRefsMenu()</full_name>
-        <docblock line="251">
-          <description>getRefsMenu</description>
-          <long-description></long-description>
-          <tag name="return" line="251" description="" type="\Codex\Codex\Menus\Menu">
-            <type>\Codex\Codex\Menus\Menu</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="276" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="267" package="Codex\Codex">
         <name>resolveDocumentsMenu</name>
         <full_name>\Codex\Codex\Project::resolveDocumentsMenu()</full_name>
-        <docblock line="276">
-          <description>resolveMenu</description>
+        <docblock line="267">
+          <description>Resolves and creates the documents menu from the parsed menu.yml</description>
           <long-description></long-description>
-          <tag name="param" line="276" description="" type="" variable="$items"/>
-          <tag name="param" line="276" description="" type="string" variable="$parentId">
+          <tag name="param" line="267" description="&lt;p&gt;The array converted from yaml&lt;/p&gt;" type="array" variable="$items">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="267" description="" type="string" variable="$parentId">
             <type>string</type>
           </tag>
-          <tag name="return" line="276" description="" type="\Codex\Codex\Menus\Menu">
+          <tag name="return" line="267" description="" type="\Codex\Codex\Menus\Menu">
             <type>\Codex\Codex\Menus\Menu</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$items</name>
           <default></default>
-          <type/>
+          <type>array</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$parentId</name>
@@ -1407,19 +1416,21 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="322" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="313" package="Codex\Codex">
         <name>config</name>
         <full_name>\Codex\Codex\Project::config()</full_name>
-        <docblock line="322">
-          <description>config</description>
+        <docblock line="313">
+          <description>Get a configuration item of the project using dot notation</description>
           <long-description></long-description>
-          <tag name="param" line="322" description="" type="null" variable="$key">
+          <tag name="param" line="313" description="" type="null|string" variable="$key">
             <type>null</type>
+            <type>string</type>
           </tag>
-          <tag name="param" line="322" description="" type="null" variable="$default">
+          <tag name="param" line="313" description="" type="null|mixed" variable="$default">
             <type>null</type>
+            <type>mixed</type>
           </tag>
-          <tag name="return" line="322" description="" type="array|mixed">
+          <tag name="return" line="313" description="" type="array|mixed">
             <type>array</type>
             <type>mixed</type>
           </tag>
@@ -1427,25 +1438,22 @@
         <argument line="0" by_reference="false">
           <name>$key</name>
           <default>null</default>
-          <type>null</type>
+          <type>null|string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$default</name>
           <default>null</default>
-          <type>null</type>
+          <type>null|mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="337" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="327" package="Codex\Codex">
         <name>setConfig</name>
         <full_name>\Codex\Codex\Project::setConfig()</full_name>
-        <docblock line="337">
-          <description>Set config.</description>
+        <docblock line="327">
+          <description>setConfig</description>
           <long-description></long-description>
-          <tag name="param" line="337" description="" type="array" variable="$config">
+          <tag name="param" line="327" description="" type="array" variable="$config">
             <type>array</type>
-          </tag>
-          <tag name="return" line="337" description="" type="void">
-            <type>void</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -1454,16 +1462,16 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="351" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="341" package="Codex\Codex">
         <name>setRef</name>
         <full_name>\Codex\Codex\Project::setRef()</full_name>
-        <docblock line="351">
+        <docblock line="341">
           <description>Set the ref (version/branch) you want to use. getDocument will be getting stuff using the ref</description>
           <long-description></long-description>
-          <tag name="param" line="351" description="" type="string" variable="$name">
+          <tag name="param" line="341" description="" type="string" variable="$name">
             <type>string</type>
           </tag>
-          <tag name="return" line="351" description="" type="\Codex\Codex\Project">
+          <tag name="return" line="341" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
@@ -1473,11 +1481,22 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="363" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="353" package="Codex\Codex">
         <name>getRef</name>
         <full_name>\Codex\Codex\Project::getRef()</full_name>
-        <docblock line="363">
+        <docblock line="353">
           <description>Get ref.</description>
+          <long-description></long-description>
+          <tag name="return" line="353" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="363" package="Codex\Codex">
+        <name>getDefaultRef</name>
+        <full_name>\Codex\Codex\Project::getDefaultRef()</full_name>
+        <docblock line="363">
+          <description>Get default ref.</description>
           <long-description></long-description>
           <tag name="return" line="363" description="" type="string">
             <type>string</type>
@@ -1485,59 +1504,48 @@
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="373" package="Codex\Codex">
-        <name>getDefaultRef</name>
-        <full_name>\Codex\Codex\Project::getDefaultRef()</full_name>
+        <name>getRefs</name>
+        <full_name>\Codex\Codex\Project::getRefs()</full_name>
         <docblock line="373">
-          <description>Get default ref.</description>
+          <description>Get refs.</description>
           <long-description></long-description>
-          <tag name="return" line="373" description="" type="string">
-            <type>string</type>
+          <tag name="return" line="373" description="" type="array">
+            <type>array</type>
           </tag>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="383" package="Codex\Codex">
-        <name>getRefs</name>
-        <full_name>\Codex\Codex\Project::getRefs()</full_name>
+        <name>getSortedRefs</name>
+        <full_name>\Codex\Codex\Project::getSortedRefs()</full_name>
         <docblock line="383">
-          <description>Get refs.</description>
+          <description>Get refs sorted by the configured order.</description>
           <long-description></long-description>
           <tag name="return" line="383" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="393" package="Codex\Codex">
-        <name>getSortedRefs</name>
-        <full_name>\Codex\Codex\Project::getSortedRefs()</full_name>
-        <docblock line="393">
-          <description>Get refs sorted by the configured order.</description>
-          <long-description></long-description>
-          <tag name="return" line="393" description="" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="418" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="410" package="Codex\Codex">
         <name>getFiles</name>
         <full_name>\Codex\Codex\Project::getFiles()</full_name>
-        <docblock line="418">
+        <docblock line="410">
           <description>Get project files.</description>
           <long-description></long-description>
-          <tag name="return" line="418" description="" type="\Illuminate\Contracts\Filesystem\Filesystem">
+          <tag name="return" line="410" description="" type="\Illuminate\Contracts\Filesystem\Filesystem">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="429" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="421" package="Codex\Codex">
         <name>setFiles</name>
         <full_name>\Codex\Codex\Project::setFiles()</full_name>
-        <docblock line="429">
+        <docblock line="421">
           <description>Set project files.</description>
           <long-description></long-description>
-          <tag name="param" line="429" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+          <tag name="param" line="421" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
-          <tag name="return" line="429" description="" type="\Codex\Codex\Project">
+          <tag name="return" line="421" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
@@ -1547,71 +1555,71 @@
           <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="441" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="433" package="Codex\Codex">
         <name>getName</name>
         <full_name>\Codex\Codex\Project::getName()</full_name>
-        <docblock line="441">
+        <docblock line="433">
           <description>Get name.</description>
           <long-description></long-description>
-          <tag name="return" line="441" description="" type="string">
+          <tag name="return" line="433" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="451" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="443" package="Codex\Codex">
         <name>getPath</name>
         <full_name>\Codex\Codex\Project::getPath()</full_name>
-        <docblock line="451">
+        <docblock line="443">
           <description>Get path.</description>
           <long-description></long-description>
-          <tag name="return" line="451" description="" type="string">
+          <tag name="return" line="443" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="461" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="453" package="Codex\Codex">
         <name>getConfig</name>
         <full_name>\Codex\Codex\Project::getConfig()</full_name>
-        <docblock line="461">
+        <docblock line="453">
           <description>Get config.</description>
           <long-description></long-description>
-          <tag name="return" line="461" description="" type="array">
+          <tag name="return" line="453" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="471" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="463" package="Codex\Codex">
         <name>getBranches</name>
         <full_name>\Codex\Codex\Project::getBranches()</full_name>
-        <docblock line="471">
+        <docblock line="463">
           <description>Get branches.</description>
           <long-description></long-description>
-          <tag name="return" line="471" description="" type="array">
+          <tag name="return" line="463" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="481" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="473" package="Codex\Codex">
         <name>getVersions</name>
         <full_name>\Codex\Codex\Project::getVersions()</full_name>
-        <docblock line="481">
+        <docblock line="473">
           <description>Get versions.</description>
           <long-description></long-description>
-          <tag name="return" line="481" description="" type="array">
+          <tag name="return" line="473" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="492" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="484" package="Codex\Codex">
         <name>setPath</name>
         <full_name>\Codex\Codex\Project::setPath()</full_name>
-        <docblock line="492">
+        <docblock line="484">
           <description>Set path.</description>
           <long-description></long-description>
-          <tag name="param" line="492" description="" type="string" variable="$path">
+          <tag name="param" line="484" description="" type="string" variable="$path">
             <type>string</type>
           </tag>
-          <tag name="return" line="492" description="" type="\Codex\Codex\Project">
+          <tag name="return" line="484" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
@@ -1621,27 +1629,27 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="504" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="496" package="Codex\Codex">
         <name>getFactory</name>
         <full_name>\Codex\Codex\Project::getFactory()</full_name>
-        <docblock line="504">
+        <docblock line="496">
           <description>Get factory.</description>
           <long-description></long-description>
-          <tag name="return" line="504" description="" type="\Codex\Codex\Factory">
+          <tag name="return" line="496" description="" type="\Codex\Codex\Factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="515" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="507" package="Codex\Codex">
         <name>setFactory</name>
         <full_name>\Codex\Codex\Project::setFactory()</full_name>
-        <docblock line="515">
+        <docblock line="507">
           <description>Set factory.</description>
           <long-description></long-description>
-          <tag name="param" line="515" description="" type="\Codex\Codex\Factory" variable="$factory">
+          <tag name="param" line="507" description="" type="\Codex\Codex\Factory" variable="$factory">
             <type>\Codex\Codex\Factory</type>
           </tag>
-          <tag name="return" line="515" description="" type="\Codex\Codex\Project">
+          <tag name="return" line="507" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
@@ -1651,12 +1659,16 @@
           <type>\Codex\Codex\Factory</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -1672,23 +1684,20 @@
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="108" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="177" code="PPC:ERR-50015">Argument $path is missing from the Docblock of path</error>
-      <error line="177" code="PPC:ERR-50008">No summary for method path()</error>
-      <error line="33" code="PPC:ERR-50007">No summary for property $branches</error>
-      <error line="38" code="PPC:ERR-50007">No summary for property $config</error>
-      <error line="43" code="PPC:ERR-50007">No summary for property $defaultRef</error>
-      <error line="48" code="PPC:ERR-50007">No summary for property $factory</error>
-      <error line="53" code="PPC:ERR-50007">No summary for property $files</error>
-      <error line="58" code="PPC:ERR-50007">No summary for property $name</error>
-      <error line="63" code="PPC:ERR-50007">No summary for property $path</error>
-      <error line="68" code="PPC:ERR-50007">No summary for property $ref</error>
-      <error line="73" code="PPC:ERR-50007">No summary for property $refs</error>
-      <error line="78" code="PPC:ERR-50007">No summary for property $versions</error>
-      <error line="99" code="PPC:ERR-50007">No summary for property $container</error>
+      <error line="113" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="39" code="PPC:ERR-50007">No summary for property $branches</error>
+      <error line="44" code="PPC:ERR-50007">No summary for property $config</error>
+      <error line="49" code="PPC:ERR-50007">No summary for property $defaultRef</error>
+      <error line="54" code="PPC:ERR-50007">No summary for property $factory</error>
+      <error line="59" code="PPC:ERR-50007">No summary for property $files</error>
+      <error line="64" code="PPC:ERR-50007">No summary for property $name</error>
+      <error line="69" code="PPC:ERR-50007">No summary for property $path</error>
+      <error line="74" code="PPC:ERR-50007">No summary for property $ref</error>
+      <error line="79" code="PPC:ERR-50007">No summary for property $refs</error>
+      <error line="84" code="PPC:ERR-50007">No summary for property $versions</error>
+      <error line="104" code="PPC:ERR-50007">No summary for property $container</error>
     </parse_markers>
-    <source>eJy1Wm1v2zgS/p5fwcMGJ7lw4m0P+8W5pJe22WuAtinsXItFEhiyRMfa6MUQqaTGXv77zfBFokjKTuKePiSyNJw3PjOcIfXPt6vlaq+IcspWUUzJ+zKhP67F36O9vZrBk2ixoGkRcZpcv6P3tIpu6fXXiC+P+l9PeaXetuzgb8GrKObs+nf4W1Zrl+SyilJ4/7Es76J5RiXBeZbVuZBgsMC7KC1o1d5toP49zShbM05z41bST9f5oizWQJyvyoIW/PqPKM/EH0lwn9JqTqtbWmRRxa6nNP8GUsFQlpYF+Gj06tUeeUW+VuWfNOYkziLGDuEJPvwX+PQOHEKIaaZ4E9V8WVZEv2nGf6D35JJGuSCKy9W6Sm+XHIj0XRgPyJtfX/827A4U9Fka04KhuCXnKzYejXiWVBm9jbLDuMxH6v0oT/mBpv18fkk+yXvgMdoTBjRc/9pDFdEP7aSIR3FZME6mHy++zz6fTi/PJrN3k9Mv7z+SY/LrkU3xCShm384m0/OLL0DweiPB7OLy49nk+/n0zOH8xhn4/j/Ty4vP8OofSi8xHXiBO+6jikRVFa3Vk5H4v6pKDqbRhOzPq6iIl5S9ZCwosUhve0YyXqXFbd/QhC6iOuMTuugZfm0GhYqWPmYLHUx+TkY8eKOgly1SvMg6TCYvGrgSSeUFA6teR26cQRj2oplXse8ZewrQzDIgg9ekXJCkjOsccgojfBlxsozuKYmyikbJmswpLUgKQI4KnmL6PCS3lH9QI0hOIT8k5CHNMrJIK8A7ADW+I+kCeNGGM0kZWdKKHioVOlZoZlc3vUhsFDwmV+TGtegSZAFBrTSN6RC1/IxP/KqBPsB/RSu+Rt0Y5SQqEnzHSlJRXlcFIynX+pILsKZ6SCHBpFyyVJLQJyQiBX0gQhxyQW4dET6rkbrPXjSlNZL5hl8/db3ZkBj0guRgaxVVUe4Nb9Jz6fi2WTx9nVOx/CQGHjNRh9iyWTN5ziXywi7jZcLter2ewzJGFnUhQ242E0tDVcc81H7VDhwSxyW4hGorWxuHUtWhljgQouRCKBRBBB6cNPQQOuacW2SLZnqPjVxtE6E24sFxk3ktElSJaBKZYl2FQFtFoVcniwZTbMNF/DgmWMuNx3+WaRFqBQ9OIMgnZck/pFU4UA4ZAJ5tflVdYF0QBitZL4xFbguGkEwEBbkZHLWDfiETysoMkiCmXoNZklYUBacUE5HplIMT411oWDEwbNPLuLRL5DFbT5BHOjnOeKnzObwXeX8GkjmtQvkjj1ZhA7AQVUWHDURNFAofNoD5e6PJwMBLcyNEKmF6EqBSHo9j8BqnobiHOqyu6Ce64I2sIQlGwWCAVuTlvXonfNB59OF8cvb+8mLyx2x69vV0cgq3hpN8wkO5rA70864EgbhDIdti0/r06gbnqy2GTTIOqP+r8wQvuQSItK6GhXq8JeaRxBGPlyS8ntSwROb07EdMV2Ia9unAw7rxvqVVh2nz63HYwR2gPEjZrJwjjIOBi5IGZMdO3YjXaKRWwYdlCkor4SNJSXhJ2LJ8IPM1UcWfAf6mGgTWcQm2hhYwB+SE/ErewkIfJe67sXreYM/Qij2kwoWdFHFFAiUzgPi0HBlHgGtV/Y/HTnE+drxes7JyNB62OTnUoNu/fz0k7Y83vil0HhiQUUPH41sQh7wEj7fk4DW44PWRM/RxYAHS9bbXoS6nOcTn3dFz3NTXw7jug8Io7J90n49+utN7Hb+D8/UEOM+2TcnPCQBbxtNmcMtUdRUN8ghKiSp4qTDZuW6TYgduXDNe5oG5xPWIfXQXa5NjR0qzEDidKV7tsp03pTXpLwGSsqBWBWDoY5dsuI6FuhQp6iyzyy0FQMjN+FYtfIAFs2xpy4KhYSwiYzvVUBZCXS2Nmr2uMrtNkMWr9Jnooaw3qCg6CLg3b5QZvkbW8ggIDJEpYiwtoEUAZ+7Ludvgn265eXAiuOAzOXgo9Ow10ug8NxuLrvpiFvJKfKelsVj5zTREhg1btDmwLcQUaVAcCxorj3U4SK95QwF5/Q3ABJ2kBkTTA18ZXG4GXglWubwRUV9U/XSYJ4G9FG0U3Ql72VYcnOTRHQ21w6BkxF06CDInCwQKAQEUeCcWKoYutQpag9pHBKoF4haJhLl+ItQ/aIhanKjrxsrMoxGWgS0KusoSDV+jHVCuNTzc41lPVpJS2szU635TzUej5+lGmn9wE2Di/y9yM2JDtDFjt2JjTCEdu3b3NvqjSrAOdTC1aXsd5Rlx2iwYGD4F2gGuAYfrPIOOxGizRK8ETHHffDyGnMFoKCSZRFaKUhtJLIQ+ZlFWqIGerhlLEzqPqhlK61bjYjfquNVJrExdm6U2V1LXoDOfYvjBCYT/t5Q+hEGMzh2P8SkbKeEHSnjg6t4LK3YgZAG4NGrxd6f71fCRe1AKJi4yYO39P4BCcw2d3QxhugEHd3Ys7zF3tnQt1kxXE+HaNGWE3p+TSkt+BsHInWYlMUqSJ4gDvWhk9Dug5BQKZZqg+eGAREwshk5qL8CbWpiUpdZMJD5yaQWATjmsifMaGvdgCXTBcNsaPBj4q7OnQBKb7afgEUeNBbEHis9BogosHxI7e3f7Kae5vbnYVgsVxMZ58iIQNzuqDY79wS4UGLbCsAKoypI7dcTuYNyQwDoA7c1eLUCF1gKQeOcgMkuLO1EMddGH5Yvclrqj6xn9kTLOwsBY2yQ3m91oROTODoFihNAfnBaiIQR2K3BqU6qZGqhyR21KJex7ioU6ssf9Ay2R3AxlhQPNZ5QxipW5GCLlbRiA1bnnrdvXaF9siq6eal5fj4SCbn7n6dj1Oq4jXykrBtiKWn3tfoowzJPfGgcUojS6gYJQ8HPKFk8KSpMhsYYbMH9OXlISt9KnifBEYmuHnlM1s9InhdI08FTJXdafKY9CSduaoodudKArMV6mWQKm90rdVBC4PLSdXR082niTpS7v3sszCTt5do4qfM3hPiDQ+7yzO9gmTAHb/+bpD6pzqX+ll4JDZK/axWHDs6d/lJ5WzTWMc5zbLXvtgwXXUzLEbtsGSw4ZCqNbdXp70Snlyg7nUFOtPLLY7B4INa66L9PNPgJQyWkLO3z6j3nwVMU6UmkLfKwsyEjvjzGvNXhgiw182N0VHpB1WZOHqOC4P1wz2j0BFoehc4rPOK6mjNeLBZDhveLY4x+9/BbbGvXm25HN7gIb5XFAj4/UxpJx8G/jpm+u/w3egdHORD99t0TWtk5Z2wWt+ECgXwMdIDtr8qHZPtuikLnPttEzrE8hzxcK/qp/u2u2zQ4jTBTReHqBwJOBUFfwpKwSWu2kolmf2+gyDuasTV8DZmor/KWb4L5U99TN7s4Jg6mt7+Swlb9N/P69KC2/qeMxs2sYtmI8raUSix+r6dyr98S7A9V0qxQG08zhHWQxJu+8QFC1LRH7BX1T/ozPErYBQ1BuAa9xVO5fRzYrrdLlDt9S7JBUpX2SX09elZ8FHHc/xrK9sCl4MSPvltFwV2vLJLQfI/iVwHp8NyVwX2qLEvLbsX4legqK52QqVTRs1sMqEjya6IjcSZd3iskWbdpz6n59dFrYSR+Vq7bp06Zvvz7TPrhYhQ3S/IwY/NocPvVEoGqCzU8Tbas2+Vb1qr3Zcutnnp60KMm2JUbzQyO/n/t000nR942a8zHaLvlPGaJ59uVAJfrY/tK1bx4e9/4HhOEDSQ==</source>
+    <source>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</source>
   </file>
   <file path="Providers/ConsoleServiceProvider.php" generated-path="Providers.ConsoleServiceProvider.html" hash="2bb874c0383cdfd6dc7d081dde45e024" package="Default">
     <docblock line="0">
@@ -2080,149 +2089,153 @@ file. In addition, it is set as the URL generator's root namespace.</description
     </parse_markers>
     <source>eJxlUttO3DAQfc9XjATSXgSkRerL0isLUpFYtBL72JfBHm9cfIlsB6hW+++M3RhW7SiKnPicM+eM/flb3/VNO583MIc1hgReQeoIlqgUaYeJJKx/rqFH8YhbimcMzNjVzQZutSAXCdBJEL7/E/S2S6Cd8sFi0t7Bw+CkYYVnnTqW1bHqMKq0ub1ZXt/dX4PShli2bRxaigxiB17Sy6/6dtEbumiq1U3W4qdYzZAVPtLSW8teqsXvtddYB4JlG4fU+QBv2weJr+gJNoS24N6jjTL1cypmcP7h46eTQ26hmHEyY3Up9XHRtsnIYGiL5kx4246g1up0WgkHYy3jEAZj/C8h0EsiJyNcYqz/ml2TW/XBJxI5w3HUW3Y0BIIvMBFZYmFZA3Z5xrDgGRKU5XjkTP3N1P2Ex/yPlKQogu7LmbLYMhBHBQRHz1CUK/mNOzxwJFCDE4XUYb4I01nZ3P3F5Do6zrfi9KvwTulgp5MfUoIkhYNJ8EQhMnlyAgpNpNlFoe2bffMKi/7cTw==</source>
   </file>
-  <file path="Document.php" generated-path="Document.html" hash="6c30db457f7aeeaf2de8390f70b273bf" package="Default">
+  <file path="Document.php" generated-path="Document.html" hash="bb5bbfd6cc945181768fc4d9eb81d5ad" package="Default">
     <docblock line="0">
-      <description></description>
-      <long-description></long-description>
+      <description>Part of the Caffeinated PHP packages.</description>
+      <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="Factory">\Codex\Codex\Contracts\Factory</namespace-alias>
     <namespace-alias name="Hookable">\Codex\Codex\Traits\Hookable</namespace-alias>
     <namespace-alias name="Container">\Illuminate\Contracts\Container\Container</namespace-alias>
     <namespace-alias name="Filesystem">\Illuminate\Contracts\Filesystem\Filesystem</namespace-alias>
-    <class final="false" abstract="false" namespace="Codex\Codex" line="17" package="Codex\Codex">
+    <class final="false" abstract="false" namespace="Codex\Codex" line="22" package="Codex\Codex">
       <extends/>
       <name>Document</name>
       <full_name>\Codex\Codex\Document</full_name>
-      <docblock line="17">
+      <docblock line="22">
         <description>Document class.</description>
         <long-description></long-description>
-        <tag name="package" line="17" description="Codex\Codex"/>
-        <tag name="author" line="17" description="Codex Project Dev Team"/>
-        <tag name="copyright" line="17" description="Copyright (c) 2015, Codex Project"/>
-        <tag name="license" line="17" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
+        <tag name="package" line="22" description="Codex\Codex"/>
+        <tag name="author" line="22" description="Codex Project Dev Team"/>
+        <tag name="copyright" line="22" description="Copyright (c) 2015, Codex Project"/>
+        <tag name="license" line="22" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="24" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="31" package="Codex\Codex">
         <name>$attributes</name>
         <full_name>\Codex\Codex\Document::attributes</full_name>
         <default></default>
-        <docblock line="24">
-          <description></description>
+        <docblock line="31">
+          <description>The document attributes. Defaults can be set in the config, documents can use frontmatter to customize it.</description>
           <long-description></long-description>
-          <tag name="var" line="24" description="" type="array" variable="">
+          <tag name="var" line="31" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="29" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="36" package="Codex\Codex">
         <name>$content</name>
         <full_name>\Codex\Codex\Document::content</full_name>
         <default></default>
-        <docblock line="29">
+        <docblock line="36">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="29" description="" type="string" variable="">
+          <tag name="var" line="36" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="34" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="41" package="Codex\Codex">
         <name>$factory</name>
         <full_name>\Codex\Codex\Document::factory</full_name>
         <default></default>
-        <docblock line="34">
+        <docblock line="41">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="34" description="" type="\Codex\Codex\Factory" variable="">
+          <tag name="var" line="41" description="" type="\Codex\Codex\Factory" variable="">
             <type>\Codex\Codex\Factory</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="39" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="46" package="Codex\Codex">
         <name>$files</name>
         <full_name>\Codex\Codex\Document::files</full_name>
         <default></default>
-        <docblock line="39">
+        <docblock line="46">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="39" description="" type="\Illuminate\Filesystem\Filesystem" variable="">
+          <tag name="var" line="46" description="" type="\Illuminate\Filesystem\Filesystem" variable="">
             <type>\Illuminate\Filesystem\Filesystem</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="45" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="53" package="Codex\Codex">
         <name>$path</name>
         <full_name>\Codex\Codex\Document::path</full_name>
         <default></default>
-        <docblock line="45">
-          <description></description>
+        <docblock line="53">
+          <description>Absolute path to this document</description>
           <long-description></long-description>
-          <tag name="var" line="45" description="" type="string" variable="">
+          <tag name="var" line="53" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="50" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="60" package="Codex\Codex">
         <name>$project</name>
         <full_name>\Codex\Codex\Document::project</full_name>
         <default></default>
-        <docblock line="50">
-          <description></description>
+        <docblock line="60">
+          <description>The project instance</description>
           <long-description></long-description>
-          <tag name="var" line="50" description="" type="\Codex\Codex\Project" variable="">
+          <tag name="var" line="60" description="" type="\Codex\Codex\Project" variable="">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="57" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="67" package="Codex\Codex">
         <name>$pathName</name>
         <full_name>\Codex\Codex\Document::pathName</full_name>
         <default></default>
-        <docblock line="57">
+        <docblock line="67">
           <description>The pathname is the path given to Project-&gt;getDocument. It's a relative path</description>
           <long-description></long-description>
-          <tag name="var" line="57" description="" type="string" variable="">
+          <tag name="var" line="67" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="62" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="72" package="Codex\Codex">
         <name>$container</name>
         <full_name>\Codex\Codex\Document::container</full_name>
         <default></default>
-        <docblock line="62">
+        <docblock line="72">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="62" description="" type="\Illuminate\Contracts\Container\Container" variable="">
+          <tag name="var" line="72" description="" type="\Illuminate\Contracts\Container\Container" variable="">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="72" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="84" package="Codex\Codex">
         <name>__construct</name>
         <full_name>\Codex\Codex\Document::__construct()</full_name>
-        <docblock line="72">
-          <description></description>
+        <docblock line="84">
+          <description>Creates a new Document class</description>
           <long-description></long-description>
-          <tag name="param" line="72" description="" type="\Codex\Codex\Factory" variable="$factory">
-            <type>\Codex\Codex\Factory</type>
+          <tag name="param" line="84" description="&lt;p&gt;The factory class&lt;/p&gt;" type="\Codex\Codex\Contracts\Factory" variable="$factory">
+            <type>\Codex\Codex\Contracts\Factory</type>
           </tag>
-          <tag name="param" line="72" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+          <tag name="param" line="84" description="&lt;p&gt;The filesystem&lt;/p&gt;" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
-          <tag name="param" line="72" description="" type="\Codex\Codex\Project" variable="$project">
+          <tag name="param" line="84" description="&lt;p&gt;The project instance&lt;/p&gt;" type="\Codex\Codex\Project" variable="$project">
             <type>\Codex\Codex\Project</type>
           </tag>
-          <tag name="param" line="72" description="" type="\Illuminate\Contracts\Container\Container" variable="$container">
+          <tag name="param" line="84" description="&lt;p&gt;The container class&lt;/p&gt;" type="\Illuminate\Contracts\Container\Container" variable="$container">
             <type>\Illuminate\Contracts\Container\Container</type>
           </tag>
-          <tag name="param" line="72" description="" type="" variable="$path"/>
-          <tag name="param" line="72" description="" type="" variable="$pathName"/>
+          <tag name="param" line="84" description="&lt;p&gt;The absolute path to the document&lt;/p&gt;" type="string" variable="$path">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="84" description="&lt;p&gt;The relative path to the document&lt;/p&gt;" type="string" variable="$pathName">
+            <type>string</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$factory</name>
           <default></default>
-          <type>\Codex\Codex\Factory</type>
+          <type>\Codex\Codex\Contracts\Factory</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$files</name>
@@ -2242,37 +2255,43 @@ file. In addition, it is set as the URL generator's root namespace.</description
         <argument line="0" by_reference="false">
           <name>$path</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$pathName</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="98" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="110" package="Codex\Codex">
         <name>render</name>
         <full_name>\Codex\Codex\Document::render()</full_name>
-        <docblock line="98">
+        <docblock line="110">
           <description>Render the document.</description>
           <long-description>This will run all document:render hooks and then return the
 output. Should be called within a view.</long-description>
-          <tag name="return" line="98" description="" type="string">
+          <tag name="return" line="110" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="126" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="139" package="Codex\Codex">
         <name>attr</name>
         <full_name>\Codex\Codex\Document::attr()</full_name>
-        <docblock line="126">
-          <description>Get the given attribute.</description>
+        <docblock line="139">
+          <description>Get a attribute using dot notation</description>
           <long-description></long-description>
-          <tag name="param" line="126" description="" type="string" variable="$key">
+          <tag name="param" line="139" description="" type="string" variable="$key">
             <type>string</type>
           </tag>
-          <tag name="return" line="126" description="" type="array">
+          <tag name="param" line="139" description="" type="null|mixed" variable="$default">
+            <type>null</type>
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="139" description="" type="array|null|mixed">
             <type>array</type>
+            <type>null</type>
+            <type>mixed</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -2283,60 +2302,63 @@ output. Should be called within a view.</long-description>
         <argument line="0" by_reference="false">
           <name>$default</name>
           <default>null</default>
-          <type/>
+          <type>null|mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="136" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="149" package="Codex\Codex">
         <name>url</name>
         <full_name>\Codex\Codex\Document::url()</full_name>
-        <docblock line="136">
+        <docblock line="149">
           <description>Get the url to this document</description>
           <long-description></long-description>
-          <tag name="return" line="136" description="" type="string">
+          <tag name="return" line="149" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="144" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="159" package="Codex\Codex">
         <name>getBreadcrumb</name>
         <full_name>\Codex\Codex\Document::getBreadcrumb()</full_name>
-        <docblock line="144">
-          <description>getBreadcrumb</description>
+        <docblock line="159">
+          <description>Returns an array of parent menu items</description>
           <long-description></long-description>
+          <tag name="return" line="159" description="" type="array">
+            <type>array</type>
+          </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="154" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="169" package="Codex\Codex">
         <name>getPath</name>
         <full_name>\Codex\Codex\Document::getPath()</full_name>
-        <docblock line="154">
+        <docblock line="169">
           <description>get the path value.</description>
           <long-description></long-description>
-          <tag name="return" line="154" description="" type="string">
+          <tag name="return" line="169" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="164" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="179" package="Codex\Codex">
         <name>getContent</name>
         <full_name>\Codex\Codex\Document::getContent()</full_name>
-        <docblock line="164">
+        <docblock line="179">
           <description>get the content of the document.</description>
           <long-description></long-description>
-          <tag name="return" line="164" description="" type="string">
+          <tag name="return" line="179" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="175" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="190" package="Codex\Codex">
         <name>setContent</name>
         <full_name>\Codex\Codex\Document::setContent()</full_name>
-        <docblock line="175">
+        <docblock line="190">
           <description>Set the content value of the document.</description>
           <long-description></long-description>
-          <tag name="param" line="175" description="" type="string" variable="$content">
+          <tag name="param" line="190" description="" type="string" variable="$content">
             <type>string</type>
           </tag>
-          <tag name="return" line="175" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="190" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
         </docblock>
@@ -2346,27 +2368,27 @@ output. Should be called within a view.</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="187" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="202" package="Codex\Codex">
         <name>getAttributes</name>
         <full_name>\Codex\Codex\Document::getAttributes()</full_name>
-        <docblock line="187">
+        <docblock line="202">
           <description>Get all document attributes.</description>
           <long-description></long-description>
-          <tag name="return" line="187" description="" type="array">
+          <tag name="return" line="202" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="198" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="213" package="Codex\Codex">
         <name>setAttributes</name>
         <full_name>\Codex\Codex\Document::setAttributes()</full_name>
-        <docblock line="198">
+        <docblock line="213">
           <description>Set the document attributes.</description>
           <long-description></long-description>
-          <tag name="param" line="198" description="" type="array" variable="$attributes">
+          <tag name="param" line="213" description="" type="array" variable="$attributes">
             <type>array</type>
           </tag>
-          <tag name="return" line="198" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="213" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
         </docblock>
@@ -2376,16 +2398,16 @@ output. Should be called within a view.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="211" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="226" package="Codex\Codex">
         <name>mergeAttributes</name>
         <full_name>\Codex\Codex\Document::mergeAttributes()</full_name>
-        <docblock line="211">
+        <docblock line="226">
           <description>mergeAttributes</description>
           <long-description></long-description>
-          <tag name="param" line="211" description="" type="array" variable="$attributes">
+          <tag name="param" line="226" description="" type="array" variable="$attributes">
             <type>array</type>
           </tag>
-          <tag name="return" line="211" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="226" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -2396,38 +2418,38 @@ output. Should be called within a view.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="222" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="238" package="Codex\Codex">
         <name>getProject</name>
         <full_name>\Codex\Codex\Document::getProject()</full_name>
-        <docblock line="222">
+        <docblock line="238">
           <description>Get the document's project.</description>
           <long-description></long-description>
-          <tag name="return" line="222" description="" type="\Codex\Codex\Project">
+          <tag name="return" line="238" description="" type="\Codex\Codex\Project">
             <type>\Codex\Codex\Project</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="232" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="248" package="Codex\Codex">
         <name>getFiles</name>
         <full_name>\Codex\Codex\Document::getFiles()</full_name>
-        <docblock line="232">
+        <docblock line="248">
           <description>Get all files for the given project.</description>
           <long-description></long-description>
-          <tag name="return" line="232" description="" type="\Illuminate\Filesystem\Filesystem">
+          <tag name="return" line="248" description="" type="\Illuminate\Filesystem\Filesystem">
             <type>\Illuminate\Filesystem\Filesystem</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="243" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="259" package="Codex\Codex">
         <name>setFiles</name>
         <full_name>\Codex\Codex\Document::setFiles()</full_name>
-        <docblock line="243">
+        <docblock line="259">
           <description>Set the project files value.</description>
           <long-description></long-description>
-          <tag name="param" line="243" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+          <tag name="param" line="259" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
-          <tag name="return" line="243" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="259" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
         </docblock>
@@ -2437,16 +2459,16 @@ output. Should be called within a view.</long-description>
           <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="256" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="272" package="Codex\Codex">
         <name>setPath</name>
         <full_name>\Codex\Codex\Document::setPath()</full_name>
-        <docblock line="256">
+        <docblock line="272">
           <description>Set the path value.</description>
           <long-description></long-description>
-          <tag name="param" line="256" description="" type="string" variable="$path">
+          <tag name="param" line="272" description="" type="string" variable="$path">
             <type>string</type>
           </tag>
-          <tag name="return" line="256" description="" type="\Codex\Codex\Document">
+          <tag name="return" line="272" description="" type="\Codex\Codex\Document">
             <type>\Codex\Codex\Document</type>
           </tag>
         </docblock>
@@ -2456,12 +2478,16 @@ output. Should be called within a view.</long-description>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -2477,20 +2503,14 @@ output. Should be called within a view.</long-description>
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="72" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="126" code="PPC:ERR-50015">Argument $default is missing from the Docblock of attr</error>
-      <error line="24" code="PPC:ERR-50007">No summary for property $attributes</error>
-      <error line="29" code="PPC:ERR-50007">No summary for property $content</error>
-      <error line="34" code="PPC:ERR-50007">No summary for property $factory</error>
-      <error line="39" code="PPC:ERR-50007">No summary for property $files</error>
-      <error line="45" code="PPC:ERR-50007">No summary for property $path</error>
-      <error line="50" code="PPC:ERR-50007">No summary for property $project</error>
-      <error line="62" code="PPC:ERR-50007">No summary for property $container</error>
+      <error line="36" code="PPC:ERR-50007">No summary for property $content</error>
+      <error line="41" code="PPC:ERR-50007">No summary for property $factory</error>
+      <error line="46" code="PPC:ERR-50007">No summary for property $files</error>
+      <error line="72" code="PPC:ERR-50007">No summary for property $container</error>
     </parse_markers>
-    <source>eJy1WE1v4zYQvftXzCGA7UCJtwV6cersbjdNN0C3KDa+JYFBy7SlRpYEkkrWKPLfO6RIiaJEyQ5QHRxFHD6++Xqk9OvHPMpHKdlTnpOQwpdsQ388qt+r0ajgjSf4mwpGQsEfb/E3Y4erlsmSkRjHv2bZM1kntDS4S5JiH6dEUAtC3pE4pay+67G+jRPKD1zQvXWLFGfn5yM4h5ssLPY0FRAmhPNLfCSffkKfnsmOAtgc1QgpRJQxMCPwN8v+oaGAG/oCS0r2yijM8gOLd5FAI3M3Cafw84effgmaE5V9Eoc05XK5SIicz2czkWxYQnckuQyz/UyPz/axuDC23+6W8Gd5jxizkXKg8mf070hylGGpQ6oeKcflheu+EAaEMXLQT2bqb84ygczoBs6IECxeF4Jyz2yO4+nONz3ENCAZz9xHO/+6MHxIW1M33UhW6jsT7oWVFgj6Dt9yIqJjHKvy7IEph9tIy4iCXEP2GMQchP4fdvELTUFkpoIurndUmLxfwp0YcyDAaEIEWqo5GvNE7/7ClY8IeG9n9lWGbt3WAjlhZN9ZHeC5THm4EMcrgi6FPg6m030c8kai+zl0REpChE7YDMgp15mV8HfPl6lvpq5Yo/DAtkhDEWcprFbIFUuoCMXEJMdkIYBWXINKJ02YpAwaz2u/g3L5oGYxVcuXaqboiSjmF9fVDFg0iskx21Z1s7A0xDHKq8QurH50kaQb6sGikg0XR3anMSnlocNCOlVZWC1mmbEilaI9GW90V88ZJZvDOICH0gSepu1ZtVZbzqpIbeMdYtEtKRKxMpir2n48bTHVyq2dsUKg1GZi+dPBpM1/k6XUoS/t39rK+52mG8yqVDsz+9KRr6WEeI2TBHAhIPjXipOaHeHqKILpRuKkqIWiYKm8NxBZIfICxfI+yopkA2sKIeKgML3GSBBB4SWmr+7CnzRQl3Q6/VESmXiqtyvB0t6b4S2nQuCavM5GbtTfJBjTIyjjK2PayKoeVOn8/QemliNLPp9jMm/LIZNTfKJ7dTJtgY+nNq14i6earEixHvT4FK7hw9RyWF7bDMs3jKCyAsLhTO1ri2tDzZ1k8PUwxKg2JA1ptkVVTjJeMNo1RV4ylSs8+bCVTMdKHXAMThXgAPdULiu5Cu2D5vQ0hY/Q8RjmOPepql37egOa4Emrm86ZoY6hJ3kuo7onz9Qw6oDzOvFQgwUwjrDAEzqGp//JqVH3f291Aeh+aGqGt7X/oEL1dXmAqeSn1WV6zyq7DM6e6cFtwI4zq9N/En0ip2LQ0yJJcEfRAqgfuJ2pkWO+kqNqqgpZS1vn5eorSwbr0UDRrRerdc4Ti4Il8iinWt6IwftVB9FaktPMUbUtSNOmkgQtZUEXv9PtZBq4+5fXLZzxm9yrQlbs171UG5YDpPOOgy7/RtNC9lIDaJl9ZchYz1Ph6ONaH6pfSFK0K/H4yEvVRJwhR6pDgZ+O2XlR6Po2wdO4fSlBB+i5DewwvHcYqpgN8nS6WU923bhp1n63I7x2xOD0HA8lxYX7Duo63def9smilivuy8SwKGEiPlcwA7mw37z703EMRZ0ERdF+q39vGiw3LDRPMpoH09YnhWNTsqdsRz+71B0XBz1US/S656wzaUEe42a5RzCaJySk+DcsGMdtr3PHsJCvTi5SuwLwxV9Lpa9Gh79MdOiaOQ0eo9FD/VS+RuGJ0DoJDHE+7eNO2wFlObQv1m90/k4zL4qlE91bhu40/5eFEzutJF9ieAqvpFO/lp5UQ/fDu6Cj4I3vCyd6o/ZIheDxRdFYNL6u+Tx5G/0HDKl6rg==</source>
+    <source>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</source>
   </file>
-  <file path="Extensions.php" generated-path="Extensions.html" hash="4b665bb4625baae13ce920974e7f8014" package="Default">
+  <file path="Extensions.php" generated-path="Extensions.html" hash="601cad35f1c324a85fc473800bcca9d8" package="Default">
     <docblock line="0">
       <description>Part of the Caffeinated PHP packages.</description>
       <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
@@ -2503,7 +2523,7 @@ output. Should be called within a view.</long-description>
       <name>Extensions</name>
       <full_name>\Codex\Codex\Extensions</full_name>
       <docblock line="20">
-        <description>This is the Hooks.</description>
+        <description>This is the Extensions class.</description>
         <long-description></long-description>
         <tag name="package" line="20" description="Codex\Codex"/>
         <tag name="author" line="20" description="Caffeinated Dev Team"/>
@@ -2724,7 +2744,7 @@ output. Should be called within a view.</long-description>
       <error line="31" code="PPC:ERR-50007">No summary for property $excludedProjectNames</error>
       <error line="36" code="PPC:ERR-50007">No summary for property $filters</error>
     </parse_markers>
-    <source>eJy9V1tv2zYUftevOOsCRA7ceBuwF2ddV3QuGqAtgiZvtmGwEm1rkSiBpJwESf77zuFF1tXJ2mBEYMXi4bl8/M7Ff7wttkUwOTkJ4AQumNSQr0FvObxn6zVPBNM8houPF1Cw6JptuDpFQZL9fH4Fn5KIC8WBiRiivLiTyWarIRHrXGZMJ7mAb6WIU9Rwk+gtqk2U14NSxsyn8/ezL5czWCcpR7WTQLCMKxRCD/KY3y7M51kQlKrxBj+FlizSavEhSTWXZwckPub5NapwUV6RG/hH5mmnCukv75tbNWVmm5V6m0uotmsI/c13cMVZZuT2UDg1/msYjeC3X379fVw/a46kDkm3tloXajqZ6DSWKd+w9DTKs4kTmmSJfu0P1K7BwBelTCmY3Wp8gxeggvsgII0mdlpobMckMCnZnXszMc9C5ppHFIzSeHkRHG0JHHgDc1iefb8WfhulZczjC5n/gztf6H5/WOna3PlejxH72V5nR+tMqFJyKPJE6FP3srJYMMkyQMUyERs4IvpVe5LrUgrY5Ul82J91KSLDd25MkRsXZC00+kbm0H3gbzdZQ/gTMlBxHVoF06kFe24dgOVoVJOnNSDnAfBij4H9bEPwlW8ShYgBA1KA2YcKRcSfgKNaRwa8fqmHxfs0NwgfbRmlu3wawPIbEriDHotjgi601saVvn4A/W4VDFauyhUqSYixWBk2haR2OjXJMQbzWCVZkfKMC63Cys4Y1ixVvIO+3sr8BgS/gcW52LE0id/JTUmHZ7cRL8j58NUHllCpwyAIOoL5FJD0uwTJD95XLI0wv7cBPi6pDIlcg1F5CjOskihT2EN0WYsqIDxn/C6YqaQM62xW8NQEQGKmVu0fvvSZ2vdqVGdI9a/nVIe0xrvamQ75jAAs58Q/D97ZEPVKW+k3yY4LC8t/yUG3Z66ReEhf1fcSTJbCEoxMjJ1Sp9OmUptqgxiZxD7bg4kXy1m0haGMBqb2fG7Ri/h8iM1teVoRS9MVtjy5ougczb2SsQ+qdonmdoAjvcmczQF+i1Whxv8+Q0feIQSIFUU4ev1nxq75/lANhIPOzfeqxnBsTx/DctDXblFzVf5rXmpOWeL7CZgeY/tdh38brqG3B2HSlbxNRUeonh7UzyjUPutRHlJMiiDTsuw0AGfEy7yxUvCWUjrFDA6PH47H+6zr834E08MCQ+mI5anP4f6UdAXe50lX/qlyPoBNPZCB5ugZ3ZBt87OxaxK4+abTGWkdhI1IToZXGZcbHh6UHTetjYYgv0QGUgV8Pgst+g72vmNtvpqUuORyh6Og6znyOVekhujby7mB2jgE5GFeumS203tP3r6LsZeanmuHPdC5QVG6UQabqp8CU3zx3ElmYPU2HV9/HxaHfnn88Nhjw/BN6eWGHuve/zv2WJvDgw/F2Jl7PpcKa3Rj+HmR2cc688T0439L1Gfqp2Ya6imefC/VRlwihM4fn0SiTNPBGkmbjQOdK2yX00OyJg+a1ufNF8t2i258rQe9ykV6F7YxHjfU1e/FDCYtf5y+tpLur53H4F+w5gM7</source>
+    <source>eJy9V1tv2zYUftevOOsCRA7ceBuwF2ddV3QuGqAtgiZvtmGwEm1rkSiBpJwESf77zuFF1tXJ2mBEYMfi4bl8/M5Ff7wttkUwOTkJ4AQumNSQr0FvObxn6zVPBNM8houPF1Cw6JptuDpFQZL9fH4Fn5KIC8WBiRiivLiTyWarIRHrXGZMJ7mAb6WIU9Rwk+gtqk2U14NSxsyn8/ezL5czWCcpR7WTQLCMKxRCD/KY3y7M51kQlKrxBD+FlizSavEhSTWXZwckPub5NapwUV6RG/hH5me3GiNATxVEKVNVdH95N92q6TXbrNTbXEK1XQPrb76DK84yI7dHxanxP8NoBL/98uvv4/pZcyR1oLq11bpQ08lEp7FM+Yalp1GeTZzQJEv0a3+gdiMGSRNQLcLgPghIo4GBFhrbMQlMSnbnnkzMdyFzzSMKRmm8xwiOtoiggjcwh+XZ92vht1Faxjy+kPk/uPOFrvqHla7N9e/1GLGfge5cdbTOhColhyJPhD51DyuLBZMsA1QsE7GBI2JitSe5LqWAXZ7Eh/1ZlyIy1OfGFLlxQdZCo29kDt0H/naTNYQ/IRkV16FVMJ1asOfWAViORjV5WgNyHgAv9hjYzzYEX/kmUYgYMCAFmIioUET8CTiqdWTA65d6WLxPc4Pw0ZZR5sunASy/IYE76LE4JuhCa21c6esH0O9WwWARq1yh6oQYi5VhU0hqp1OTHGOb9KskK1KecaFVWNkZw5qlinfQ11uZ34DgN7A4FzuWJvE7uSnp8Ow24gU5H776wBKqehgEQUcwnwKSfpcg+cH7ilUS5vc2wMclVSSRazAqT2GGBRNlCnuILmtRBYTnjN8FM0WVYcnNCp6aAEjM1Kr9l6+Cpgy+GtUZUv3rOdUhrfGudqZDPiMAyznxz4N3NkS90hb9TbLjwsLyX3LQ7ZlrJB7ST/W9BJOlsAQjE2On1Om0qdSm2iBGJrHP9mDixXIWbWEoo4GpPZ9b9CI+H2JzW55WxNJ0hd1Prig6R3OvZOyDql2iuR3gSG8yZ3OA32JVqPG/z9CRdwgBYkURjl7/mbFrvj9UA+Ggc/O9qjEc29PHsBz0tVvUXJX/mpeaU5b4fgKmx9h+1+Hfhmvo7UGYdCVvU9ERqqcH9TMKtc96lIcUkyLItCw7DcAZ8TJvrBS8pZROMYPD44fj8T7r+rwfwfSwwFA6Ynnqc7g/JV2B93nSlX+qnA9gUw9koDl6Rjdk2/xs7JoEbj7pdEZaB2EjkpPhVcblhocHZcdNa6MhyC+RgVQBn89Ci76Dve9Ym68mJS653OEo6HqOfM4VqSH69nJuoDYOAXmYly6Z7SDfk7fvYuylpufaYQ90blCUbpTBpuqnwBQfPHeSGVi9TcfX34fFoZeQHx57bBi+Kb3c0GPd+3/HHmtzePChGDtzz+dSYY1uDD8vMvtYZ56Yfvy7RH2mfmqmoZ7iyfdSbcQlQuj88UkkyjQdrJG02TjQucJ2OT0ka/KgaX3efLBst+jGz3rQq1ykd2Eb43FDXf1ezGDS8sfpayvpvu08Bv8CoDUHnQ==</source>
   </file>
   <file path="Filters/FrontMatterFilter.php" generated-path="Filters.FrontMatterFilter.html" hash="ff07b5fe0e90d539de46bd2df3e341b6" package="Default">
     <docblock line="0">
@@ -2867,7 +2887,7 @@ output. Should be called within a view.</long-description>
     </parse_markers>
     <source>eJyVU01PwzAMvfdX+LDDOm0rIHFhMJA2EEgg7cBx0hRSrw20SZW4+xDafyfp57bCgRxSy35+z35Kb++zOPMkS9FkjCPMVIi7ZXk/iYRQm4nn5ea0MlOSNONkKsykg5grnqcoqVtZMG0sa/kN1VY+7iyXFQkGAw8G0ORhXXDbnEs/2PG+WIQAx2xFheUUKw11BRZafSInmOMG3pGlBYirbK9FFJMF1VGf+3B1cXk9PG0s8IngKI2Ti4kycxMElIQ6wYglY67SoKoHqaBRjX17eYfXMrYcgccTZky7UOkViDRL0HljoMx4354bPtOKrDqG0MvqFmuLKxXWuDOAmUZGCAwkbrvU0hCTHMcVum6y5mmWApx6DkdCDVIj5VrCRomwygXldPmHXRPWueQklITViiurpnNO/TPaltUvWsv13OlRLMxo2tTh7mRXBzl0Nn5mMkwQKMbqRfy13fK3B2hFwyo8xzOt2R46p2cXW4vo347ExZz9RrjRHVZKFXHHlBo3mhok92vZuH9u1WhKuLPpFhy1YN/3a/cO3g822DM/</source>
   </file>
-  <file path="Menus/Node.php" generated-path="Menus.Node.html" hash="36942c0bdd60e43f87400d477ff971a5" package="Default">
+  <file path="Menus/Node.php" generated-path="Menus.Node.html" hash="19dddd8bf29b215690f8a2ca5ae8f1bf" package="Default">
     <docblock line="0">
       <description>Part of the Caffeinated PHP packages.</description>
       <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
@@ -2944,8 +2964,8 @@ output. Should be called within a view.</long-description>
             <type>mixed</type>
             <type>null</type>
           </tag>
-          <tag name="param" line="45" description="" type="\Codex\Codex\Menu" variable="$menu">
-            <type>\Codex\Codex\Menu</type>
+          <tag name="param" line="45" description="" type="\Codex\Codex\Menus\Menu" variable="$menu">
+            <type>\Codex\Codex\Menus\Menu</type>
           </tag>
           <tag name="param" line="45" description="" type="null" variable="$value">
             <type>null</type>
@@ -2962,7 +2982,7 @@ output. Should be called within a view.</long-description>
         <argument line="0" by_reference="false">
           <name>$menu</name>
           <default></default>
-          <type>\Codex\Codex\Menu</type>
+          <type>\Codex\Codex\Menus\Menu</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$value</name>
@@ -3196,9 +3216,9 @@ output. Should be called within a view.</long-description>
       <error line="32" code="PPC:ERR-50007">No summary for property $meta</error>
       <error line="37" code="PPC:ERR-50007">No summary for property $attributes</error>
     </parse_markers>
-    <source>eJy9V11P2zAUfc+vuEIIWlQom7QXtrJNDG1IFCHRt3WqTOI0FolTxQ4Dsf73XTtO4nwWWm0RakVz7vE598NxPn1eBStnfHTkwBHckkRC7IMMKFwQ36eME0k9uP1xCyviPpAlFScIVNjp1QyumUu5oEC4B268ek7YMpDAuB8nEZEs5nCfci9Eht9MBkjLRM6DKL3M9dXF5c3dJfgspEg7djiJqEAQKog9+jTPPqeUp+KjkwudKSb8Uww3CMhFfcnZzWVR6NsklUGcQHHb8viNPsKMkkjjSjOGJv934A7h/em7DyM7VoeEJhfmCqRcibPxWIZeEtIlCU/cOBob0Dhi8jgPsBKpE+CGRAjtCuiTpNwTMJ8llM7VT/rDeXHUEjoX6sLVH0kCEXui3h+ehqH5eay/V0ksqass7jMPU9gWOq/nuoshwnsdHCRJyHN3nCTbxBEpE3afSipaolckIZFlO889+qxhGv4yJzWUzWGYHkmY0hpMC67C3IBhnSmv2kjvscbgp9zVs7BYuDEXMkldOUCJIyiFjMxKMNEiRmaNghd//wm/hpo2K75egOAteXZWIdY8ozJ0aBKndaoJPD5nXqF8kjVFDaAklYCs5g2IJAUEtTUAZeVswLpRxYCIi2r2inQnVKYJ7iFxHPYm1qIY1HNkONw45ZicTNqSyhI/hHM47RJXmKhLyzoh8/tAn9saad+jPklDWbej+7XXT7HqQHGPCibTHR0Wdcss0NugUYERVImGXX5VVf+rVbXgbi4Vw6v9CSq/7lLS6nZgJGkhvS7tZXO39rzXvTIfBkwstFeNH8LBAT7vFgpsRhwbtwzQolvmTsWWk7kGGuIDpxqWJVT0tk22oEXk1MuiY3uyPt2ysbZP+NTqrH+Va70JbpflStvumF/c/7rzW0ntG3bUIn+9g4jApqPO8cOx1RMPdlnr4lrOAzV1S1PdDmWWnj4h1qDsLKeYbrFBlH2eaZeGVRO05OtQhU97xpe9smpEDWH7GuBh/x4elq2HR3dK3ACauwEQoasLk3PdsY2ZMHwnE9iDF4VcT+Z7Lwq6nu/t9XZ3FtrT3xt27W2bvLorv7bT6ztkZ79/xzZTryjZ/oMvVsXBtPVJ2XJ2b7balbehxVhnHu+oFJv0NM7U9mH6Lfsv6sTQRtMVJ9CJ9TpSN5EbWDt/Acf49CY=</source>
+    <source>eJy9V+9P2zAQ/Z6/4oQQtKhQNmlf2Mo2MbQhUYREv61TZRKnsUicKnYYiPV/39lxEudnodUWoVY0d8/v3b1znE+fV8HKGR8dOXAEtySREPsgAwoXxPcp40RSD25/3MKKuA9kScUJBqrY6dUMrplLuaBAuAduvHpO2DKQwLgfJxGRLOZwn3IvRITfTAYIy0SOg1F6meuri8ubu0vwWUgRduxwElGBQcgg9ujTPPucUp6Kj05OdKaQ8E8h3GBATupLjm4uC0LfJqkM4gSK25bGb/QRZpREOq4UY2DyfwfuEN6fvvswsnN1SmhqYa5AypU4G49l6CUhXZLwxI2jsQkaR0we5wlWIXUB3JAIoVUBfZKUewLms4TSufpJfzgvjlpC10JduPojSSBiT9T7w9MwND+P9fcqiSV1lcR95mEJ21Ln9Vp3IUR4rwODJAl57s6TZJs8ImXC7lNJRUv2iiQksmRD5UK1tciGSqE/M1W12CaeQX0kYUprwVpCW7AbMOw/5VV56T32HvyUu3pGFgs35kImqSsHSHoEJamRWQ8mmtDIrFTg4u8/4ddQw2am0AsQvCXPzirAGmdUpg5NQTVPNZnH58wrmE8ys9QCFKUyIPNCI0SSIgS5NQLKjtoB60Z3AyIuqtUrip5QmSa4t8Rx2FtYC2JQr5HBcOOUY3Eyaksqy/ghnMNpF7lCRJ1a5odM7wN9bjPVvkd9koayLkf7uFdPsepAYY8KJOOODonaMgvUNmh0YARVoGGXXtXV/ypVLbibSoXwan2Cyq+7tLS6KRhKmkivSnvZXK0973WtzIcBEwutVccP4eAAn4MLFWxGHI1bJmjSLXOncsvJXAMN8UFUTcsKKnptky1oATn1tujcnqpPtzTW9gWfWs76V7XWm+B2Va7Ydsf64v7XXd9Kad+woxb16x1EDGwq6hw/HFs98WC3tU6u5ZxQY7c03e1gZvHpI2INys50iukWG0jZ55x2atg1QUu8Dlb4tGd82UurBtQgtq8DPPTv4WFpPTzSU+IG0NwNgAjdXZica8c2ZsLgnUxgD15U5Hoy33tRoev53l6vu7PUHn9v2LW3NXl1V36t0+s7ZKffv6PN1KtLtv/gC1dxVG19Urac6ZtWu/I2WIx11vGOSrGJT+OsbR+v37L/Ik9MbZiuOIFOrNeUuohcwNr5C/Ar+Mo=</source>
   </file>
-  <file path="Menus/Menu.php" generated-path="Menus.Menu.html" hash="facaca35e9da4203fddda8b33ca8ef92" package="Default">
+  <file path="Menus/Menu.php" generated-path="Menus.Menu.html" hash="10b82320809908f78c26ada8acdf1697" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
@@ -3345,32 +3365,28 @@ output. Should be called within a view.</long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="85" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="84" package="Codex\Codex">
         <name>__construct</name>
         <full_name>\Codex\Codex\Menus\Menu::__construct()</full_name>
-        <docblock line="85">
+        <docblock line="84">
           <description></description>
           <long-description></long-description>
-          <tag name="param" line="85" description="" type="\Codex\Codex\Contracts\Menus\MenuFactory" variable="$menus">
+          <tag name="param" line="84" description="" type="\Codex\Codex\Contracts\Menus\MenuFactory" variable="$menus">
             <type>\Codex\Codex\Contracts\Menus\MenuFactory</type>
           </tag>
-          <tag name="param" line="85" description="" type="\Codex\Codex\Contracts\Factory|\Codex\Codex\Factory" variable="$factory">
-            <type>\Codex\Codex\Contracts\Factory</type>
-            <type>\Codex\Codex\Factory</type>
-          </tag>
-          <tag name="param" line="85" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
+          <tag name="param" line="84" description="" type="\Illuminate\Contracts\Filesystem\Filesystem" variable="$files">
             <type>\Illuminate\Contracts\Filesystem\Filesystem</type>
           </tag>
-          <tag name="param" line="85" description="" type="\Illuminate\Contracts\Cache\Repository" variable="$cache">
+          <tag name="param" line="84" description="" type="\Illuminate\Contracts\Cache\Repository" variable="$cache">
             <type>\Illuminate\Contracts\Cache\Repository</type>
           </tag>
-          <tag name="param" line="85" description="" type="\Illuminate\Routing\Router" variable="$router">
+          <tag name="param" line="84" description="" type="\Illuminate\Routing\Router" variable="$router">
             <type>\Illuminate\Routing\Router</type>
           </tag>
-          <tag name="param" line="85" description="" type="\Illuminate\Contracts\Routing\UrlGenerator" variable="$url">
+          <tag name="param" line="84" description="" type="\Illuminate\Contracts\Routing\UrlGenerator" variable="$url">
             <type>\Illuminate\Contracts\Routing\UrlGenerator</type>
           </tag>
-          <tag name="param" line="85" description="" type="\Illuminate\Contracts\View\Factory" variable="$viewFactory">
+          <tag name="param" line="84" description="" type="\Illuminate\Contracts\View\Factory" variable="$viewFactory">
             <type>\Illuminate\Contracts\View\Factory</type>
           </tag>
         </docblock>
@@ -3405,35 +3421,35 @@ output. Should be called within a view.</long-description>
           <type>\Illuminate\Contracts\View\Factory</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="108" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="107" package="Codex\Codex">
         <name>render</name>
         <full_name>\Codex\Codex\Menus\Menu::render()</full_name>
-        <docblock line="108">
-          <description>render</description>
+        <docblock line="107">
+          <description>Renders the menu using the defined view</description>
           <long-description></long-description>
-          <tag name="return" line="108" description="" type="string">
+          <tag name="return" line="107" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="130" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="129" package="Codex\Codex">
         <name>add</name>
         <full_name>\Codex\Codex\Menus\Menu::add()</full_name>
-        <docblock line="130">
-          <description>add</description>
+        <docblock line="129">
+          <description>Add a menu item</description>
           <long-description></long-description>
-          <tag name="param" line="130" description="" type="" variable="$id"/>
-          <tag name="param" line="130" description="" type="" variable="$value"/>
-          <tag name="param" line="130" description="" type="string" variable="$parent">
+          <tag name="param" line="129" description="" type="" variable="$id"/>
+          <tag name="param" line="129" description="" type="" variable="$value"/>
+          <tag name="param" line="129" description="" type="string" variable="$parent">
             <type>string</type>
           </tag>
-          <tag name="param" line="130" description="" type="array" variable="$meta">
+          <tag name="param" line="129" description="" type="array" variable="$meta">
             <type>array</type>
           </tag>
-          <tag name="param" line="130" description="" type="array" variable="$attributes">
+          <tag name="param" line="129" description="" type="array" variable="$attributes">
             <type>array</type>
           </tag>
-          <tag name="return" line="130" description="" type="\Codex\Codex\Menus\Node">
+          <tag name="return" line="129" description="" type="\Codex\Codex\Menus\Node">
             <type>\Codex\Codex\Menus\Node</type>
           </tag>
         </docblock>
@@ -3463,14 +3479,14 @@ output. Should be called within a view.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="151" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="150" package="Codex\Codex">
         <name>has</name>
         <full_name>\Codex\Codex\Menus\Menu::has()</full_name>
-        <docblock line="151">
-          <description>has</description>
+        <docblock line="150">
+          <description>Checks if a menu item exists</description>
           <long-description></long-description>
-          <tag name="param" line="151" description="" type="" variable="$id"/>
-          <tag name="return" line="151" description="" type="boolean">
+          <tag name="param" line="150" description="" type="" variable="$id"/>
+          <tag name="return" line="150" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -3480,52 +3496,55 @@ output. Should be called within a view.</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="163" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="162" package="Codex\Codex">
         <name>get</name>
         <full_name>\Codex\Codex\Menus\Menu::get()</full_name>
-        <docblock line="163">
-          <description>get</description>
+        <docblock line="162">
+          <description>Get a menu item</description>
           <long-description></long-description>
-          <tag name="param" line="163" description="" type="" variable="$id"/>
-          <tag name="param" line="163" description="" type="null" variable="$default">
-            <type>null</type>
+          <tag name="param" line="162" description="" type="string" variable="$id">
+            <type>string</type>
           </tag>
-          <tag name="return" line="163" description="" type="\Codex\Codex\Menus\Node">
+          <tag name="param" line="162" description="" type="null|mixed" variable="$default">
+            <type>null</type>
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="162" description="" type="\Codex\Codex\Menus\Node">
             <type>\Codex\Codex\Menus\Node</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$id</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$default</name>
           <default>null</default>
-          <type>null</type>
+          <type>null|mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="173" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="172" package="Codex\Codex">
         <name>getView</name>
         <full_name>\Codex\Codex\Menus\Menu::getView()</full_name>
-        <docblock line="173">
+        <docblock line="172">
           <description>get view value</description>
           <long-description></long-description>
-          <tag name="return" line="173" description="" type="mixed">
+          <tag name="return" line="172" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="184" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="183" package="Codex\Codex">
         <name>setView</name>
         <full_name>\Codex\Codex\Menus\Menu::setView()</full_name>
-        <docblock line="184">
+        <docblock line="183">
           <description>Set the view value</description>
           <long-description></long-description>
-          <tag name="param" line="184" description="" type="mixed" variable="$view">
+          <tag name="param" line="183" description="" type="mixed" variable="$view">
             <type>mixed</type>
           </tag>
-          <tag name="return" line="184" description="" type="\Codex\Codex\Menus\Menu">
+          <tag name="return" line="183" description="" type="\Codex\Codex\Menus\Menu">
             <type>\Codex\Codex\Menus\Menu</type>
           </tag>
         </docblock>
@@ -3535,14 +3554,16 @@ output. Should be called within a view.</long-description>
           <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="198" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="197" package="Codex\Codex">
         <name>getBreadcrumbTo</name>
         <full_name>\Codex\Codex\Menus\Menu::getBreadcrumbTo()</full_name>
-        <docblock line="198">
-          <description>getBreadcrumbs</description>
+        <docblock line="197">
+          <description>Get breadcrumbs to the given Node</description>
           <long-description></long-description>
-          <tag name="param" line="198" description="" type="" variable="$href"/>
-          <tag name="return" line="198" description="" type="array">
+          <tag name="param" line="197" description="" type="\Codex\Codex\Menus\Node" variable="$item">
+            <type>\Codex\Codex\Menus\Node</type>
+          </tag>
+          <tag name="return" line="197" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -3552,14 +3573,14 @@ output. Should be called within a view.</long-description>
           <type>\Codex\Codex\Menus\Node</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="209" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="208" package="Codex\Codex">
         <name>getBreadcrumbToHref</name>
         <full_name>\Codex\Codex\Menus\Menu::getBreadcrumbToHref()</full_name>
-        <docblock line="209">
-          <description>getBreadcrumbToHref</description>
+        <docblock line="208">
+          <description>Get breadcrumbs to the Node that has the href</description>
           <long-description></long-description>
-          <tag name="param" line="209" description="" type="" variable="$href"/>
-          <tag name="return" line="209" description="" type="array">
+          <tag name="param" line="208" description="" type="" variable="$href"/>
+          <tag name="return" line="208" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -3569,14 +3590,14 @@ output. Should be called within a view.</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="225" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="224" package="Codex\Codex">
         <name>findItemByHref</name>
         <full_name>\Codex\Codex\Menus\Menu::findItemByHref()</full_name>
-        <docblock line="225">
+        <docblock line="224">
           <description>findItemByHref</description>
           <long-description></long-description>
-          <tag name="param" line="225" description="" type="" variable="$href"/>
-          <tag name="return" line="225" description="" type="\Codex\Codex\Menus\Node|null">
+          <tag name="param" line="224" description="" type="" variable="$href"/>
+          <tag name="return" line="224" description="" type="\Codex\Codex\Menus\Node|null">
             <type>\Codex\Codex\Menus\Node</type>
             <type>null</type>
           </tag>
@@ -3587,12 +3608,16 @@ output. Should be called within a view.</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Menus" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Menus" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -3609,13 +3634,7 @@ output. Should be called within a view.</long-description>
     </class>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="85" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $files in __construct()</error>
-      <error line="85" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $cache in __construct()</error>
-      <error line="85" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $router in __construct()</error>
-      <error line="85" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $url in __construct()</error>
-      <error line="85" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $viewFactory in __construct()</error>
-      <error line="85" code="PPC:ERR-50008">No summary for method __construct()</error>
-      <error line="198" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $item in getBreadcrumbTo()</error>
+      <error line="84" code="PPC:ERR-50008">No summary for method __construct()</error>
       <error line="29" code="PPC:ERR-50007">No summary for property $cache</error>
       <error line="34" code="PPC:ERR-50007">No summary for property $files</error>
       <error line="39" code="PPC:ERR-50007">No summary for property $path</error>
@@ -3627,9 +3646,9 @@ output. Should be called within a view.</long-description>
       <error line="69" code="PPC:ERR-50007">No summary for property $viewFactory</error>
       <error line="74" code="PPC:ERR-50007">No summary for property $menus</error>
     </parse_markers>
-    <source>eJy1WG1v2zYQ/u5fwQFFLQd2vQ3Yl2TOlmbLGmApiiYbMMRBwEh0rEUiBZJKa6z57z0eKYmiXuIMmz84Fnm8e+7hc0cqP/5UbIsJpzlTBY0ZORUJ+7y23xeMl+poMilVe/xUcC1prJW1wO8zeBZyR6gi3mNledTxcSVpCg7eCfFA7zJmDc6zrMxTTjXzYpzSeMvWH1khVFqFwLGRNWdpxtROaZZ7P0fsP4pSp/x+/YfMfmOcSQqBRsz/TNmntZexeXaPnVWVa/OXdZ1elkUhpAbnWcZinQpuTS53+UbwHYznheCM6/VfNM/wC3ZkeXAwIQfINIkzqtQbeDQjP8MmPtB7RojPNs7QUm+FJNUM+SDF3xCR/MIeyRWjORrFotjJ9H6rwaj6FcUz8v233/0wby9E+yyNGVcm3FbrQh0ulzpLZMbuafYmFvnSzS/zVC8q24vzK/K7/Q0+lhNMAHOZ/DMx+Ez+jTBwCBM2H4j5SCVZ7yUVt2SJfwspNMBmCXkVW/k867lXRkNON8ZiwKnSEjQwtLKgersHmq5UhhymAHMIytqvQifawZQqTT+Lra3yIX/S1cALtrSvMofclzL7V/w/Qvm+CJRf/2NOz8b527OnDkXIXXsOfRdU0nxv78T7WJf7OXLLv/TpqVZO6Gr/Zt1gwrray1HnpGh9bNWPOGprmAx+nIz3gtQnX88TKHYvN60DpwvI01pbLOUdNF2yKTm2C3J7GwsOtVDGOuo5pd3+z4m3DZb+uT1xHYdz4ihyTMxJKz2T1dw/E1sAZ4jMNnoEr7epWhxjZDe0qrUdGGH0xsi18cBIetu3anpOYAUYa/5WrnUEJph5Y+L6e2DkZWaMWlXfY9qEnMamYg4PYdt1SjO1NClPO4uwldeLOHho2n80c9XvZ19yc3RGU+PuUDKa7KZzcm2nyU3PCoywOC5KHU2lEBrMTZj3AK8eQNM5sY+zZ8MmcGMJohrbp06vkowndSXVlSCZLiXvbdqBoO36qKMpaK8K6LquR8wHsU2BxmOXT3sWeZjWs4vje1YxMsOH020KdxvGXTjzufGZsGCgM696xAEKpw8s8ibA6adUbyMECw9VLp5LR0TteYhGmiQhh7abVNDSZGDikWZl2BMt7+ZaAnF1MEmlpDs8KTQdmKIaHNxB1alwR9edt4u1kdnoFkNuEeCfO6zzCpcpIadOGxghmU0nN/VQA8VOdITCIbyrKxS8jWTVXgc0jue+M3+P0g2JviGpuuVllkUO3IxQngQFtqWqnp55GBCHHX9v0bTXGRlW646GVi2OgScUaIQ5hZYcbRTTF5BLNE2opgu7eloz6q15GusSliMXpaNVMz6kU6CgX6e+QJ2jOyGyUWEgn2kSbmmFo8s92A4BA45HCqhbPmavyauEbWiZ6f9C5bjJyKtzakQJQfbKrrN4LE+Cx5Bf9yH+PP3MkufQmuO903fb6Oy1uh/IJQDRcJYPg7FEIxZ7rIYw8YVxDKVyKHH1wLUD469arwBhInUKPWS+NQdsLMv8bkjYW8k2IXJsTs8R3Li+EhE2BnytG6LczKESTnjMFJw46oQnlyzbRGNi8IO8a5D+L0kY/xG66uyFAd/0vU3Kk3MYebvzljS9yTRcS0XQRNvqCym0S7wWR1imWL+La3Ow14YD9LVhvoC5gf7wxdT7KKG9xDguGzI3ouRJ5xSB2ytcg6Paly8p/IeLc+cR0mKmZh2b6Ul1FEZTs2o6I69fVxqknbnVakU63gPK4aWEtc+sp2YHwt3HFCE19Wte6F3UOU6dT0NouI9uE+0buOUA7wCOcmTQXQqqMJtUKt17L/PPuqfJV4fJINo=</source>
+    <source>eJytWG1v2zYQ/u5fwQFDLQdOvQ3Yl2TOlmZrG2AphiQbMMRBQEu0xUWiBJJKY6z57zseKYl6tVPMHxyLvJfn7p47Uvnp5zzOJ4KmTOU0ZOQii9jzyn5fMVGo08mkUM31i0xoSUOtrAR+v4fnTO4IVcR7LCVPOzZuJeVg4GOWPdJ1wqzAZZIUKRdUM8/HBQ1jtrpmeaZ46QLXRnTe84SpndIs9X6OyF9nheZiu/pTJh+YYJKCoxHxvzj7vPIiNs/usaNVmjZ/WdfoTZHnmdRgPElYqHkmrMjNLt1kYgfraZ4JJvTqb5om+AUVWRwdTcgRZpqECVXqLTyalV+giI90ywjxs407tNBxJkm5Q/6Q2T/gkfzKnsgtoykKhVm+k3wbaxAqfwXhjPzw3fc/zpuKKJ/wkAll3MVa5+pksdBJJBO2pcnbMEsXbn+Rcn1cyl5d3pLf7W+wsZhgABjL5N+JwWfir4mBSxiw+YDPJyrJ6iCqOJUF/s1lpgE2i8i3oaXPXsu9NBoyujESA0aVlsCBIc2c6vgANF2qDBnkAHMIysrvQkfawZBKTu/F1mT5kD3peuAVJe3rzCHzhUy+Kv9P0L6vAuX3/5jR9+P5O3CmDnlI3Xhu286ppOnB1o2SNdU2cPhkdeQ/yEBnnOPHtuSIgSbBSOfjuHUQhD5OEaTPQeqN6V8D8ArerFixhslHNoXAniUPD2EmgJBFqIOeo9IVY0466Z3bY8/lak5cKlzkc9IIx0Qz9w+mBsAZIrPTFsHrmKvjM/TslpYVwVpC6L0WcrO0JSS9Mi3rxm9JAcYqf0vXvy0RjLwWcUO2JeRFZoQardcjWruchqY9Tk6g3JrTRC1MyNOOEs7TSkmAhXoGBzPXgn70hTDnVzA15k4ko9FuOid3dpvc92igh+OzvNDBVGaZBnHj5hPAqxZQdE7s42yv2wiuDS2vRvalMzCumYiYVERDWY0mnL/QHfgYsQ0XMGtM1px41SKS6UKK3tHaYrxEB0GHdDAEFeTzrloxHwQ/hTyfuYCbu5ioabV7fLZlZcpm+HARc7iBMOHcmc+9nyoLBmJa9rAHWoA+ssDbAKOfuY4DBAsPZSyeSZeIyvJQns+jiFCbYV7fI1ojp4TJo4GNJ5oU7UFpa2AuEoBBtzaplHSHM17TgS2qwcAaWlS1q7vqvA+sDCdHy02jKAD8c4d1XuIy/eaobB0jJEMAcl8t1VDsRoc0Aty7JsTusJ5sa1QOjeG5b8yvF9+Q4BvC1YMokiRw4GaEiqjVjTFV1fbMw4A47Poni6apZyhZ6p0OaR2fQZ6QrAHG1JYUKKOYvoJYgmlENT222tMqo57Oy9hIsTlyXjq8NetDnL2IWfioTMo85hL2zJVW/QT2mes8rLMsGWUMJppH7VqXALtFAdkhxB+Y3t9lrmEwW51OM7T4kvJnc8eCAUiLRP8fbYGswEI4o4bF4OqgqDvKg/GDJI5r4g+KNn6Mbh9ac3noDO0mOntz7gdyA0DMGTIMxqbbZdo7YiqY+E44hlI5lKg9cKlB/8vGLb8dSBVCH5nW5vwOZZGu4YjMMKQtf2KCeBUfu3vX9LAvZu0gcfDtq8W7CsRtFtS2hqpj9pA05yJkCk42dS6iG5ZsgtG+6QkVfemYatOkuBJLthlofW/r68P7CEYCNNUpKA6fZX01FNElrLzbeSr1RDRj3iapNbqbFG4n16p4g5WwRLF+E3fmalEJDiS2CfMVmRtg0RczNEYT2psYl8s6mZusEFHn7IILNtzUg8qWTzb8x4wz5yVk0khNlXYc1eflCRxMjdp0Rt68KelJO3vL5ZJ0zLdyDi9OrHlUvtQlaJcfY4TY1G9prndB5xR3Nk1G24V0VbSv6jYJePVwOccUurtI6WbDpdK9V0P/iH2Z/AdjUDpG</source>
   </file>
-  <file path="Menus/MenuFactory.php" generated-path="Menus.MenuFactory.html" hash="e55350404aac44efc69844a5ccb7f13d" package="Default">
+  <file path="Menus/MenuFactory.php" generated-path="Menus.MenuFactory.html" hash="b089d0328798d589fa5413bcf2ebcd57" package="Default">
     <docblock line="0">
       <description>Part of the Caffeinated PHP packages.</description>
       <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
@@ -3801,9 +3820,11 @@ output. Should be called within a view.</long-description>
         <name>add</name>
         <full_name>\Codex\Codex\Menus\MenuFactory::add()</full_name>
         <docblock line="94">
-          <description>createMenu</description>
+          <description>Creates a new menu or returns an existing</description>
           <long-description></long-description>
-          <tag name="param" line="94" description="" type="" variable="$id"/>
+          <tag name="param" line="94" description="" type="string" variable="$id">
+            <type>string</type>
+          </tag>
           <tag name="return" line="94" description="" type="\Codex\Codex\Menus\Menu">
             <type>\Codex\Codex\Menus\Menu</type>
           </tag>
@@ -3811,16 +3832,18 @@ output. Should be called within a view.</long-description>
         <argument line="0" by_reference="false">
           <name>$id</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex\Menus" line="116" package="Codex\Codex">
         <name>get</name>
         <full_name>\Codex\Codex\Menus\MenuFactory::get()</full_name>
         <docblock line="116">
-          <description>get</description>
+          <description>Returns a menu</description>
           <long-description></long-description>
-          <tag name="param" line="116" description="" type="" variable="$id"/>
+          <tag name="param" line="116" description="" type="string" variable="$id">
+            <type>string</type>
+          </tag>
           <tag name="param" line="116" description="" type="null" variable="$default">
             <type>null</type>
           </tag>
@@ -3831,7 +3854,7 @@ output. Should be called within a view.</long-description>
         <argument line="0" by_reference="false">
           <name>$id</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
           <name>$default</name>
@@ -3860,7 +3883,7 @@ output. Should be called within a view.</long-description>
         <name>forget</name>
         <full_name>\Codex\Codex\Menus\MenuFactory::forget()</full_name>
         <docblock line="138">
-          <description>forget</description>
+          <description>Removes a menu</description>
           <long-description></long-description>
           <tag name="param" line="138" description="" type="" variable="$id"/>
           <tag name="return" line="138" description="" type="\Codex\Codex\Menus\MenuFactory">
@@ -3873,12 +3896,16 @@ output. Should be called within a view.</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Menus" line="24" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex\Menus" line="30" package="Codex\Codex">
         <name>runHook</name>
         <full_name>\Codex\Codex\Traits\Hookable::runHook()</full_name>
-        <docblock line="24">
-          <description></description>
+        <docblock line="30">
+          <description>Run a hook</description>
           <long-description></long-description>
+          <tag name="param" line="30" description="" type="" variable="$name"/>
+          <tag name="param" line="30" description="" type="array" variable="$params">
+            <type>array</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$name</name>
@@ -3903,7 +3930,7 @@ output. Should be called within a view.</long-description>
       <error line="59" code="PPC:ERR-50007">No summary for property $view</error>
       <error line="64" code="PPC:ERR-50007">No summary for property $menus</error>
     </parse_markers>
-    <source>eJytV11P2zAUfc+vuA9ItCjQbdJeYGWTGAwkNiFge1kRMonTWjh25DgwNPHfd+04ifNVWmkRahv3+Nxz7z3XKZ8+Z6ssmO3tBbAHV0RpkAnoFYUTkiSUCaJpDFfnV5CR6JEsaX6AQIP9fnELlyyiIqdARAyRzF4UW640MJFIlRLNpICHQsQcGZ6ZXiEtyyseRNkwlxcnpz9uTiFhnCLtLBAkpTmCUIGM6Z9F+fqdiiI/CoIib6+fSKEViXReIuzrGd5L9QIkB++2Qh71OG4VYUhwLuUjeeC0BFxwXqQ2fS/GCYlWdHFNM5mzKoRdW7cHPxEmqGo+rUGfYRnyl1zT1Pu4Bn8tC83EcvFT8W8UqQnKWgP/xejzwquPue/BK07zPiD2psgyqTSyck4j02XsizPQrekw/pnOerWvPPOlar67vC7Yr0mhV1JB/bVnwa/0CW4pSS2u8ZqjqW4n0RQ+vHv/MfT32i3cWdVdK62z/HA20zxWnC4JP4hkOnOgWcr0frXB87n1Z8RJ3jIWsDTjNKVCD/ot+BuYgKaIjcPskq2ZuVDeE1Gw2NQ/btfMvmdKamwDlmgnagy2RYBBy42FMGOab6e/MzOj4ss5epO57c4xNuW8u4XQoVEaoy8U34rbn7sxzic7i2+S9sdvjDB1Z2aXMSOKpJu7DTc1ztqIZNBRzjubqeies/YqLbKGoG0N6F3OFRtJGHID2MZvtL110DYCTI/b7Soe8KCBpBC2lXB/j6XOtSoiPWk60NQ/hF5Fw/IR5MoTgsveJRtCKwOTQGiP/VLM1Koojyir0Dyj94/reDBvHSsdmI1vF+b10dBlstocxM14B6Lqds2bwe1gULZbmLvp6wBMMjWgHKUOwo6DQwgENwM0mbop8UUVwhzXk12zbT8pO3moKIlfdkP4bVF30zLIa9AbsgiRmprHgVvpuGaHxfWKorpQAha93zsLb/+wXUgcT5Cq20WWwMTlsSK5RUy9r83lgjrUkmqLaor26lXElMCUteMNLCl5pBMj8vDQPhaxMK0gtnhuCnZhflxS1JC7ad8Lg2XHNOuih6Wegb22wfvHWWFzcTgPVqVslkcbh5UY7lgZyWtbuSwKzmEnpgkpuP4fLXWtCGtSY1cM0u1xu4Eu997mxqGdPNEXGzvzQUq+VnNlsk0kVtgxYfi/w2gPBrR5v7jWSixph1Ru4zwWj/vOi9D3nEFWGb8G/wAxBxHy</source>
+    <source>eJytV1tv0zAYfc+v+B4mrZ0yCki8DDqQym0SoGkMXuiEvMRprTl2ZDtjE9p/57Pj3C/LJKKpbZzj813O+dzuzdtsnwWro6MAjuCcKAMyAbOnsCFJQpkghsZw/vkcMhLdkB3VzxBosV/PLuELi6jQFIiIIZLZvWK7vQEmEqlSYpgUcJ2LmCPDH2b2SMt0yYMoF+bL2ebDt+8fIGGcIu0qECSlGkGYgYzp3bZ4/UpFrl8HQa7b6xspjCKR0QXCvX7Ee6nugWho3JbI1z2OS0UYEnyW8oZcc1oAzjjPU1d+I8aGRHu6vaCZ1KwM4dam9uAnwgRV9acJ9Edsg77XhqaNjxP4C5kbJnbbH4p/okhNMK0J+E9G/2wb/bH3PXjJad8Hkv2eZ5lUBlk5p5FVGXXxBrq0CuOfVbbR+9Iz70rx/dVQwT0mudlLBdXjhgXf01u4pCR1uNprnqa8XURLePn8xauwuddt4d6q/tobk+mT1crwWHG6I/xZJNOVB61SZo7LDQ2fO39GnOiWsYClGacpFWbQb8HfwAa0Tawd5pZcz+yF6d0SBdu5/vG7Vu49U9KgDNiig6g22BMCDFpuLIQdU/20/DszM5p8MUePMrfdOcamvHefkOjQKI3R54o/ibs5d2Oct24WHyXtj98YYerPzC5jRhRJ57sNN9XOmkUy6CjvnXlZdM9ZdxUWmSBoWwN6l3fFrBSG3ABO+FnbWwdtnYDVuC1Xfo0HDSS5cFLC79/Yam1UHplFrUDd/xB6HQ2LryDfnhB89b7YEFoV2AJCd+wXySxdFsUR5TK039HHp1U8WLeOlQ7MxXcL6+po6DK53DzEz3gHoiq51vXgdjCYtl9Y++nrAGwxFaAYpQ7CjYNHCATXA7RY+ilpJpULe1wvDu2246RQ8kRREt8fhvDLoa6WRZCHoDdkG0Qa7A1xoSwHYPcVNbkSuCqA3jFtDeY3dEyFDsBncMDi6kGxF7a9X0XuddJUJI4XSNXVmiWw8NXuiXaIZeOxvXxQj9pR41B1ax8afXNFrnsOwsaTG7qwSZ6cuC9PbF8riGuxn5VDWJ8WFBXkatl3zKA4WGYlTVjkM7DX2eD4NMtdLR7XgJUl2+VReS9KIZ20szUsHoiccziIaUJybv6Hvl6XsCK1DscgXcHbavpG9DbXpu4UjSYZrnTAptdS8smcS8fNSbHEjiV2QVN5S6fVGMix8WNtMlX8b6Z0/vBpOcuOLB43YyNC34gWWVb+EPwD26YopQ==</source>
   </file>
   <file path="Contracts/Factory.php" generated-path="Contracts.Factory.html" hash="b8d7344d870259a996b77d7aa8c0eedd" package="Default">
     <docblock line="0">
@@ -4013,10 +4040,10 @@ output. Should be called within a view.</long-description>
     </interface>
     <source>eJxNkFFLxDAMx9/7KfKoQ68q+KKCwnniwZ0M3OO9xC5bi1072kw9xO9uN1ZdKIWQf35J/nf3ve6FLAoBBZQYGHwDrAnW2DRkHDLVUD6X0KN6x5biKglH7X5bwc4ocpEAXQ3K98dgWs1gXONDh2y8g7fB1TYRPg3rhDUxc5JqGrPbrjcvrxtojKWElcJhRzGJ0ga+pq9D/h0HVBwPe3JDvBV55WpkpjeyxtJTEvlwzFs+5HFzLJhTGQfWPsBfeXH0I31ARdhNuv/rZkxOT9QpXF1cXp8te6cWO5szh2bu442UbOtgqUW7Ur6Ts0h2hs9zw8LZyRHjmEIzOrI4UHwL8SN+AaZujTY=</source>
   </file>
-  <file path="CodexServiceProvider.php" generated-path="CodexServiceProvider.html" hash="cd190d31a2d4bde0d28744d8bb6d9afd" package="Default">
+  <file path="CodexServiceProvider.php" generated-path="CodexServiceProvider.html" hash="726c0d1f5cd1ce63fdf0bec1f9ccd6c1" package="Default">
     <docblock line="0">
-      <description></description>
-      <long-description></long-description>
+      <description>Part of the Caffeinated PHP packages.</description>
+      <long-description>MIT License and copyright information bundled with this package in the LICENSE file</long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="ServiceProvider">\Caffeinated\Beverage\ServiceProvider</namespace-alias>
@@ -4024,125 +4051,132 @@ output. Should be called within a view.</long-description>
     <namespace-alias name="ParsedownFilter">\Codex\Codex\Filters\ParsedownFilter</namespace-alias>
     <namespace-alias name="CodexProviderTrait">\Codex\Codex\Traits\CodexProviderTrait</namespace-alias>
     <namespace-alias name="Application">\Illuminate\Contracts\Foundation\Application</namespace-alias>
-    <class final="false" abstract="false" namespace="Codex\Codex" line="18" package="Codex\Codex">
+    <class final="false" abstract="false" namespace="Codex\Codex" line="23" package="Codex\Codex">
       <extends>\Caffeinated\Beverage\ServiceProvider</extends>
       <name>CodexServiceProvider</name>
       <full_name>\Codex\Codex\CodexServiceProvider</full_name>
-      <docblock line="18">
+      <docblock line="23">
         <description>Codex service provider.</description>
         <long-description></long-description>
-        <tag name="package" line="18" description="Codex\Codex"/>
-        <tag name="author" line="18" description="Codex Project Dev Team"/>
-        <tag name="copyright" line="18" description="Copyright (c) 2015, Codex Project"/>
-        <tag name="license" line="18" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
+        <tag name="package" line="23" description="Codex\Codex"/>
+        <tag name="author" line="23" description="Codex Project Dev Team"/>
+        <tag name="copyright" line="23" description="Copyright (c) 2015, Codex Project"/>
+        <tag name="license" line="23" description="MIT License" link="https://tldrlegal.com/license/mit-license"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="25" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="30" package="Codex\Codex">
         <name>$dir</name>
         <full_name>\Codex\Codex\CodexServiceProvider::dir</full_name>
         <default>__DIR__</default>
-        <docblock line="25">
+        <docblock line="30">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="25" description="" type="string" variable="">
+          <tag name="var" line="30" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="32" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="37" package="Codex\Codex">
         <name>$configFiles</name>
         <full_name>\Codex\Codex\CodexServiceProvider::configFiles</full_name>
         <default>array('codex')</default>
-        <docblock line="32">
+        <docblock line="37">
           <description>Collection of configuration files.</description>
           <long-description></long-description>
-          <tag name="var" line="32" description="" type="array" variable="">
+          <tag name="var" line="37" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="39" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="44" package="Codex\Codex">
         <name>$provides</name>
         <full_name>\Codex\Codex\CodexServiceProvider::provides</full_name>
         <default>array('codex')</default>
-        <docblock line="39">
+        <docblock line="44">
           <description>Collection of bound instances.</description>
           <long-description></long-description>
-          <tag name="var" line="39" description="" type="array" variable="">
+          <tag name="var" line="44" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="41" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="49" package="Codex\Codex">
         <name>$viewDirs</name>
         <full_name>\Codex\Codex\CodexServiceProvider::viewDirs</full_name>
         <default>array('views' =&gt; 'codex')</default>
-        <docblock line="41">
+        <docblock line="49">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="49" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="43" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="54" package="Codex\Codex">
         <name>$assetDirs</name>
         <full_name>\Codex\Codex\CodexServiceProvider::assetDirs</full_name>
         <default>array('assets' =&gt; 'codex')</default>
-        <docblock line="43">
+        <docblock line="54">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="54" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="45" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="59" package="Codex\Codex">
         <name>$providers</name>
         <full_name>\Codex\Codex\CodexServiceProvider::providers</full_name>
         <default>array(\Caffeinated\Beverage\BeverageServiceProvider::class, \Codex\Codex\Providers\ConsoleServiceProvider::class, \Codex\Codex\Providers\RouteServiceProvider::class)</default>
-        <docblock line="45">
+        <docblock line="59">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="59" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="51" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="68" package="Codex\Codex">
         <name>$singletons</name>
         <full_name>\Codex\Codex\CodexServiceProvider::singletons</full_name>
         <default>array(\Codex\Codex\Contracts\Factory::class =&gt; \Codex\Codex\Factory::class, \Codex\Codex\Contracts\Menus\MenuFactory::class =&gt; \Codex\Codex\Menus\MenuFactory::class)</default>
-        <docblock line="51">
+        <docblock line="68">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="68" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Codex\Codex" line="56" package="Codex\Codex">
+      <property static="false" visibility="protected" namespace="Codex\Codex" line="76" package="Codex\Codex">
         <name>$aliases</name>
         <full_name>\Codex\Codex\CodexServiceProvider::aliases</full_name>
         <default>array(\Codex\Codex\Contracts\Factory::class =&gt; 'codex', \Codex\Codex\Contracts\Menus\MenuFactory::class =&gt; 'codex.menus')</default>
-        <docblock line="56">
+        <docblock line="76">
           <description></description>
           <long-description></long-description>
+          <tag name="var" line="76" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="62" package="Codex\Codex">
-        <name>boot</name>
-        <full_name>\Codex\Codex\CodexServiceProvider::boot()</full_name>
-        <docblock line="62">
-          <description></description>
-          <long-description></long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="73" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Codex\Codex" line="86" package="Codex\Codex">
         <name>register</name>
         <full_name>\Codex\Codex\CodexServiceProvider::register()</full_name>
-        <docblock line="73">
+        <docblock line="86">
           <description>Register bindings in the container.</description>
           <long-description></long-description>
-          <tag name="return" line="73" description="" type="\Illuminate\Contracts\Foundation\Application">
+          <tag name="return" line="86" description="" type="\Illuminate\Contracts\Foundation\Application">
             <type>\Illuminate\Contracts\Foundation\Application</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="85" package="Codex\Codex">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Codex\Codex" line="97" package="Codex\Codex">
         <name>registerFilters</name>
         <full_name>\Codex\Codex\CodexServiceProvider::registerFilters()</full_name>
-        <docblock line="85">
+        <docblock line="97">
           <description>Register the core filters.</description>
           <long-description></long-description>
-          <tag name="return" line="85" description="" type="void">
+          <tag name="return" line="97" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -4225,16 +4259,14 @@ output. Should be called within a view.</long-description>
       </method>
     </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
-      <error line="62" code="PPC:ERR-50008">No summary for method boot()</error>
-      <error line="25" code="PPC:ERR-50007">No summary for property $dir</error>
-      <error line="41" code="PPC:ERR-50007">No summary for property $viewDirs</error>
-      <error line="43" code="PPC:ERR-50007">No summary for property $assetDirs</error>
-      <error line="45" code="PPC:ERR-50007">No summary for property $providers</error>
-      <error line="51" code="PPC:ERR-50007">No summary for property $singletons</error>
-      <error line="56" code="PPC:ERR-50007">No summary for property $aliases</error>
+      <error line="30" code="PPC:ERR-50007">No summary for property $dir</error>
+      <error line="49" code="PPC:ERR-50007">No summary for property $viewDirs</error>
+      <error line="54" code="PPC:ERR-50007">No summary for property $assetDirs</error>
+      <error line="59" code="PPC:ERR-50007">No summary for property $providers</error>
+      <error line="68" code="PPC:ERR-50007">No summary for property $singletons</error>
+      <error line="76" code="PPC:ERR-50007">No summary for property $aliases</error>
     </parse_markers>
-    <source>eJydVU1v2zAMvftX8FAgbZHG24BdkrX7aBGgwAoMXW/zECg2nWiTJUOS3RZF//soyU5iJ17X5eBI4iP5nkRKHz6W6zKSrEBTshThUmX4kPjvLIoqQyssz5FLZjFLvmCNmq0w+Y665il+06rmGepZQG59kzkXFrVJ5lpJe8MsTcLSMPQb0wYzdS+HgHeacWvCpM3s1wL0Woiq8EQJIq1mKYHnqpIZs1zJ5HNZCp76MUmLT08jOA3xwQQ5UDZRJ2Ry1k+0J79JL8AuEW9hlV0rDa0FiNAvTC1cYQ13yAoPSlX5qPlqbQnUjo7TE3j35u37cdfR44kfSuPSra0tzTSOrci0wBUTk1QVcWOPC27PWuzN9R18DWOKEUepYMaE2L1TAnywKDMDvfXoKXI6Ntvd21tv9NvlfsSyZhqM1VyumqXY/9PmWRKCGRxlXMM5LBZX17eLxX6ESyUEIekgQOWQKpnzVaX9yUDOBZpJg+ykZFqzx6GMIcjcOVPmHzBKnZIR/Hwp+9IVCHBpLJPp/2RuauZw2h1czfH+iusG52ZmBOcXf3Ohg0S79fHTF53aGvZOgTT9koNt3A56BTGd+iIab7xbg2s+aZR4hcOtquwA3KMPKDBUWQItZepI2Glq+ir92IRx+9FdGR/wuUFZhe++95BtiCATnBn8d3bNab2WVnCbFA4y2nAJZKol9T/klQyFvFTKHp9409MmyxErS+JYMo3STqcBM/Pm52ivLW5xxQ3du7DkMqMTMNQUYNfo+tMyLv2t2O0NjbbSEnYu1m6T9EjqJsNLRLe42RZi19ycXbSm5s1wiFbPkJwgQaO7WZzPkIpa8Wygx/cUbNL3hQSWLMv8RRpgx6PcPYKLwr+CozHsvYnNme/L7Qcq2yeSovSey26M5+g5+gMCEXKV</source>
+    <source>eJytVd9P2zAQfs9fcQ9Ihaq026S9lMF+FKpVgqkC3papcpNL682xI9spIMT/vrOdtE1LxMbWhzTxfffdfeez78PHYllEg2436sKUaQsqA7tEGLEsQy6ZxRSmX6dQsOQXW6DpRw55NbmFS56gNAhMppCo4kHzxdICl5nSObNcSZiXMhXkf8ftkki5qVkI5YNcTkYX324uIOMCI+gOIslyNASi+CrF+9g/T6KoNI2M4i+4Qk1E8Q3qFeUx1WrFU9QnAbnxjcdcWNQmHmsl7RWz9BGW2qFUBoOpupNtwFvNuDXho47s1wJ0IkSZ+0QJIq1mCYHHiorhyxJ/LgrBE/9O0lzpoRv4wQQ5UFSsfTI566e6cLCdiLew0i6VhtoClNBPTCyc4wpukeUetNmf0frtMDmCd2/evu81HT1eVHsLsLS2MMPBwIpUC1ww0U9UPqjsg5zb4xq71RN+LxPBjAncO7sEeG9RpgZ21qPHyOlYl3untt7oy+V+lOWKaTBWc7molgb+n4pnSQg13kHKNZzCbHY+uZ7N9hlGSghCul6ltk+UzPii1KF5XU9StwdkIyTTmj20RQwkY+dMkb9DJ3FKOvDjpehz1yB0MIxlMnlN5KpnXgz7MtOK49051xWT+zIdOD37N1JqBrQbVv/5H2jrk+JpA4h+8bOXRf2y03bDoW/V3tq7NrgjLo0Sf+FwrUrbAvfoV2k01OECLeXSELl1udBT6YcqkKtpc6X3jM8VyjI8973bbK+XwARnBv88/6on/jbx4NbPHaTTlu01Lrihix3mXKZUWlOPIzq7lnHpr93m4dNoSy1h6+ZuCi3ntA5ZKcNx1lWEwyNvflyrOGBFQTUomEZph8MN7mQDcYPy+Kw2VUOpRjy1qwkKNLqby7m0iVgpnrZs056AdfRdHSFJlqb+og6ww07mhuws91O204O9mVvt1L7aXaKiHsHEsjOOmxxP0VP0G2yxrg8=</source>
   </file>
   <package name="Codex" full_name="Codex">
     <package name="Codex" full_name="Codex\Codex"/>

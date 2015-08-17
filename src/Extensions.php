@@ -10,7 +10,7 @@ use Codex\Codex\Contracts\Filter;
 use Codex\Codex\Contracts\Hook;
 
 /**
- * This is the Hooks.
+ * This is the Extensions class.
  *
  * @package        Codex\Codex
  * @author         Caffeinated Dev Team

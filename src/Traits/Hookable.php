@@ -21,6 +21,12 @@ trait Hookable
 {
     use Macroable;
 
+    /**
+     * Run a hook
+     *
+     * @param       $name
+     * @param array $params
+     */
     protected function runHook($name, array $params = [ ])
     {
         Extensions::runHook($name, $params);

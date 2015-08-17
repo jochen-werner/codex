@@ -1,4 +1,10 @@
 <?php
+/**
+* Part of the Caffeinated PHP packages.
+*
+* MIT License and copyright information bundled with this package in the LICENSE file
+ */
+
 namespace Codex\Codex;
 
 use Caffeinated\Beverage\Path;
@@ -92,8 +98,7 @@ class Project
      */
     protected $menu;
 
-    /**s
-     *
+    /**
      * @var \Illuminate\Contracts\Container\Container
      */
     protected $container;
@@ -102,8 +107,8 @@ class Project
      * @param \Codex\Codex\Factory                        $factory
      * @param \Illuminate\Contracts\Filesystem\Filesystem $files
      * @param \Illuminate\Contracts\Container\Container   $container
-     * @param                                             $name
-     * @param                                             $config
+     * @param string                                      $name
+     * @param array                                       $config
      */
     public function __construct(Factory $factory, Filesystem $files, Container $container, $name, $config)
     {
@@ -125,6 +130,7 @@ class Project
 
         $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches) {
         
+
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
             $version      = (string)$version->removeLeft($name . '/');
             $this->refs[] = $version;
@@ -145,8 +151,9 @@ class Project
             case Project::SHOW_LAST_VERSION:
                 usort($this->versions, function (version $v1, version $v2) {
                 
+
                     return version::gt($v1, $v2) ? -1 : 1;
-                });
+                    });
 
                 $defaultRef = head($this->versions);
                 break;
@@ -154,6 +161,7 @@ class Project
                 if (count($this->versions) > 0) {
                     usort($this->versions, function (version $v1, version $v2) {
                     
+
                         return version::gt($v1, $v2) ? -1 : 1;
                     });
                 }
@@ -174,6 +182,12 @@ class Project
         $this->runHook('project:done', [ $this ]);
     }
 
+    /**
+     * Get the absolute path to a file in the project using the current ref
+     *
+     * @param null|string $path
+     * @return string
+     */
     public function path($path = null)
     {
         return is_null($path) ? Path::join($this->path, $this->ref) : Path::join($this->path, $this->ref, $path);
@@ -183,7 +197,7 @@ class Project
      * url
      *
      * @param string $doc
-     * @param null   $ref
+     * @param null|string   $ref
      * @return string
      */
     public function url($doc = 'index', $ref = null)
@@ -225,7 +239,7 @@ class Project
     # Menu
 
     /**
-     * getDocumentsMenu
+     * Returns the menu for this project
      *
      * @return \Codex\Codex\Menus\Menu
      */
@@ -238,38 +252,15 @@ class Project
 
         $menu = $this->resolveDocumentsMenu($array[ 'menu' ]);
         $menu->setView('codex::menus/project-sidebar');
-        $this->runHook('project:documents-menu', [$this, $menu]);
+        $this->runHook('project:documents-menu', [ $this, $menu ]);
 
         return $menu;
     }
 
     /**
-     * getRefsMenu
+     * Resolves and creates the documents menu from the parsed menu.yml
      *
-     * @return \Codex\Codex\Menus\Menu
-     */
-    public function getRefsMenu()
-    {
-        $menus = $this->factory->getMenus();
-        $menus->forget('project_versions_menu');
-        /**
-         * @var Menus\Menu $menu
-         */
-        $menu = $menus->add('project_versions_menu');
-        foreach ($this->getSortedRefs() as $ref) {
-            $node = $menu->add($ref, $ref);
-            $node->setAttribute('href', $this->factory->url($this, $ref));
-        }
-
-        $menu->setView('codex::menus/project-refs');
-        $this->runHook('project:menu:refs', [$this, $menu]);
-        return $menu;
-    }
-
-    /**
-     * resolveMenu
-     *
-     * @param        $items
+     * @param array       $items The array converted from yaml
      * @param string $parentId
      * @return \Codex\Codex\Menus\Menu
      */
@@ -313,10 +304,10 @@ class Project
     # Config
 
     /**
-     * config
+     * Get a configuration item of the project using dot notation
      *
-     * @param null $key
-     * @param null $default
+     * @param null|string $key
+     * @param null|mixed $default
      * @return array|mixed
      */
     public function config($key = null, $default = null)
@@ -329,10 +320,9 @@ class Project
     }
 
     /**
-     * Set config.
+     * setConfig
      *
-     * @param  array $config
-     * @return void
+     * @param array $config
      */
     public function setConfig(array $config)
     {
@@ -396,11 +386,13 @@ class Project
 
         usort($versions, function (version $v1, version $v2) {
         
+
             return version::gt($v1, $v2) ? -1 : 1;
         });
 
         $versions = array_map(function (version $v) {
         
+
             return $v->getVersion();
         }, $versions);
 

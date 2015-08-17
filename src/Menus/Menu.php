@@ -74,13 +74,12 @@ class Menu
     protected $menus;
 
     /**
-     * @param \Codex\Codex\Contracts\Menus\MenuFactory            $menus
-     * @param \Codex\Codex\Contracts\Factory|\Codex\Codex\Factory $factory
-     * @param \Illuminate\Contracts\Filesystem\Filesystem         $files
-     * @param \Illuminate\Contracts\Cache\Repository              $cache
-     * @param \Illuminate\Routing\Router                          $router
-     * @param \Illuminate\Contracts\Routing\UrlGenerator          $url
-     * @param \Illuminate\Contracts\View\Factory                  $viewFactory
+     * @param \Codex\Codex\Contracts\Menus\MenuFactory    $menus
+     * @param \Illuminate\Contracts\Filesystem\Filesystem $files
+     * @param \Illuminate\Contracts\Cache\Repository      $cache
+     * @param \Illuminate\Routing\Router                  $router
+     * @param \Illuminate\Contracts\Routing\UrlGenerator  $url
+     * @param \Illuminate\Contracts\View\Factory          $viewFactory
      */
     public function __construct(MenuFactoryContract $menus, Filesystem $files, Cache $cache, Router $router, UrlGenerator $url, ViewFactory $viewFactory)
     {
@@ -101,7 +100,7 @@ class Menu
     }
 
     /**
-     * render
+     * Renders the menu using the defined view
      *
      * @return string
      */
@@ -118,7 +117,7 @@ class Menu
     }
 
     /**
-     * add
+     * Add a menu item
      *
      * @param        $id
      * @param        $value
@@ -143,7 +142,7 @@ class Menu
     }
 
     /**
-     * has
+     * Checks if a menu item exists
      *
      * @param $id
      * @return bool
@@ -154,10 +153,10 @@ class Menu
     }
 
     /**
-     * get
+     * Get a menu item
      *
-     * @param      $id
-     * @param null $default
+     * @param string     $id
+     * @param null|mixed $default
      * @return \Codex\Codex\Menus\Node
      */
     public function get($id, $default = null)
@@ -190,9 +189,9 @@ class Menu
 
 
     /**
-     * getBreadcrumbs
+     * Get breadcrumbs to the given Node
      *
-     * @param $href
+     * @param \Codex\Codex\Menus\Node $item
      * @return array
      */
     public function getBreadcrumbTo(Node $item)
@@ -201,7 +200,7 @@ class Menu
     }
 
     /**
-     * getBreadcrumbToHref
+     * Get breadcrumbs to the Node that has the href
      *
      * @param $href
      * @return array
@@ -227,6 +226,7 @@ class Menu
 
         $found = $this->items->filter(function (Node $item) use ($href) {
         
+
             if ($item->hasAttribute('href') && $item->attribute('href') === $href) {
                 return true;
             }

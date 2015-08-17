@@ -37,10 +37,10 @@ class Node extends \Tree\Node\Node
     protected $attributes;
 
     /**
-     * @param mixed|null        $id
-     * @param \Codex\Codex\Menu $menu
-     * @param null              $value
-     * @param array             $children
+     * @param mixed|null              $id
+     * @param \Codex\Codex\Menus\Menu $menu
+     * @param null                    $value
+     * @param array                   $children
      */
     public function __construct($id, Menu $menu, $value = null, array $children = [ ])
     {
