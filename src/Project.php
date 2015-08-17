@@ -153,7 +153,7 @@ class Project
                 
 
                     return version::gt($v1, $v2) ? -1 : 1;
-                    });
+                });
 
                 $defaultRef = head($this->versions);
                 break;

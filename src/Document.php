@@ -118,10 +118,10 @@ class Document
             foreach ($filters as $name => $filter) {
                 if ($filter instanceof \Closure) {
                     call_user_func_array($filter, [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                    } else {
+                } else {
                     $instance = app()->make($filter);
                     call_user_func_array([ $instance, 'handle' ], [ $this, isset($fsettings[ $name ]) ? $fsettings[ $name ] : [ ] ]);
-                    }
+                }
             }
         }
 

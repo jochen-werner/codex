@@ -8,11 +8,37 @@
 
     <target name="clean" unless="clean.done" description="Cleanup build artifacts">
         <delete dir="${project.basedir}/vendor"/>
-        <delete file="${project.basedir}/composer.lock"/>
+        <delete dir="${project.basedir}/composer.lock"/>
+        <delete dir="${project.basedir}/theme/bower_components"/>
+        <delete dir="${project.basedir}/theme/node_modules"/>
+        <delete dir="${project.basedir}/theme/dist"/>
+        <delete dir="${project.basedir}/theme/dev"/>
         <property name="clean.done" value="true"/>
     </target>
 
+    <target name="git.submodule.update"  description="Update submodules">
+        <exec executable="git" logoutput="true">
+            <arg value="submodule"/>
+            <arg value="update"/>
+            <arg value="--init"/>
+            <arg value="--remote"/>
+            <arg value="--recursive"/>
+        </exec>
+    </target>
+
+    <target name="theme" depends="git.submodule.update" description="Run the grunt build task and update the assets">
+        <exec executable="npm" logoutput="true">
+            <arg value="install"/>
+        </exec>
+        <exec executable="grunt" logoutput="true">
+            <arg value="build"/>
+            <arg value="--target=dist"/>
+        </exec>
+        <phingcall target="clean"/>
+    </target>
+
     <target name="pre-commit" unless="pre-commit.done" depends="clean" description="Prepare for build">
+        <phingcall target="git.submodule.update"/>
         <phingcall target="lint"/>
         <phingcall target="phpcs"/>
         <phingcall target="phpunit"/>
