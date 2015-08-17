@@ -8,17 +8,51 @@
     <title>Codex Theme Demo</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        @minify('js')
+        window['CodexLoader'] = (function () {
+            return {
+                loaders    : {},
+                start: function (id, pre) {
+                    this.loaders[id] = {
+                        el    : document.getElementById(id),
+                        loader: document.createElement('div'),
+                        inner : document.createElement('div'),
+                        pre: pre
+                    };
+                    this.loaders[id].el.classList.add(pre + '-loader-content');
+                    this.loaders[id].el.parentNode.classList.add(pre + '-loading');
+                    this.loaders[id].loader.classList.add(pre + '-loader');
+                    this.loaders[id].inner.classList.add('loader', 'loader-' + pre);
+                    this.loaders[id].loader.appendChild(this.loaders[id].inner);
+                    this.loaders[id].el.parentNode.appendChild(this.loaders[id].loader);
+                },
+                stop : function (id) {
+                    var pre = this.loaders[id].pre;
+                    this.loaders[id].el.classList.remove(pre + '-loader-content');
+                    this.loaders[id].el.parentNode.classList.remove(pre + '-loading');
+                    this.loaders[id].loader.remove();
+                    delete this.loaders[id];
+                }
+            };
+        }.call());
+        @endminify
+    </script>
     <link href="{{ asset('vendor/codex/styles/stylesheet.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('vendor/codex/styles/themes/theme-default.css') }}" type="text/css" rel="stylesheet">
     @stack('stylesheets')
 </head>
-<body class="page-header-fixed page-sidebar-closed-hide-logo">
+<body class="page-loading page-header-fixed page-sidebar-closed-hide-logo">
+<div id="page-loader">
+    <div class="loader loader-page"></div>
+</div>
 <div class="page-header navbar navbar-fixed-top">
     <div class="page-header-inner">
         <div class="page-logo">
             <a href="#" class="logo-default">
                 <img src="{{ asset('vendor/codex/images/codex.png') }}">
             </a>
+
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
         <div class="page-actions">
@@ -64,16 +98,60 @@
     <div class="page-footer-inner">Copyright {{ date('Y') }} &copy; {{ config('codex.display_name') }}</div>
     <div class="scroll-to-top"></div>
 </div>
+
+<!--
+
+
+<div class="block-loading">
+    <div id="block-loader">
+        <div class="loader loader-block"></div>
+    </div>
+    <div class="i-want-this-to-have-a-loader block-loader-content">
+
+    </div>
+</div>
+
+-->
+
 @include('codex::partials/preferences')
+
 <script src="{{ asset('vendor/codex/scripts/vendor.min.js') }}"></script>
 <script src="{{ asset('vendor/codex/scripts/config.js') }}"></script>
+
 <script>
     require.config({
         baseUrl: '{!! url('vendor/codex/scripts') !!}'
     })
 </script>
+
 @stack('config-scripts')
-<script src="{{ asset('vendor/codex/scripts/init.js') }}"></script>
+
+@section('init-script')
+    <script>
+        require(['app', 'jquery'], function (app, $) {
+            window['app'] = app.instance;
+            /** @var {App} app */
+            $(function () {
+                app.instance
+                    .init({})
+                    .setProjectConfig({!! json_encode($project->config()) !!})
+                    .setDocumentAttributes({!! json_encode($document->attr()) !!});
+            });
+        })
+    </script>
+@show
+
+@section('remove-loader-script')
+    <script>
+        require(['app', 'jquery'], function (app, $) {
+            $(function () {
+                window['app'] = app.instance.removePageLoader();
+            });
+        });
+    </script>
+@show
+
 @stack('init-scripts')
+
 </body>
 </html>

@@ -49,7 +49,7 @@ class Node extends \Tree\Node\Node
         $this->id         = $id;
         $this->menu       = $menu;
         $this->meta       = [ ];
-        $this->attributes = [ ];
+        $this->attributes = [ 'href' => '#' ];
     }
 
     /**

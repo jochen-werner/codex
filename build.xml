@@ -23,6 +23,7 @@
             <arg value="--init"/>
             <arg value="--remote"/>
             <arg value="--recursive"/>
+            <arg value="--force"/>
         </exec>
     </target>
 

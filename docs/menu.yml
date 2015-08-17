@@ -3,7 +3,6 @@ menu:
     icon: fa fa-eye
     document: index
 
-
   - name: Preface
     icon: fa fa-eye
     children:
@@ -22,6 +21,27 @@ menu:
       - name: Configuration
         document: getting-started/configuration
 
+      - name: Creating a project
+        document: getting-started/creating-a-project
+
+  - name: Hooks
+    icon: fa fa-coffee
+    children:
+      - name: Adding hooks
+        document: usage/creating-a-theme
+
+      - name: Creating a hook
+        document: usage/loading-theme-views
+
+  - name: Filters
+    icon: fa fa-coffee
+    children:
+      - name: Adding filters
+        document: usage/creating-a-theme
+
+      - name: Creating a hook
+        document: usage/loading-theme-views
+
   - name: Themes
     icon: fa fa-coffee
     children:
@@ -31,17 +51,6 @@ menu:
       - name: Loading views
         document: usage/loading-theme-views
 
-      - name: Interacting with themes
-        document: usage/interacting-with-themes
-
-      - name: Assets
-        document: usage/assets
-
-      - name: Navigation & breadcrumbs
-        document: usage/navigation-and-breadcrumbs
-
-      - name: Console commands
-        document: usage/console-commands
 
 
 

@@ -1,1 +1,1 @@
-requirejs(["app","jquery"],function(e,t){console.log(arguments);var n=new e.App({});t(function(){n.init()}),window.App=e.App,window.application=n});
+requirejs(["app","jquery"],function(e,t){console.log(arguments),t(function(){e.instance.init({}).removePageLoader()}),window.app=e.instance});

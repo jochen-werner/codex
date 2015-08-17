@@ -129,7 +129,7 @@ class Project
         $this->refs  = [ ];
 
         $this->versions = array_filter(array_map(function ($dirPath) use ($path, $name, &$branches) {
-        
+
 
             $version      = Str::create(Str::ensureLeft($dirPath, '/'))->removeLeft($path)->removeLeft(DIRECTORY_SEPARATOR);
             $version      = (string)$version->removeLeft($name . '/');
@@ -150,7 +150,7 @@ class Project
         switch ($this->config[ 'default' ]) {
             case Project::SHOW_LAST_VERSION:
                 usort($this->versions, function (version $v1, version $v2) {
-                
+
 
                     return version::gt($v1, $v2) ? -1 : 1;
                 });
@@ -160,7 +160,7 @@ class Project
             case Project::SHOW_LAST_VERSION_OTHERWISE_MASTER_BRANCH:
                 if (count($this->versions) > 0) {
                     usort($this->versions, function (version $v1, version $v2) {
-                    
+
 
                         return version::gt($v1, $v2) ? -1 : 1;
                     });
@@ -272,7 +272,7 @@ class Project
         $menu = $this->factory->getMenus()->add('project_sidebar_menu');
 
         foreach ($items as $item) {
-            $link = '';
+            $link = '#';
             if (array_key_exists('document', $item)) {
             // remove .md extension if present
                 $path = Str::endsWith($item[ 'document' ], '.md', false) ? Str::remove($item[ 'document' ], '.md') : $item[ 'document' ];
@@ -385,13 +385,13 @@ class Project
         $versions = $this->versions;
 
         usort($versions, function (version $v1, version $v2) {
-        
+
 
             return version::gt($v1, $v2) ? -1 : 1;
         });
 
         $versions = array_map(function (version $v) {
-        
+
 
             return $v->getVersion();
         }, $versions);
