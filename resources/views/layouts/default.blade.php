@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ asset('vendor/codex/styles/stylesheet.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('vendor/codex/styles/themes/theme-default.css') }}" type="text/css" rel="stylesheet">
+    @stack('stylesheets')
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo">
 <div class="page-header navbar navbar-fixed-top">
