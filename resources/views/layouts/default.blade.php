@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script>
-        @minify('js')
         window['CodexLoader'] = (function () {
             return {
                 loaders    : {},
@@ -36,7 +35,6 @@
                 }
             };
         }.call());
-        @endminify
     </script>
     <link href="{{ asset('vendor/codex/styles/stylesheet.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('vendor/codex/styles/themes/theme-default.css') }}" type="text/css" rel="stylesheet">
