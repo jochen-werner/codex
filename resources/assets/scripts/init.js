@@ -1,1 +1,1 @@
-requirejs(["app","jquery"],function(e,t){console.log(arguments),t(function(){e.instance.init({}).removePageLoader()}),window.app=e.instance});
+define(["require","exports","app"],function(e,t,n){var r=n.instance});
