@@ -31,10 +31,13 @@
         <exec executable="npm" logoutput="true">
             <arg value="install"/>
         </exec>
-        <exec executable="grunt" logoutput="true">
-            <arg value="build"/>
-            <arg value="--target=dist"/>
+        <exec executable="bower" logoutput="true">
+            <arg value="install"/>
         </exec>
+        <exec executable="node" dir="theme" logoutput="true">
+            <arg value="bundler.js"/>
+        </exec>
+
         <phingcall target="clean"/>
     </target>
 

@@ -40,10 +40,17 @@
     <link href="{{ asset('vendor/codex/styles/themes/theme-default.css') }}" type="text/css" rel="stylesheet">
     @stack('stylesheets')
 </head>
+
+@section('body-element')
 <body class="page-loading page-header-fixed page-sidebar-closed-hide-logo">
+@show
+
+@section('page-loader')
 <div id="page-loader">
     <div class="loader loader-page"></div>
 </div>
+@show
+
 <div class="page-header navbar navbar-fixed-top">
     <div class="page-header-inner">
         <div class="page-logo">
@@ -97,21 +104,9 @@
     <div class="scroll-to-top"></div>
 </div>
 
-<!--
-
-
-<div class="block-loading">
-    <div id="block-loader">
-        <div class="loader loader-block"></div>
-    </div>
-    <div class="i-want-this-to-have-a-loader block-loader-content">
-
-    </div>
-</div>
-
--->
-
-@include('codex::partials/preferences')
+@section('preferences')
+    @include('codex::partials/preferences')
+@show
 
 <script src="{{ asset('vendor/codex/scripts/vendor.min.js') }}"></script>
 <script src="{{ asset('vendor/codex/scripts/config.js') }}"></script>
@@ -130,10 +125,14 @@
             window['app'] = app.instance;
             /** @var {App} app */
             $(function () {
-                app.instance
-                    .init({})
-                    .setProjectConfig({!! json_encode($project->config()) !!})
-                    .setDocumentAttributes({!! json_encode($document->attr()) !!});
+                app = app.instance;
+                app.init({});
+                @if(isset($project))
+                app.setProjectConfig({!! json_encode($project->config()) !!});
+                @endif
+                @if(isset($document))
+                app.setDocumentAttributes({!! json_encode($document->attr()) !!});
+                @endif
             });
         })
     </script>
